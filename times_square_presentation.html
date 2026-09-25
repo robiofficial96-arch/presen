@@ -725,13 +725,22 @@
     }
 
     /* =========================================================
-       SLIDE 14: GRAND FINALE / SHARE BOOKING ELEGANT LIGHT GRADIENT
+       SLIDE 10: GRAND COMMERCIAL CLIMAX / EXCLUSIVE MEGA OFFERS
        ========================================================= */
     #slide-10 {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      padding: clamp(10px, 1.4vh, 16px) clamp(20px, 2.5vw, 48px) clamp(8px, 1.2vh, 14px) clamp(20px, 2.5vw, 48px) !important;
+      box-sizing: border-box !important;
       background: radial-gradient(circle at 85% 65%, rgba(254, 243, 199, 0.45) 0%, transparent 50%),
                   radial-gradient(circle at 15% 25%, rgba(220, 252, 231, 0.55) 0%, transparent 45%),
                   linear-gradient(135deg, #f8fdf9 0%, #ffffff 50%, #fcfbf5 100%) !important;
-      overflow: hidden;
+      overflow: hidden !important;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -746,7 +755,7 @@
       flex-direction: column;
       justify-content: space-between;
       margin: 0 auto;
-      padding: clamp(14px, 2vh, 22px) clamp(16px, 2vw, 36px) clamp(8px, 1.2vh, 14px) clamp(16px, 2vw, 36px);
+      padding: clamp(12px, 1.8vh, 20px) clamp(16px, 2vw, 36px) clamp(8px, 1.2vh, 14px) clamp(16px, 2vw, 36px);
       box-sizing: border-box;
       position: relative;
       z-index: 20;
@@ -755,7 +764,7 @@
     /* ---- HEADER ---- */
     .s10-header {
       text-align: center;
-      margin-bottom: clamp(3px, 0.6vh, 6px);
+      margin-bottom: clamp(2px, 0.5vh, 5px);
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
@@ -784,7 +793,7 @@
     }
 
     .s10-header .slide-title {
-      font-size: clamp(20px, 1.85vw, 29px);
+      font-size: clamp(20px, 1.8vw, 28px);
       font-weight: 900;
       color: #000000 !important;
       margin: 1px 0;
@@ -823,22 +832,17 @@
 
     .s10-gift-card {
       background: linear-gradient(145deg, #ffffff 0%, #fefcf7 100%);
-      border: 2px solid rgba(217, 119, 6, 0.38);
+      border: 2px solid rgba(217, 119, 6, 0.32);
       border-radius: 18px;
       padding: clamp(8px, 1.1vh, 12px) clamp(12px, 1.1vw, 16px);
       display: flex;
       align-items: center;
       gap: clamp(10px, 1.1vw, 16px);
-      box-shadow: 0 8px 22px rgba(0, 104, 55, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 6px 18px rgba(0, 104, 55, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
       position: relative;
       overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .s10-gift-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--brand-green);
-      box-shadow: 0 12px 30px rgba(0, 104, 55, 0.16);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
     }
 
     .s10-gift-card::before {
@@ -852,8 +856,8 @@
     }
 
     .s10-gift-img-wrap {
-      width: clamp(75px, 7.2vw, 105px);
-      height: clamp(65px, 6.8vh, 85px);
+      width: clamp(75px, 7vw, 105px);
+      height: clamp(62px, 6.5vh, 82px);
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -862,6 +866,7 @@
       border-radius: 14px;
       padding: 4px;
       border: 1.2px solid rgba(0, 0, 0, 0.07);
+      transition: all 0.35s ease;
     }
 
     .s10-gift-img {
@@ -869,7 +874,7 @@
       height: 100%;
       object-fit: contain;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
-      transition: transform 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
     }
 
     .s10-gift-card:hover .s10-gift-img {
@@ -894,6 +899,7 @@
       padding: 2px 9px;
       border-radius: 9999px;
       width: fit-content;
+      transition: all 0.3s ease;
     }
 
     .s10-gift-title {
@@ -912,6 +918,36 @@
       margin: 0;
     }
 
+    /* GIFT SPOTLIGHT ANIMATION */
+    .s10-gift-card.gift-spotlight {
+      transform: translateY(-5px) scale(1.06);
+      border-color: #d97706 !important;
+      background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%) !important;
+      box-shadow: 0 14px 35px rgba(217, 119, 6, 0.35), 0 0 25px rgba(245, 158, 11, 0.35);
+      z-index: 35;
+    }
+
+    .s10-gift-card.gift-spotlight .s10-gift-img-wrap {
+      border-color: rgba(217, 119, 6, 0.5);
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.2);
+    }
+
+    .s10-gift-card.gift-spotlight .s10-gift-img {
+      transform: scale(1.18);
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.3));
+    }
+
+    .s10-gift-card.gift-spotlight .s10-gift-badge {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      color: #ffffff;
+    }
+
+    .s10-gift-card.gift-dimmed {
+      opacity: 0.55;
+      transform: scale(0.98);
+    }
+
     /* ---- 2 TOWER SCHEMES (BUILDING A & B) ---- */
     .s10-towers-grid {
       display: grid;
@@ -925,30 +961,45 @@
     .s10-tower-card {
       background: #ffffff;
       border-radius: 20px;
-      padding: clamp(10px, 1.4vh, 16px) clamp(14px, 1.6vw, 22px);
-      box-shadow: 0 10px 30px rgba(0, 104, 55, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);
+      padding: clamp(10px, 1.3vh, 15px) clamp(14px, 1.5vw, 22px);
+      box-shadow: 0 8px 25px rgba(0, 104, 55, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
+      border: 2.2px solid transparent;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       gap: clamp(5px, 0.8vh, 8px);
     }
 
     .s10-tower-a {
-      border-color: rgba(0, 104, 55, 0.4);
+      border-color: rgba(0, 104, 55, 0.35);
       background: linear-gradient(160deg, #ffffff 0%, #f6fcf8 100%);
     }
 
     .s10-tower-b {
-      border-color: rgba(217, 119, 6, 0.4);
+      border-color: rgba(217, 119, 6, 0.35);
       background: linear-gradient(160deg, #ffffff 0%, #fffef8 100%);
     }
 
-    .s10-tower-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(0, 104, 55, 0.14);
+    .s10-tower-card.tower-spotlight {
+      transform: translateY(-4px) scale(1.02);
+      z-index: 30;
+    }
+
+    .s10-tower-a.tower-spotlight {
+      border-color: #006837 !important;
+      box-shadow: 0 16px 42px rgba(0, 104, 55, 0.22), 0 0 20px rgba(0, 104, 55, 0.15);
+    }
+
+    .s10-tower-b.tower-spotlight {
+      border-color: #d97706 !important;
+      box-shadow: 0 16px 42px rgba(217, 119, 6, 0.25), 0 0 20px rgba(217, 119, 6, 0.15);
+    }
+
+    .s10-tower-card.tower-dimmed {
+      opacity: 0.55;
+      transform: scale(0.98);
     }
 
     .s10-tower-head {
@@ -956,7 +1007,7 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1.8px dashed rgba(0, 104, 55, 0.22);
-      padding-bottom: 5px;
+      padding-bottom: 4px;
       flex-shrink: 0;
     }
 
@@ -989,9 +1040,10 @@
     /* Price Bar */
     .s10-price-row {
       display: grid;
-      grid-template-columns: 1fr 1.35fr;
+      grid-template-columns: 1fr 1.45fr;
       gap: 10px;
       flex-shrink: 0;
+      position: relative;
     }
 
     .s10-price-box {
@@ -1002,6 +1054,8 @@
       display: flex;
       flex-direction: column;
       gap: 1px;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .s10-price-lbl {
@@ -1015,10 +1069,126 @@
       font-weight: 900;
       color: #000000 !important;
       line-height: 1.2;
+      transition: all 0.3s ease;
     }
 
     .s10-price-val-highlight {
       color: #b91c1c !important;
+    }
+
+    /* 50 LAKH & 40 LAKH PRICE POPPING EFFECT */
+    .s10-lump-price-box.pop-price {
+      transform: scale(1.12);
+      z-index: 45;
+      border-color: #b91c1c !important;
+      background: linear-gradient(135deg, #fff1f2 0%, #fee2e2 100%) !important;
+      box-shadow: 0 10px 28px rgba(185, 28, 28, 0.4), 0 0 16px rgba(239, 68, 68, 0.3);
+      animation: pricePulse 1.2s infinite ease-in-out alternate;
+    }
+
+    @keyframes pricePulse {
+      0% { transform: scale(1.12); }
+      100% { transform: scale(1.16); box-shadow: 0 14px 32px rgba(185, 28, 28, 0.55), 0 0 22px rgba(239, 68, 68, 0.45); }
+    }
+
+    .s10-lump-price-box.pop-price .s10-price-val {
+      font-size: clamp(16px, 1.25vw, 19.5px) !important;
+      letter-spacing: 0.3px;
+    }
+
+    /* DYNAMIC CASHBACK EMERGE BADGE */
+    .s10-emerge-cashback {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: -8px;
+      right: -8px;
+      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 12px 28px rgba(0, 104, 55, 0.45), 0 0 18px rgba(34, 197, 94, 0.35);
+      border: 1.8px solid #86efac;
+      z-index: 60;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px) scale(0.85);
+      pointer-events: none;
+      transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .s10-emerge-b {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      box-shadow: 0 12px 28px rgba(217, 119, 6, 0.45), 0 0 18px rgba(251, 191, 36, 0.35);
+      border-color: #fde68a;
+    }
+
+    .s10-emerge-cashback.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1.03);
+      pointer-events: auto;
+      animation: emergeFloat 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes emergeFloat {
+      0% { transform: translateY(0) scale(1.03); }
+      100% { transform: translateY(-3px) scale(1.06); box-shadow: 0 16px 36px rgba(0, 104, 55, 0.6), 0 0 25px rgba(74, 222, 128, 0.5); }
+    }
+
+    .s10-emerge-b.show {
+      animation: emergeFloatB 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes emergeFloatB {
+      0% { transform: translateY(0) scale(1.03); }
+      100% { transform: translateY(-3px) scale(1.06); box-shadow: 0 16px 36px rgba(217, 119, 6, 0.6), 0 0 25px rgba(251, 191, 36, 0.5); }
+    }
+
+    .s10-emerge-sparkle {
+      font-size: 20px;
+      line-height: 1;
+      animation: spinGlow 3s infinite linear;
+    }
+
+    @keyframes spinGlow {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .s10-emerge-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .s10-emerge-title {
+      font-size: clamp(9.5px, 0.72vw, 11px);
+      font-weight: 800;
+      color: #dcfce7;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .s10-emerge-b .s10-emerge-title {
+      color: #fef3c7;
+    }
+
+    .s10-emerge-val {
+      font-size: clamp(13px, 0.98vw, 15.5px);
+      font-weight: 900;
+      color: #fef08a;
+      white-space: nowrap;
+    }
+
+    .s10-emerge-val small {
+      font-size: clamp(10px, 0.75vw, 12px);
+      font-weight: 700;
+      color: #ffffff;
+      opacity: 0.95;
     }
 
     /* Offer Points List */
@@ -1028,7 +1198,7 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: clamp(4px, 0.7vh, 7px);
+      gap: clamp(4px, 0.65vh, 6px);
       flex: 1;
       justify-content: space-around;
     }
@@ -1037,14 +1207,15 @@
       display: flex;
       align-items: flex-start;
       gap: 8px;
-      font-size: clamp(11.5px, 0.82vw, 13.5px);
+      font-size: clamp(11px, 0.8vw, 13px);
       font-weight: 600;
       color: #000000 !important;
-      line-height: 1.38;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 4px 9px;
-      border-radius: 10px;
+      line-height: 1.35;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 3.5px 9px;
+      border-radius: 9px;
       border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.35s ease;
     }
 
     .s10-offers-list li svg {
@@ -1061,9 +1232,23 @@
     .s10-offers-list li .gold-tag {
       color: #b45309;
       font-weight: 900;
-      background: rgba(217, 119, 6, 0.1);
+      background: rgba(217, 119, 6, 0.12);
       padding: 1px 6px;
       border-radius: 6px;
+    }
+
+    .s10-offers-list li.offer-spotlight {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+      border-color: #006837 !important;
+      transform: translateX(4px) scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 104, 55, 0.18);
+      font-weight: 700;
+    }
+
+    .s10-tower-b .s10-offers-list li.offer-spotlight {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+      border-color: #d97706 !important;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.18);
     }
 
     /* ---- 5 LAKH SPECIAL BENEFIT BANNER ---- */
@@ -1078,6 +1263,8 @@
       box-shadow: 0 8px 24px rgba(0, 104, 55, 0.25);
       border: 1.8px solid #fcd34d;
       flex-shrink: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
     }
 
     .s10-benefit-icon {
@@ -1110,467 +1297,265 @@
       flex-shrink: 0;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
       letter-spacing: 0.3px;
+      transition: all 0.3s ease;
     }
-/* =========================================================
-       SLIDE 2: EXECUTIVE LEADERSHIP & MANAGING DIRECTOR PROFILE
+
+    .s10-mega-benefit-banner.benefit-spotlight {
+      transform: scale(1.02);
+      border-color: #fef08a !important;
+      box-shadow: 0 14px 40px rgba(234, 179, 8, 0.5), 0 0 30px rgba(234, 179, 8, 0.35);
+      animation: benefitGlow 1.4s infinite ease-in-out alternate;
+    }
+
+    @keyframes benefitGlow {
+      0% { transform: scale(1.02); box-shadow: 0 14px 40px rgba(234, 179, 8, 0.5); }
+      100% { transform: scale(1.035); box-shadow: 0 18px 48px rgba(234, 179, 8, 0.7), 0 0 35px rgba(254, 240, 138, 0.6); }
+    }
+
+    .s10-mega-benefit-banner.benefit-spotlight .s10-benefit-badge {
+      background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%);
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    /* =========================================================
+       SLIDE 2: EXECUTIVE LEADERSHIP (IMAGE LEFT, CONTENT RIGHT)
        ========================================================= */
     #slide-2 {
-      background: radial-gradient(circle at 18% 45%, rgba(0, 104, 55, 0.07) 0%, transparent 60%),
-                  radial-gradient(circle at 82% 35%, rgba(217, 119, 6, 0.07) 0%, transparent 55%),
-                  linear-gradient(135deg, #f8fafc 0%, #f1f5f9 55%, #eef2f6 100%);
-      position: absolute;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      padding: clamp(12px, 1.8vh, 20px) clamp(28px, 4vw, 60px) 58px clamp(28px, 4vw, 60px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      background: radial-gradient(circle at 15% 50%, rgba(0, 104, 55, 0.04) 0%, transparent 60%),
+                  radial-gradient(circle at 85% 30%, rgba(217, 119, 6, 0.04) 0%, transparent 50%),
+                  #ffffff !important;
+      box-sizing: border-box !important;
     }
 
-    .s2-container {
-      width: 100%;
-      max-width: 1720px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 0 auto;
-      padding: clamp(6px, 1.2vh, 16px) clamp(16px, 2vw, 36px) clamp(8px, 1.2vh, 14px) clamp(16px, 2vw, 36px);
-      box-sizing: border-box;
+    .s2-grid-container {
+      display: grid !important;
+      grid-template-columns: 440px 1fr !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
     }
 
-    .s2-header {
-      text-align: center;
-      margin-bottom: clamp(6px, 1vh, 12px);
-      flex-shrink: 0;
+    /* Left: Pure Portrait & Clean Text (NO BOX, NO CARD SHADOW) */
+    .s2-left-stage {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+      padding-bottom: clamp(28px, 4vh, 48px) !important;
+      box-sizing: border-box !important;
+      background: transparent !important;
     }
 
-    .s2-header .slide-title {
-      font-size: clamp(26px, 2.6vw, 38px);
-      font-weight: 900;
-      color: #000000 !important;
-      margin-bottom: 4px;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
+    .s2-portrait-img {
+      position: absolute !important;
+      bottom: clamp(125px, 16.5vh, 170px) !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      height: clamp(440px, 70vh, 680px) !important;
+      max-width: 96% !important;
+      object-fit: contain !important;
+      object-position: bottom center !important;
+      filter: none !important;
+      mask-image: linear-gradient(to bottom, #000000 0%, #000000 62%, rgba(0, 0, 0, 0.75) 80%, rgba(0, 0, 0, 0.2) 93%, transparent 100%) !important;
+      -webkit-mask-image: linear-gradient(to bottom, #000000 0%, #000000 62%, rgba(0, 0, 0, 0.75) 80%, rgba(0, 0, 0, 0.2) 93%, transparent 100%) !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
     }
 
-    .s2-main-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.32fr;
-      gap: clamp(24px, 3.2vw, 52px);
-      align-items: center;
-      flex: 1;
-      min-height: 0;
-      position: relative;
+    .s2-name-plate {
+      position: relative !important;
+      z-index: 5 !important;
+      text-align: center !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
     }
 
-    /* ==============================================================
-       LEFT COLUMN: EXTRA LARGE MD PORTRAIT WITH SEAMLESS BOTTOM FADE
-       ============================================================== */
-    .s2-portrait-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      height: 100%;
-      position: relative;
-      padding-bottom: 2px;
+    .s2-name-title {
+      font-size: clamp(26px, 2.5vw, 36px) !important;
+      font-weight: 900 !important;
+      color: #0f172a !important;
+      line-height: 1.15 !important;
+      margin: 0 0 5px 0 !important;
+      letter-spacing: -0.5px !important;
     }
 
-    .s2-portrait-stage {
-      position: relative;
-      width: 100%;
-      height: clamp(480px, 66vh, 690px);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+    .s2-name-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      color: #006837 !important;
+      font-size: 13.5px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.8px !important;
+      text-transform: uppercase !important;
+      margin-bottom: 3px !important;
     }
 
-    /* Ambient Gold-Green Backlight Glow */
-    .s2-portrait-stage::before {
-      content: '';
-      position: absolute;
-      top: 12%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: clamp(340px, 34vw, 540px);
-      height: clamp(340px, 34vw, 540px);
-      background: radial-gradient(circle, rgba(0, 104, 55, 0.22) 0%, rgba(217, 119, 6, 0.18) 45%, transparent 72%);
-      border-radius: 50%;
-      filter: blur(38px);
-      z-index: 1;
-      pointer-events: none;
+    .s2-name-company {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: #475569 !important;
+      margin: 0 !important;
     }
 
-    .s2-md-img {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      max-height: 100%;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      object-position: bottom center;
-      filter: drop-shadow(0 24px 44px rgba(0, 45, 20, 0.26));
-      /* Soft bottom gradient fade into background */
-      mask-image: linear-gradient(to bottom, #000000 0%, #000000 62%, rgba(0, 0, 0, 0.8) 76%, rgba(0, 0, 0, 0.25) 90%, rgba(0, 0, 0, 0) 99%);
-      -webkit-mask-image: linear-gradient(to bottom, #000000 0%, #000000 62%, rgba(0, 0, 0, 0.8) 76%, rgba(0, 0, 0, 0.25) 90%, rgba(0, 0, 0, 0) 99%);
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
-      transform-origin: bottom center;
+    .s2-name-divider-line {
+      width: 44px !important;
+      height: 3px !important;
+      background: linear-gradient(90deg, #006837, #d97706) !important;
+      border-radius: 9999px !important;
+      margin: 8px auto 0 auto !important;
     }
 
-    #slide-2.active .s2-md-img {
-      animation: s2PortraitEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    /* Right: Headline + Corporate Message + 3 Pillars */
+    .s2-right-stage {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      padding: clamp(24px, 4vh, 50px) clamp(30px, 4vw, 70px) clamp(24px, 4vh, 50px) clamp(16px, 2vw, 30px) !important;
+      box-sizing: border-box !important;
+      gap: clamp(14px, 1.8vh, 22px) !important;
+      z-index: 10 !important;
     }
 
-    @keyframes s2PortraitEntrance {
-      0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    .s2-top-tag {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      background: #fef3c7 !important;
+      color: #b45309 !important;
+      border: 1px solid rgba(217, 119, 6, 0.25) !important;
+      padding: 4px 14px !important;
+      border-radius: 9999px !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.5px !important;
+      text-transform: uppercase !important;
     }
 
-    /* Identity Plaque Pedestal Card */
-    .s2-identity-card {
-      position: relative;
-      z-index: 5;
-      margin-top: -46px;
-      width: 90%;
-      max-width: 480px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 250, 242, 0.96) 100%);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 2px solid rgba(217, 119, 6, 0.5);
-      border-radius: 22px;
-      padding: clamp(10px, 1.4vh, 15px) clamp(18px, 2vw, 30px);
-      box-shadow: 0 18px 40px rgba(0, 104, 55, 0.16), 0 0 26px rgba(217, 119, 6, 0.14);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 3px;
+    .s2-main-heading {
+      font-size: clamp(28px, 2.7vw, 42px) !important;
+      font-weight: 900 !important;
+      color: #0f172a !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+      letter-spacing: -0.5px !important;
     }
 
-    .s2-identity-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
-      color: #ffffff;
-      padding: 4px 15px;
-      border-radius: 9999px;
-      font-size: clamp(12px, 0.88vw, 13.5px);
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      box-shadow: 0 4px 12px rgba(0, 104, 55, 0.35);
+    .s2-main-heading span {
+      color: #006837 !important;
     }
 
-    .s2-identity-badge svg {
-      color: #fcd34d;
+    .s2-gold-divider {
+      width: 56px !important;
+      height: 4px !important;
+      background: linear-gradient(90deg, #006837 0%, #d97706 100%) !important;
+      border-radius: 9999px !important;
+      margin: -4px 0 0 0 !important;
     }
 
-    .s2-md-name {
-      margin: 4px 0 0 0;
-      font-size: clamp(24px, 2.1vw, 32px);
-      font-weight: 900;
-      color: #000000 !important;
-      line-height: 1.2;
-      letter-spacing: -0.4px;
+    .s2-quote-panel {
+      position: relative !important;
+      background: linear-gradient(135deg, rgba(0, 104, 55, 0.05) 0%, rgba(217, 119, 6, 0.05) 100%) !important;
+      border-left: 4px solid #006837 !important;
+      border-radius: 12px !important;
+      padding: clamp(12px, 1.6vh, 18px) clamp(16px, 2vw, 24px) !important;
+      margin: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
-    .s2-md-company {
-      margin: 0;
-      font-size: clamp(13.5px, 1vw, 16px);
-      font-weight: 800;
-      color: #006837;
-      letter-spacing: 0.3px;
+    .s2-quote-panel p {
+      margin: 0 !important;
+      font-size: clamp(15px, 1.1vw, 17.5px) !important;
+      font-weight: 700 !important;
+      color: #1e293b !important;
+      line-height: 1.6 !important;
+      font-style: italic !important;
     }
 
-    /* ==============================================================
-       RIGHT COLUMN: ENVELOPE / LETTER (খাম) UNFOLDING VISION CARD
-       ============================================================== */
-    .s2-content-col {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(12px, 1.6vh, 18px);
-      justify-content: center;
-      height: 100%;
-      perspective: 1400px;
+    .s2-body-paragraph {
+      font-size: clamp(14px, 1vw, 16px) !important;
+      line-height: 1.75 !important;
+      color: #334155 !important;
+      font-weight: 500 !important;
+      margin: 0 !important;
+      text-align: justify !important;
     }
 
-    .s2-vision-card {
-      background: linear-gradient(145deg, #ffffff 0%, #fffefb 45%, #fdf8ee 100%);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 2px solid rgba(217, 119, 6, 0.4);
-      border-radius: 26px;
-      padding: clamp(22px, 2.7vh, 34px) clamp(26px, 2.6vw, 40px);
-      box-shadow: 0 24px 55px rgba(0, 104, 55, 0.14), 0 4px 18px rgba(0, 0, 0, 0.05);
-      position: relative;
-      overflow: hidden;
-      transform-origin: top center;
+    .s2-pillars-row {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 14px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-top: 4px !important;
     }
 
-    /* Envelope Top Flap Border Line */
-    .s2-vision-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #006837 0%, #c5a059 50%, #006837 100%);
+    .s2-pillar-box {
+      background: #f8fafc !important;
+      border: 1px solid rgba(0, 104, 55, 0.12) !important;
+      border-radius: 14px !important;
+      padding: 12px 14px !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+      box-sizing: border-box !important;
+      transition: all 0.25s ease !important;
     }
 
-    /* Envelope Wax Seal / Letter Stamp Icon */
-    .s2-vision-card::after {
-      content: '✉️';
-      position: absolute;
-      top: 14px;
-      right: 20px;
-      font-size: 26px;
-      opacity: 0.35;
-      pointer-events: none;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    .s2-pillar-box:hover {
+      background: #ffffff !important;
+      border-color: rgba(0, 104, 55, 0.35) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(0, 104, 55, 0.08) !important;
     }
 
-    /* Envelope Unfolding 3D Animation when Slide 2 is Active */
-    #slide-2.active .s2-vision-card {
-      animation: s2EnvelopeUnfold 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    .s2-pillar-icon-box {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 9px !important;
+      background: linear-gradient(135deg, #006837, #008f43) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      color: #ffffff !important;
     }
 
-    @keyframes s2EnvelopeUnfold {
-      0% {
-        opacity: 0;
-        transform: perspective(1200px) rotateX(24deg) translateY(45px) scale(0.92);
-      }
-      60% {
-        opacity: 1;
-        transform: perspective(1200px) rotateX(-4deg) translateY(-4px) scale(1.01);
-      }
-      100% {
-        opacity: 1;
-        transform: perspective(1200px) rotateX(0deg) translateY(0) scale(1);
-      }
+    .s2-pillar-title-text {
+      font-size: 13.5px !important;
+      font-weight: 800 !important;
+      color: #0f172a !important;
+      line-height: 1.25 !important;
+      margin-bottom: 2px !important;
     }
 
-    .s2-vision-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: clamp(12px, 1.4vh, 16px);
-      padding-bottom: 10px;
-      border-bottom: 1.5px dashed rgba(0, 104, 55, 0.25);
+    .s2-pillar-desc-text {
+      font-size: 12px !important;
+      color: #64748b !important;
+      line-height: 1.35 !important;
+      margin: 0 !important;
+      font-weight: 500 !important;
     }
 
-    .s2-vision-header-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #000000 !important;
-      font-size: clamp(13.5px, 0.95vw, 15.5px);
-      font-weight: 900;
-    }
-
-    .s2-vision-header-tag svg {
-      color: var(--brand-gold);
-    }
-
-    .s2-vision-serial {
-      font-size: 12.5px;
-      font-weight: 800;
-      color: #006837;
-      background: rgba(0, 104, 55, 0.1);
-      padding: 4px 15px;
-      border-radius: 9999px;
-      border: 1.2px solid rgba(0, 104, 55, 0.26);
-    }
-
-    /* Quote Box with Solid Black High-Contrast Text */
-    .s2-quote-box {
-      position: relative;
-      background: linear-gradient(135deg, rgba(0, 104, 55, 0.08) 0%, rgba(217, 119, 6, 0.1) 100%);
-      border-left: 5px solid var(--brand-green);
-      border-radius: 14px;
-      padding: clamp(12px, 1.6vh, 18px) clamp(16px, 1.8vw, 24px);
-      margin-bottom: clamp(12px, 1.5vh, 18px);
-    }
-
-    .s2-quote-mark {
-      font-size: 40px;
-      line-height: 1;
-      font-family: Georgia, serif;
-      color: var(--brand-gold);
-      opacity: 0.85;
-      display: inline-block;
-      margin-bottom: -14px;
-    }
-
-    .s2-quote-text {
-      margin: 0;
-      font-size: clamp(15px, 1.15vw, 18.5px);
-      font-weight: 800;
-      color: #000000 !important;
-      line-height: 1.55;
-      font-style: italic;
-    }
-
-    .s2-vision-body {
-      margin: 0 0 clamp(14px, 1.8vh, 18px) 0;
-      font-size: clamp(14px, 1vw, 16.5px);
-      line-height: 1.68;
-      color: #000000 !important;
-      font-weight: 600;
-      text-align: justify;
-    }
-
-    /* 3 Pillar Highlights — High Contrast Solid Black Text */
-    .s2-pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(10px, 1.2vw, 16px);
-    }
-
-    .s2-pillar-item {
-      background: #ffffff;
-      border: 1.5px solid rgba(0, 104, 55, 0.24);
-      border-radius: 14px;
-      padding: 11px 14px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s ease;
-    }
-
-    .s2-pillar-item:hover {
-      border-color: var(--brand-green);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 104, 55, 0.14);
-    }
-
-    .s2-pillar-title {
-      font-size: clamp(13.5px, 0.95vw, 15.5px);
-      font-weight: 900;
-      color: #000000 !important;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .s2-pillar-desc {
-      font-size: clamp(12px, 0.85vw, 13.5px);
-      color: #000000 !important;
-      line-height: 1.42;
-      margin: 0;
-      font-weight: 600;
-    }
-
-    /* Stat Badges Bar */
-    .s2-button-bar {
-      display: flex;
-      gap: clamp(8px, 1vw, 14px);
-      width: 100%;
-      flex-wrap: nowrap;
-    }
-
-    .s2-pill-btn {
-      flex: 1;
-      background: #ffffff;
-      border: 1.5px solid rgba(0, 104, 55, 0.2);
-      border-radius: 16px;
-      padding: clamp(9px, 1.2vh, 12px) clamp(10px, 1vw, 14px);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s ease;
-    }
-
-    .s2-pill-btn:hover {
-      border-color: var(--brand-gold);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(197, 160, 89, 0.2);
-    }
-
-    .s2-btn-icon-wrap {
-      font-size: clamp(16px, 1.2vw, 20px);
-      flex-shrink: 0;
-    }
-
-    .s2-btn-content {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .s2-btn-number {
-      font-size: clamp(14px, 1.05vw, 17px);
-      font-weight: 900;
-      color: #000000 !important;
-    }
-
-    .s2-btn-label {
-      font-size: clamp(11px, 0.8vw, 12.5px);
-      font-weight: 800;
-      color: #006837;
-    }
-
-    /* Staggered entrance animations */
-    #slide-2:not(.active) .s2-portrait-stage {
-      opacity: 0;
-      transform: translateY(30px) scale(0.97);
-    }
-    #slide-2.active .s2-portrait-stage {
-      animation: s2PortraitIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    #slide-2:not(.active) .s2-identity-card {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    #slide-2.active .s2-identity-card {
-      animation: s2IdentityIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-    }
-
-    #slide-2:not(.active) .s2-vision-card {
-      opacity: 0;
-      transform: translateX(30px);
-    }
-    #slide-2.active .s2-vision-card {
-      animation: s2VisionIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-    }
-
-    #slide-2:not(.active) .s2-button-bar {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    #slide-2.active .s2-button-bar {
-      animation: s2ButtonIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-    }
-
-    @keyframes s2PortraitIn {
-      from { opacity: 0; transform: translateY(30px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes s2IdentityIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes s2VisionIn {
-      from { opacity: 0; transform: translateX(30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes s2ButtonIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-/* =========================================================
+    /* =========================================================
        SLIDE 3: ULTRA LUXURY DUBAI-STYLE ARCHITECTURAL SHOWCASE
        ========================================================= */
     #slide-3 {
@@ -1622,8 +1607,8 @@
 
     .slide3-showcase-stage {
       position: relative;
-      z-index: 50;
-      background: #f8fafc;
+      z-index: 2;
+      background: transparent;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -2287,10 +2272,16 @@
        ========================================================= */
 
     #slide-5 {
-      padding: 0;
-      overflow: hidden;
-      background: #06101a;
-      position: relative;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: #06101a !important;
       display: flex;
       flex-direction: column;
     }
@@ -3036,7 +3027,39 @@
        SLIDE 13: OUR OTHER PROJECTS (আমাদের অন্যান্য প্রজেক্টসমূহ)
        STAGGERED BOTTOM-UP CARDS & MULTI-BATCH VANISHING CYCLE
        ========================================================= */
-        /* ============================================================
+        
+    
+    /* Slide 8: Pure Unobstructed Full Screen View - No card blocking the photo */
+    #slide-8 .s8-brush-banner-stage,
+    #slide-8 .s8-hero-intro {
+      display: none !important;
+    }
+    #slide-8 .s8-fs-image-holder {
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+    #slide-8 .s8-fs-img {
+      object-fit: cover !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* Slide 7: Pure Unobstructed Full Screen View - No card blocking the photo */
+    #slide-7 .s7-brush-banner-stage,
+    #slide-7 .s7-hero-intro {
+      display: none !important;
+    }
+    #slide-7 .s7-fs-image-holder {
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+    #slide-7 .s7-fs-img {
+      object-fit: cover !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ============================================================
        SLIDE 13: OUR OTHER PROJECTS — EXTRA LARGE CENTERED INTRO + TALL PORTRAIT 3-CARD BATCHES
        ============================================================ */
     #slide-9 {
@@ -4514,125 +4537,85 @@
     <!-- ==========================================
          SLIDE 2: MANAGING DIRECTOR PROFILE & LEADERSHIP VISION
          ========================================== -->
+    <!-- ==========================================
+         SLIDE 2: MANAGING DIRECTOR PROFILE & LEADERSHIP VISION
+         ========================================== -->
     <div class="slide" id="slide-2">
-      <div class="s2-container">
-        <!-- Header -->
-        <div class="s2-header">
-          <div class="slide-tag" style="margin: 0 auto 6px auto;">
-            <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
-            প্রাতিষ্ঠানিক ঐতিহ্য ও নেতৃত্ব
-          </div>
-          <h2 class="slide-title" style="margin-bottom: 4px;">আমাদের দূরদর্শী নেতৃত্ব ও গৌরবময় পথচলা</h2>
-          <div class="gold-bar" style="margin: 0 auto;"></div>
-        </div>
+      <div class="s2-grid-container">
 
-        <!-- Main 2-Column Showcase -->
-        <div class="s2-main-grid">
-          <!-- Left: Portrait with Smooth Gradient Blend -->
-          <div class="s2-portrait-col">
-            <div class="s2-portrait-stage">
-              <img src="image/sayed hafij monir.png" onerror="this.src='times_square_images/MD.png'" alt="Sayed Hafiz Monir - Managing Director" class="s2-md-img">
+        <!-- LEFT: Pure Portrait with seamless gradient fade (NO BOX) -->
+        <div class="s2-left-stage">
+          <img src="image/sayed hafij monir.webp" onerror="this.src='times_square_images/MD.webp'" alt="সৈয়দ হাফিজ মনির" class="s2-portrait-img">
+          
+          <div class="s2-name-plate">
+            <h3 class="s2-name-title">সৈয়দ হাফিজ মনির</h3>
+            <div class="s2-name-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span>ব্যবস্থাপনা পরিচালক</span>
             </div>
-            
-            <!-- Sleek Identity Pedestal Card -->
-            <div class="s2-identity-card">
-              <div class="s2-identity-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <span>ব্যবস্থাপনা পরিচালক</span>
-              </div>
-              <h3 class="s2-md-name">সৈয়দ হাফিজ মনির</h3>
-              <p class="s2-md-company">ব্যবস্থাপনা পরিচালক • আওয়ার বিল্ডার্স লিমিটেড</p>
-            </div>
-          </div>
-
-          <!-- Right: Executive Vision Box & Compact Buttons Below -->
-          <div class="s2-content-col">
-            <!-- Executive Vision Box -->
-            <div class="s2-vision-card">
-              <div class="s2-vision-header">
-                <span class="s2-vision-header-tag">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                  নেতৃত্বের বার্তা ও দূরদর্শী ভিশন
-                </span>
-                <span class="s2-vision-serial">আওয়ার বিল্ডার্স লিঃ</span>
-              </div>
-
-              <!-- Quote Box -->
-              <div class="s2-quote-box">
-                <span class="s2-quote-mark">“</span>
-                <p class="s2-quote-text">
-                  গ্রাহকের সন্তুষ্টি ও সর্বোত্তম মান বজায় রাখাই আমাদের মূল চালিকাশক্তি। প্রতিটি পদক্ষেপে গ্রাহকের স্বপ্ন ও আস্থাকে অগ্রাধিকার দিয়ে আমরা তৈরি করি নিরাপদ ও স্থায়ী ঠিকানা।
-                </p>
-              </div>
-
-              <!-- Vision Body -->
-              <p class="s2-vision-body">
-                প্রতিটি মানুষের জন্য একটি নিরাপদ ও নান্দনিক আবাসনের ব্যবস্থা করার লক্ষ্য নিয়ে আওয়ার বিল্ডার্স লিমিটেড এর যাত্রা শুরু। বিগত এক দশকেরও বেশি সময় ধরে সততা, প্রকৌশল উৎকর্ষ ও সঠিক সময়ে প্রকল্প হস্তান্তরের মাধ্যমে আমরা অর্জন করেছি সহস্র গ্রাহকের অটুট বিশ্বাস। মদনপুরে ঢাকা-চট্টগ্রাম হাইওয়ে সংলগ্ন 'টাইম স্কয়ার' প্রকল্প আমাদের সেই অঙ্গীকারেরই আধুনিক প্রতিফলন।
-              </p>
-
-              <!-- 3 Core Pillars -->
-              <div class="s2-pillars-grid">
-                <div class="s2-pillar-item">
-                  <div class="s2-pillar-title">🏛️ সর্বোচ্চ মান ও নিরাপত্তা</div>
-                  <p class="s2-pillar-desc">সিসমিক রেজিস্ট্যান্ট ও রাজউক অনুমোদিত অবকাঠামো।</p>
-                </div>
-                <div class="s2-pillar-item">
-                  <div class="s2-pillar-title">⏱️ সময়মতো হস্তান্তর</div>
-                  <p class="s2-pillar-desc">নির্ধারিত সময়সীমায় শতভাগ স্বচ্ছতার সাথে প্রতিশ্রুতি পূরণ।</p>
-                </div>
-                <div class="s2-pillar-item">
-                  <div class="s2-pillar-title">🤝 গ্রাহক সন্তুষ্টি</div>
-                  <p class="s2-pillar-desc">পরিতৃপ্ত পরিবারগুলোর হাসিমুখ আমাদের আগামীর চালিকাশক্তি।</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Compact Buttons / Badges Below -->
-            <div class="s2-button-bar">
-              <div class="s2-pill-btn">
-                <div class="s2-btn-icon-wrap">🏆</div>
-                <div class="s2-btn-content">
-                  <span class="s2-btn-number">১২+ বছর</span>
-                  <span class="s2-btn-label">গৌরবময় অভিজ্ঞতা</span>
-                </div>
-              </div>
-
-              <div class="s2-pill-btn">
-                <div class="s2-btn-icon-wrap">👨‍👩‍👧‍👦</div>
-                <div class="s2-btn-content">
-                  <span class="s2-btn-number">৫০০+</span>
-                  <span class="s2-btn-label">সুখী পরিবার</span>
-                </div>
-              </div>
-
-              <div class="s2-pill-btn">
-                <div class="s2-btn-icon-wrap">🏢</div>
-                <div class="s2-btn-content">
-                  <span class="s2-btn-number">২৫+</span>
-                  <span class="s2-btn-label">সম্পন্ন প্রকল্প</span>
-                </div>
-              </div>
-
-              <div class="s2-pill-btn">
-                <div class="s2-btn-icon-wrap">🏗️</div>
-                <div class="s2-btn-content">
-                  <span class="s2-btn-number">১০+</span>
-                  <span class="s2-btn-label">মেগা প্রজেক্ট</span>
-                </div>
-              </div>
-
-              <div class="s2-pill-btn" style="flex: 1.2;">
-                <div class="s2-btn-icon-wrap">🛡️</div>
-                <div class="s2-btn-content">
-                  <span class="s2-btn-number">রিহ্যাব ও রাজউক</span>
-                  <span class="s2-btn-label">অনুমোদিত প্রতিষ্ঠান</span>
-                </div>
-              </div>
-            </div>
+            <p class="s2-name-company">আওয়ার বিল্ডার্স লিমিটেড</p>
+            <div class="s2-name-divider-line"></div>
           </div>
         </div>
+
+        <!-- RIGHT: Headline & Corporate Story -->
+        <div class="s2-right-stage">
+          
+          <div class="s2-top-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span>কর্পোরেট পরিচয় ও নেতৃত্বের দর্শন</span>
+          </div>
+
+          <h2 class="s2-main-heading">
+            সততা ও প্রতিশ্রুতিতে <span>এক যুগের</span><br>আস্থার অগ্রযাত্রা
+          </h2>
+          <div class="s2-gold-divider"></div>
+
+          <div class="s2-quote-panel">
+            <p>"একটি পরিবারের আজীবনের সঞ্চয় ও স্বপ্নকে সর্বোচ্চ শ্রদ্ধা জানিয়ে, আমরা কেবল ভবন নয়—গড়ে তুলি প্রজন্মের নিরাপদ ও স্থায়ী ঠিকানা।"</p>
+          </div>
+
+          <p class="s2-body-paragraph">
+            আওয়ার বিল্ডার্স লিমিটেড বিশ্বাস করে—একটি আবাসন কেবল কংক্রিটের কাঠামো নয়, এটি একটি পরিবারের আজীবনের স্বপ্ন ও ভবিষ্যৎ নিরাপত্তার নিশ্চয়তা। মাননীয় ব্যবস্থাপনা পরিচালক সৈয়দ হাফিজ মনিরের দূরদর্শী নেতৃত্বে এবং এক দশকেরও বেশি সময়ের প্রকৌশল উৎকর্ষে, আমরা গড়ে তুলেছি সহস্র গ্রাহকের অবিচল বিশ্বাস।
+          </p>
+
+          <div class="s2-pillars-row">
+            <div class="s2-pillar-box">
+              <div class="s2-pillar-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="s2-pillar-title-text">সর্বোচ্চ মান ও নিরাপত্তা</div>
+                <p class="s2-pillar-desc-text">সিসমিক রেজিস্ট্যান্ট, রাজউক অনুমোদিত অবকাঠামো।</p>
+              </div>
+            </div>
+
+            <div class="s2-pillar-box">
+              <div class="s2-pillar-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="s2-pillar-title-text">সময়মতো হস্তান্তর</div>
+                <p class="s2-pillar-desc-text">নির্ধারিত সময়ে শতভাগ স্বচ্ছতায় প্রতিশ্রুতি পূরণ।</p>
+              </div>
+            </div>
+
+            <div class="s2-pillar-box">
+              <div class="s2-pillar-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="s2-pillar-title-text">গ্রাহক সন্তুষ্টি</div>
+                <p class="s2-pillar-desc-text">সহস্র পরিবারের আস্থা আমাদের শ্রেষ্ঠ অর্জন।</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
+
 <div class="slide" id="slide-3">
       <!-- Dark-to-light atmosphere reveal veil -->
       <div class="slide3-cinematic-veil"></div>
@@ -4640,13 +4623,7 @@
       <div class="slide3-showcase-stage">
         <!-- Left: Luxury Branding & Information -->
         <div class="slide3-info-block">
-          <!-- Top Eyebrow Tag -->
-          <div class="slide3-eyebrow">
-            <span style="color: #d97706;">✦</span>
-            <span>মেগা গ্রীন কনডোমিনিয়াম ও বাণিজ্যিক কমপ্লেক্স</span>
-          </div>
-
-          <!-- Grand Vector Logo Title -->
+<!-- Grand Vector Logo Title -->
           <div class="slide3-title-wrap">
             <img src="times_squre_dual_color.svg" onerror="this.src='times_square_images/times_squre_dual_color.svg'" alt="টাইম স্কয়ার" class="slide3-title-svg">
           </div>
@@ -4717,14 +4694,14 @@
             </div>
             <div class="slide3-developer-row">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
-              <span>ডেভেলপার: আওয়ার বিল্ডার্স লিমিটেড (আস্থার প্রতীক • রিহ্যাব ও রাজউক সদস্য)</span>
+              <span>ডেভেলপার: আওয়ার বিল্ডার্স লিমিটেড (আস্থার প্রতীক)</span>
             </div>
           </div>
         </div>
 
         <!-- Right: Time Square Building (Full height towering scale, zero dead space) -->
         <div class="slide3-building-dock">
-          <img src="fainal-building.png" onerror="this.src='times_square_images/fainal-building.png'" alt="Time Square Green Condominium" class="slide3-towering-building">
+          <img src="fainal-building.webp" onerror="this.src='times_square_images/fainal-building.webp'" alt="Time Square Green Condominium" class="slide3-towering-building">
         </div>
       </div>
     </div>
@@ -4844,23 +4821,23 @@
 
           <!-- SCENE 2: 21 FLOORS 3D BUILDING SHOWCASE -->
           <div class="s4-scene" id="s4Scene2">
-            <img src="fainal-building.png" onerror="this.src='times_square_images/fainal-building.png'" alt="Time Square 21 Floors" class="s4-building-view">
+            <img src="fainal-building.webp" onerror="this.src='times_square_images/fainal-building.webp'" alt="Time Square 21 Floors" class="s4-building-view">
             
             <!-- Floor Level Callout Tags -->
             <div class="s4-floor-tag" style="top: 14%; animation-delay: 0.2s;">
-              <div class="s4-tag-title">🌟 রুফটপ লেভেল</div>
+              <div class="s4-tag-title">রুফটপ লেভেল</div>
               <div class="s4-tag-desc">সুইমিং পুল, স্কাই লাউঞ্জ ও ছাদবাগান</div>
             </div>
             <div class="s4-floor-tag" style="top: 36%; animation-delay: 0.4s;">
-              <div class="s4-tag-title">🏢 ৬ষ্ঠ - ১৮তম তলা (আবাসিক)</div>
+              <div class="s4-tag-title">৬ষ্ঠ - ১৮তম তলা (আবাসিক)</div>
               <div class="s4-tag-desc">টাওয়ার-এ ও টাওয়ার-বি লাক্সারি ফ্ল্যাট</div>
             </div>
             <div class="s4-floor-tag" style="top: 58%; animation-delay: 0.6s;">
-              <div class="s4-tag-title">🏊‍♂️ ৫ম তলা (লাইফস্টাইল জোন)</div>
+              <div class="s4-tag-title">৫ম তলা (লাইফস্টাইল জোন)</div>
               <div class="s4-tag-desc">জিম, কিডস প্লে জোন ও ক্লাব হাউস</div>
             </div>
             <div class="s4-floor-tag" style="top: 78%; animation-delay: 0.8s;">
-              <div class="s4-tag-title">🛍️ গ্রাউন্ড - ৪র্থ তলা (কমার্শিয়াল)</div>
+              <div class="s4-tag-title">গ্রাউন্ড - ৪র্থ তলা (কমার্শিয়াল)</div>
               <div class="s4-tag-desc">সুপারশপ, ব্র্যান্ড শোরুম ও ব্যাংক</div>
             </div>
           </div>
@@ -4893,7 +4870,7 @@
 
                 <!-- Tower A Title Bar -->
                 <rect x="35" y="62" width="355" height="32" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.2"/>
-                <text x="212" y="83" text-anchor="middle" font-size="13" font-weight="900" fill="#b45309" font-family="'Hind Siliguri', sans-serif">🏢 টাওয়ার-এ : প্রতি ফ্লোরে ৮টি ফ্ল্যাট (৮ × ১৪ = ১১২টি)</text>
+                <text x="212" y="83" text-anchor="middle" font-size="13" font-weight="900" fill="#b45309" font-family="'Hind Siliguri', sans-serif">টাওয়ার-এ : প্রতি ফ্লোরে ৮টি ফ্ল্যাট (৮ × ১৪ = ১১২টি)</text>
 
                 <!-- Col 1 (Units A1 - A4) -->
                 <!-- Unit A1 -->
@@ -4988,7 +4965,7 @@
 
                 <!-- Tower B Title Bar -->
                 <rect x="485" y="62" width="355" height="32" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.2"/>
-                <text x="662" y="83" text-anchor="middle" font-size="13" font-weight="900" fill="#b45309" font-family="'Hind Siliguri', sans-serif">🏢 টাওয়ার-বি : প্রতি ফ্লোরে ১০টি ফ্ল্যাট (১০ × ১৪ = ১৪০টি)</text>
+                <text x="662" y="83" text-anchor="middle" font-size="13" font-weight="900" fill="#b45309" font-family="'Hind Siliguri', sans-serif">টাওয়ার-বি : প্রতি ফ্লোরে ১০টি ফ্ল্যাট (১০ × ১৪ = ১৪০টি)</text>
 
                 <!-- Col 1 (Units B1 - B5) -->
                 <!-- Unit B1 -->
@@ -5141,7 +5118,7 @@
                 <!-- Clean Neutral Highway Label (Rotated -90deg) -->
                 <g transform="translate(87, 295) rotate(-90)">
                   <rect x="-115" y="-15" width="230" height="30" rx="15" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));"/>
-                  <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800" font-family="'Hind Siliguri', sans-serif">🛣️ ৬০ ফুট প্রধান সড়ক (60 Ft Road)</text>
+                  <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800" font-family="'Hind Siliguri', sans-serif">৬০ ফুট প্রধান সড়ক (60 Ft Road)</text>
                 </g>
 
                 <!-- Width Dimension Indicator -->
@@ -5200,7 +5177,7 @@
                 <!-- Clean Neutral 35 Ft Road Badge -->
                 <g transform="translate(640, 77)">
                   <rect x="-140" y="-15" width="280" height="30" rx="15" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));"/>
-                  <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">🛣️ ৩৫ ফুট কর্নার রোড · |← ৩৫ ফুট প্রশস্ত →|</text>
+                  <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">৩৫ ফুট কর্নার রোড · |← ৩৫ ফুট প্রশস্ত →|</text>
                 </g>
               </g>
 
@@ -5237,21 +5214,21 @@
                 <g transform="translate(185, 235)">
                   <rect x="-4" y="0" width="8" height="60" rx="3" fill="#006837"/>
                   <rect x="-95" y="16" width="88" height="26" rx="13" fill="#006837" stroke="#10b981" stroke-width="1"/>
-                  <text x="-51" y="33" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">🚪 প্রধান গেট</text>
+                  <text x="-51" y="33" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">প্রধান গেট</text>
                 </g>
 
                 <!-- SECONDARY EXIT GATE (on 35ft Road) -->
                 <g transform="translate(440, 144)">
                   <rect x="-28" y="-4" width="56" height="8" rx="3" fill="#006837"/>
                   <rect x="-48" y="12" width="96" height="24" rx="12" fill="#006837" stroke="#10b981" stroke-width="1"/>
-                  <text x="0" y="27" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">🚗 এক্সিট গেট</text>
+                  <text x="0" y="27" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="800">এক্সিট গেট</text>
                 </g>
 
                 <!-- TOWER A BLUEPRINT BOX (Left Block) -->
                 <g transform="translate(225, 185)">
                   <rect x="0" y="0" width="170" height="150" rx="8" fill="#ffffff" stroke="#006837" stroke-width="1.6" style="filter: drop-shadow(0 4px 12px rgba(0,104,55,0.06));"/>
                   <rect x="0" y="0" width="170" height="28" rx="8" fill="#006837"/>
-                  <text x="85" y="19" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="900">🏢 টাওয়ার-এ (১১২ ফ্ল্যাট)</text>
+                  <text x="85" y="19" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="900">টাওয়ার-এ (১১২ ফ্ল্যাট)</text>
                   <text x="85" y="58" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="800">প্রতি ফ্লোরে ৮টি ইউনিট</text>
                   <text x="85" y="80" text-anchor="middle" fill="#64748b" font-size="10" font-weight="700">৪-বেড ও ৩-বেড সুইট</text>
                   <rect x="20" y="105" width="130" height="22" rx="11" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
@@ -5274,7 +5251,7 @@
                 <g transform="translate(660, 185)">
                   <rect x="0" y="0" width="170" height="150" rx="8" fill="#ffffff" stroke="#006837" stroke-width="1.6" style="filter: drop-shadow(0 4px 12px rgba(0,104,55,0.06));"/>
                   <rect x="0" y="0" width="170" height="28" rx="8" fill="#006837"/>
-                  <text x="85" y="19" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="900">🏢 টাওয়ার-বি (১৪০ ফ্ল্যাট)</text>
+                  <text x="85" y="19" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="900">টাওয়ার-বি (১৪০ ফ্ল্যাট)</text>
                   <text x="85" y="58" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="800">প্রতি ফ্লোরে ১০টি ইউনিট</text>
                   <text x="85" y="80" text-anchor="middle" fill="#64748b" font-size="10" font-weight="700">৩-বেড ও ২-বেড ফ্ল্যাট</text>
                   <rect x="20" y="105" width="130" height="22" rx="11" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
@@ -5324,7 +5301,7 @@
       <!-- Phase 1 & 2: Cinematic Map Canvas -->
       <div class="s5-cinematic-canvas" id="s5Canvas">
         <!-- Satellite background image (site view) -->
-        <img class="s5-sat-bg" id="s5SatBg" src="times_square_images/satellite_madanpur_zoom.jpg" alt="Madanpur Aerial View">
+        <img class="s5-sat-bg" id="s5SatBg" src="times_square_images/satellite_madanpur_zoom.webp" alt="Madanpur Aerial View">
 
         <!-- Full-screen SVG: Routes + City Labels + Landmark Pins -->
         <svg class="s5-map-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" id="s5MapSvg" xmlns="http://www.w3.org/2000/svg">
@@ -5429,7 +5406,7 @@
             <circle cx="558" cy="270" r="5" fill="#fbbf24" filter="url(#pinGlow)"/>
             <rect x="468" y="218" width="180" height="28" rx="7" fill="rgba(15,23,42,0.92)" stroke="#fbbf24" stroke-width="1.2"/>
             <circle cx="480" cy="232" r="8" fill="url(#goldGrad)"/>
-            <text x="480" y="236" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="800" font-family="sans-serif">🌉</text>
+            <text x="480" y="236" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="800" font-family="sans-serif"></text>
             <text x="558" y="231" text-anchor="middle" fill="#ffffff" font-size="10.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">কাঁচপুর ব্রিজ</text>
             <text x="558" y="242" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="700" font-family="'Hind Siliguri', sans-serif">প্রকল্প থেকে ১ মিনিট</text>
           </g>
@@ -5440,7 +5417,7 @@
             <circle cx="520" cy="380" r="5" fill="#34d399" filter="url(#pinGlow)"/>
             <rect x="425" y="340" width="190" height="30" rx="7" fill="rgba(15,23,42,0.92)" stroke="#34d399" stroke-width="1.2"/>
             <circle cx="437" cy="355" r="8" fill="url(#greenGrad)"/>
-            <text x="437" y="359" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif">🚌</text>
+            <text x="437" y="359" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif"></text>
             <text x="525" y="353" text-anchor="middle" fill="#ffffff" font-size="10.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">কেন্দ্রীয় বাস টার্মিনাল</text>
             <text x="525" y="364" text-anchor="middle" fill="#34d399" font-size="9" font-weight="700" font-family="'Hind Siliguri', sans-serif">সায়েদাবাদ স্থানান্তরিত · ২ মিনিট</text>
           </g>
@@ -5451,7 +5428,7 @@
             <circle cx="680" cy="260" r="5" fill="#60a5fa" filter="url(#pinGlow)"/>
             <rect x="585" y="232" width="190" height="30" rx="7" fill="rgba(15,23,42,0.92)" stroke="#60a5fa" stroke-width="1.2"/>
             <circle cx="597" cy="247" r="8" fill="#1d4ed8"/>
-            <text x="597" y="251" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif">🎓</text>
+            <text x="597" y="251" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif"></text>
             <text x="690" y="245" text-anchor="middle" fill="#ffffff" font-size="10.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">স্কল কলেজ (Scoll College)</text>
             <text x="690" y="256" text-anchor="middle" fill="#60a5fa" font-size="9" font-weight="700" font-family="'Hind Siliguri', sans-serif">মদনপুর · প্রকল্পের পাশে</text>
           </g>
@@ -5462,7 +5439,7 @@
             <circle cx="660" cy="370" r="5" fill="#f87171" filter="url(#pinGlow)"/>
             <rect x="565" y="340" width="165" height="30" rx="7" fill="rgba(15,23,42,0.92)" stroke="#f87171" stroke-width="1.2"/>
             <circle cx="577" cy="355" r="8" fill="#dc2626"/>
-            <text x="577" y="359" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif">🏥</text>
+            <text x="577" y="359" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif"></text>
             <text x="658" y="353" text-anchor="middle" fill="#ffffff" font-size="10.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">হসপিটাল জোন</text>
             <text x="658" y="364" text-anchor="middle" fill="#f87171" font-size="9" font-weight="700" font-family="'Hind Siliguri', sans-serif">হাসপাতাল ও ক্লিনিক · ১.৫ কিমি</text>
           </g>
@@ -5484,7 +5461,7 @@
             <circle cx="800" cy="440" r="5" fill="#fb923c" filter="url(#pinGlow)"/>
             <rect x="700" y="405" width="196" height="30" rx="7" fill="rgba(15,23,42,0.92)" stroke="#fb923c" stroke-width="1.2"/>
             <circle cx="712" cy="420" r="8" fill="#c2410c"/>
-            <text x="712" y="424" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif">🌉</text>
+            <text x="712" y="424" text-anchor="middle" fill="#ffffff" font-size="9" font-family="sans-serif"></text>
             <text x="803" y="418" text-anchor="middle" fill="#ffffff" font-size="10.5" font-weight="800" font-family="'Hind Siliguri', sans-serif">পদ্মা সেতু সংযোগ সড়ক</text>
             <text x="803" y="429" text-anchor="middle" fill="#fb923c" font-size="9" font-weight="700" font-family="'Hind Siliguri', sans-serif">মদনপুর → মাওয়া · নতুন রাস্তা</text>
           </g>
@@ -5552,7 +5529,7 @@
               <rect x="395" y="40" width="510" height="95" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="2.5" stroke-dasharray="8 5"/>
               <rect x="395" y="40" width="510" height="95" rx="8" fill="url(#neighborHatch)"/>
               <rect x="480" y="55" width="340" height="65" rx="6" fill="#ffffff" stroke="#0891b2" stroke-width="1.8"/>
-              <text x="650" y="85" text-anchor="middle" fill="#0e7490" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">🏡 ইডেন রিভার প্রজেক্ট (Eden River)</text>
+              <text x="650" y="85" text-anchor="middle" fill="#0e7490" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">ইডেন রিভার প্রজেক্ট (Eden River)</text>
               <text x="650" y="105" text-anchor="middle" fill="#0891b2" font-size="12" font-weight="800" font-family="'Hind Siliguri', sans-serif">৩৫ ফুট রোডের পাশে আধুনিক আবাসন প্রকল্প</text>
             </g>
 
@@ -5571,7 +5548,7 @@
               <rect x="50" y="220" width="220" height="340" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="8 5"/>
               <rect x="50" y="220" width="220" height="340" rx="8" fill="url(#neighborHatch)"/>
               <rect x="70" y="320" width="180" height="120" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.8"/>
-              <text x="160" y="360" text-anchor="middle" fill="#15803d" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">🏡 গ্রীনভিল</text>
+              <text x="160" y="360" text-anchor="middle" fill="#15803d" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">গ্রীনভিল</text>
               <text x="160" y="385" text-anchor="middle" fill="#16a34a" font-size="13" font-weight="800" font-family="'Hind Siliguri', sans-serif">Greenville Project</text>
               <text x="160" y="410" text-anchor="middle" fill="#64748b" font-size="11" font-weight="700" font-family="'Hind Siliguri', sans-serif">৬০ ফুট রাস্তার উল্টো পাশে</text>
             </g>
@@ -5581,7 +5558,7 @@
               <rect x="940" y="220" width="280" height="190" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="8 5"/>
               <rect x="940" y="220" width="280" height="190" rx="8" fill="url(#neighborHatch)"/>
               <rect x="965" y="250" width="230" height="110" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
-              <text x="1080" y="290" text-anchor="middle" fill="#1d4ed8" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">🏫 বিসিএস স্কুল ও কলেজ</text>
+              <text x="1080" y="290" text-anchor="middle" fill="#1d4ed8" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">বিসিএস স্কুল ও কলেজ</text>
               <text x="1080" y="315" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="800" font-family="'Hind Siliguri', sans-serif">BCS School & College</text>
               <text x="1080" y="338" text-anchor="middle" fill="#64748b" font-size="11" font-weight="700" font-family="'Hind Siliguri', sans-serif">৩৫ ফুট কর্নার রোডের পাশে</text>
             </g>
@@ -5591,7 +5568,7 @@
               <rect x="940" y="440" width="280" height="260" rx="8" fill="#faf5ff" stroke="#9333ea" stroke-width="2.5" stroke-dasharray="8 5"/>
               <rect x="940" y="440" width="280" height="260" rx="8" fill="url(#neighborHatch)"/>
               <rect x="965" y="490" width="230" height="110" rx="6" fill="#ffffff" stroke="#9333ea" stroke-width="1.8"/>
-              <text x="1080" y="530" text-anchor="middle" fill="#7e22ce" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">🏙️ ইএসটি টাউন</text>
+              <text x="1080" y="530" text-anchor="middle" fill="#7e22ce" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">ইএসটি টাউন</text>
               <text x="1080" y="555" text-anchor="middle" fill="#9333ea" font-size="13" font-weight="800" font-family="'Hind Siliguri', sans-serif">EST Town Housing</text>
               <text x="1080" y="578" text-anchor="middle" fill="#64748b" font-size="11" font-weight="700" font-family="'Hind Siliguri', sans-serif">সংলগ্ন আধুনিক আবাসিক এলাকা</text>
             </g>
@@ -5637,7 +5614,7 @@
             <!-- Central Green Plaza & Garden -->
             <g class="s5-mp-fill-reveal delay-4">
               <rect x="430" y="480" width="450" height="135" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
-              <text x="655" y="535" text-anchor="middle" fill="#15803d" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">🌿 সেন্ট্রাল গ্রীন জোন ও ল্যান্ডস্কেপ প্লাজা</text>
+              <text x="655" y="535" text-anchor="middle" fill="#15803d" font-size="16" font-weight="900" font-family="'Hind Siliguri', sans-serif">সেন্ট্রাল গ্রীন জোন ও ল্যান্ডস্কেপ প্লাজা</text>
               <text x="655" y="562" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700" font-family="'Hind Siliguri', sans-serif">উন্মুক্ত প্রাকৃতিক বাগান • ওয়াকিং ট্র্যাক • কিডস প্লে জোন</text>
             </g>
 
@@ -5645,7 +5622,7 @@
             <g class="s5-mp-fill-reveal delay-5">
               <polygon points="380,440 395,420 395,460" fill="#006837"/>
               <rect x="365" y="425" width="15" height="30" fill="#d97706"/>
-              <text x="360" y="410" text-anchor="end" fill="#006837" font-size="12" font-weight="900" font-family="'Hind Siliguri', sans-serif">🚪 প্রধান প্রবেশ তোরণ</text>
+              <text x="360" y="410" text-anchor="end" fill="#006837" font-size="12" font-weight="900" font-family="'Hind Siliguri', sans-serif">প্রধান প্রবেশ তোরণ</text>
             </g>
 
             <!-- 60 Ft Road Dimension Measurement -->
@@ -5671,11 +5648,11 @@
         </div>
       </div>
 
-      <!-- Phase indicator dots -->
-      <div class="s5-phase-dots" id="s5PhaseDots">
-        <div class="s5-phase-dot active" id="s5Dot1"></div>
-        <div class="s5-phase-dot" id="s5Dot2"></div>
-        <div class="s5-phase-dot" id="s5Dot3"></div>
+      <!-- Phase indicator dots (Clickable navigation) -->
+      <div class="s5-phase-dots" id="s5PhaseDots" style="cursor:pointer; z-index:100;">
+        <div class="s5-phase-dot active" id="s5Dot1" onclick="s5GoToPhase(1)" title="রুট ও শহরসমূহ"></div>
+        <div class="s5-phase-dot" id="s5Dot2" onclick="s5GoToPhase(2)" title="ল্যান্ডমার্ক পিন"></div>
+        <div class="s5-phase-dot" id="s5Dot3" onclick="s5GoToPhase(3)" title="মাস্টারপ্ল্যান ও পার্শ্ববর্তী প্রজেক্ট"></div>
       </div>
 
       <!-- Replay button -->
@@ -5689,8 +5666,8 @@
       <div class="s6-fullscreen-wrapper">
         <!-- Full Screen Image Background with Dual-Buffer Smooth Cross-Fade & Active Motion -->
         <div class="s6-fs-image-holder" id="s6FsImageHolder">
-          <img src="image/parking.jpg" id="s6FsImg1" alt="Times Square Facilities" class="s6-fs-img active s6-motion-1">
-          <img src="image/supershop.png" id="s6FsImg2" alt="Times Square Facilities" class="s6-fs-img s6-motion-2">
+          <img src="image/parking.webp" id="s6FsImg1" alt="Times Square Facilities" class="s6-fs-img active s6-motion-1">
+          <img src="image/supershop.webp" id="s6FsImg2" alt="Times Square Facilities" class="s6-fs-img s6-motion-2">
           <div class="s6-fs-vignette"></div>
         </div>
 
@@ -5752,11 +5729,11 @@
 
         <!-- Full Screen Background Image Holder -->
         <div class="s7-fs-image-holder" id="s7FsImageHolder">
-          <img src="image/drawing room.png" id="s7Img0" alt="Drawing Room" class="s7-fs-img active">
-          <img src="image/dining room.png" id="s7Img1" alt="Dining Room" class="s7-fs-img">
-          <img src="image/bedroom.png" id="s7Img2" alt="Bedroom" class="s7-fs-img">
-          <img src="image/belcony.png" id="s7Img3" alt="Balcony" class="s7-fs-img">
-          <img src="image/bathroom.png" id="s7Img4" alt="Bathroom" class="s7-fs-img">
+          <img src="image/drawing room.webp" id="s7Img0" alt="Drawing Room" class="s7-fs-img active">
+          <img src="image/dining room.webp" id="s7Img1" alt="Dining Room" class="s7-fs-img">
+          <img src="image/bedroom.webp" id="s7Img2" alt="Bedroom" class="s7-fs-img">
+          <img src="image/belcony.webp" id="s7Img3" alt="Balcony" class="s7-fs-img">
+          <img src="image/bathroom.webp" id="s7Img4" alt="Bathroom" class="s7-fs-img">
                   </div>
 
         <!-- Artistic Brush-Style Content Card Overlay (ব্রাশ শেইপ কার্ড) -->
@@ -5775,19 +5752,19 @@
         <!-- Bottom Mini-Pills Room Selector -->
         <div class="s7-bottom-nav" id="s7BottomNav">
           <button class="s7-nav-btn active" onclick="s7GoToRoom(0)">
-            <span>🛋️ ড্রয়িং রুম</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:-2px;"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>ড্রয়িং রুম</span>
           </button>
           <button class="s7-nav-btn" onclick="s7GoToRoom(1)">
-            <span>🍽️ ডাইনিং রুম</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:-2px;"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>ডাইনিং রুম</span>
           </button>
           <button class="s7-nav-btn" onclick="s7GoToRoom(2)">
-            <span>🛏️ বেডরুম</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:-2px;"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>বেডরুম</span>
           </button>
           <button class="s7-nav-btn" onclick="s7GoToRoom(3)">
-            <span>🌿 বারান্দা</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:-2px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2.5 1 5.5-.5 9-1.2 2.8-3.2 5.5-6.5 7Z"/><path d="M2 21c0-3 1.8-6.5 5-8.5"/></svg>বারান্দা</span>
           </button>
           <button class="s7-nav-btn" onclick="s7GoToRoom(4)">
-            <span>🚿 বাথরুম</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:-2px;"><path d="M4 4v7a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4"/><path d="M10 2v2"/><path d="M14 2v2"/><path d="M8 19v3"/><path d="M16 19v3"/></svg>বাথরুম</span>
           </button>
         </div>
       </div>
@@ -5822,11 +5799,11 @@
 
         <!-- Full Screen Background Image Holder (100% PURE CLEAR IMAGES) -->
         <div class="s8-fs-image-holder" id="s8FsImageHolder">
-          <img src="image/cctv.png" id="s8Img0" alt="CCTV Security" class="s8-fs-img active">
-          <img src="image/generetor.png" id="s8Img1" alt="Power Generator" class="s8-fs-img">
-          <img src="image/lift.png" id="s8Img2" alt="Smart Lifts" class="s8-fs-img">
-          <img src="image/fireexuster.png" id="s8Img3" alt="Fire Safety" class="s8-fs-img">
-          <img src="image/water filtaretion.png" id="s8Img4" alt="Water Filtration" class="s8-fs-img">
+          <img src="image/cctv.webp" id="s8Img0" alt="CCTV Security" class="s8-fs-img active">
+          <img src="image/generetor.webp" id="s8Img1" alt="Power Generator" class="s8-fs-img">
+          <img src="image/lift.webp" id="s8Img2" alt="Smart Lifts" class="s8-fs-img">
+          <img src="image/fireexuster.webp" id="s8Img3" alt="Fire Safety" class="s8-fs-img">
+          <img src="image/water filtaretion.webp" id="s8Img4" alt="Water Filtration" class="s8-fs-img">
         </div>
 
         <!-- Artistic White Paint Brush Card Overlay (হোয়াইট ব্রাশ শেইপ) -->
@@ -5940,12 +5917,12 @@
         <!-- 2. Guaranteed Gifts Showcase (3 Cards) -->
         <div class="s10-gifts-grid">
           <!-- Gift 1: Umrah Hajj / Cash Return -->
-          <div class="s10-gift-card">
+          <div class="s10-gift-card" id="s10GiftUmrah" onclick="s10ManualSelect('gift-umrah')">
             <div class="s10-gift-img-wrap">
-              <img src="image/umrahhajj.png" onerror="this.src='times_square_images/projects/umrahhajj.png'" alt="Umrah Hajj" class="s10-gift-img">
+              <img src="image/umrahhajj.webp" onerror="this.src='times_square_images/projects/umrahhajj.webp'" alt="Umrah Hajj" class="s10-gift-img">
             </div>
             <div class="s10-gift-body">
-              <span class="s10-gift-badge">🕋 এককালীন পরিশোধে মেগা অফার</span>
+              <span class="s10-gift-badge">এককালীন পরিশোধে মেগা অফার</span>
               <h3 class="s10-gift-title">পবিত্র উমরাহ হজ্জ / নিশ্চিত ক্যাশ রিটার্ন</h3>
               <p class="s10-gift-desc">
                 অনুষ্ঠানের দিন এককালীন জমায় <strong>২ জনের উমরাহ হজ্জ</strong> অথবা ২ বছর মাসিক <strong>২৫,০০০/২০,০০০ টাকা</strong> ক্যাশ রিটার্ন! (১ মাসে দিলে ১ জনের উমরাহ)
@@ -5954,12 +5931,12 @@
           </div>
 
           <!-- Gift 2: Laptop or 32" LED TV -->
-          <div class="s10-gift-card">
+          <div class="s10-gift-card" id="s10GiftLaptop" onclick="s10ManualSelect('gift-laptop-tv')">
             <div class="s10-gift-img-wrap">
-              <img src="image/laptop-tv.png" onerror="this.src='times_square_images/projects/laptop-tv.png'" alt="Laptop and 32 inch LED TV" class="s10-gift-img">
+              <img src="image/laptop-tv.webp" onerror="this.src='times_square_images/projects/laptop-tv.webp'" alt="Laptop and 32 inch LED TV" class="s10-gift-img">
             </div>
             <div class="s10-gift-body">
-              <span class="s10-gift-badge">💻📺 বুকিং + ডাউন পেমেন্ট (মোট ৪ লাখ)</span>
+              <span class="s10-gift-badge">বুকিং + ডাউন পেমেন্ট (মোট ৪ লাখ)</span>
               <h3 class="s10-gift-title">Laptop অথবা 32" Smart LED TV</h3>
               <p class="s10-gift-desc">
                 বুকিং মানি ১ লক্ষ এবং ডাউনপেমেন্ট ৩ লক্ষ (মোট ৪ লক্ষ টাকা) জমা দিলেই নিশ্চিত উপহার ১টি <strong>Laptop অথবা 32" Smart LED TV</strong>!
@@ -5968,12 +5945,12 @@
           </div>
 
           <!-- Gift 3: Luxury Dinner Set -->
-          <div class="s10-gift-card">
+          <div class="s10-gift-card" id="s10GiftDinner" onclick="s10ManualSelect('gift-dinner-set')">
             <div class="s10-gift-img-wrap">
-              <img src="image/dinner-set.png" onerror="this.src='times_square_images/projects/dinner-set.png'" alt="32 Piece Dinner Set" class="s10-gift-img">
+              <img src="image/dinner-set.webp" onerror="this.src='times_square_images/projects/dinner-set.webp'" alt="32 Piece Dinner Set" class="s10-gift-img">
             </div>
             <div class="s10-gift-body">
-              <span class="s10-gift-badge">🍽️ শুধু বুকিং মানি জমাদানকারী</span>
+              <span class="s10-gift-badge">শুধু বুকিং মানি জমাদানকারী</span>
               <h3 class="s10-gift-title">৩২ পিস লাক্সারি ডিনার সেট</h3>
               <p class="s10-gift-desc">
                 অনুষ্ঠানের পর শুধুমাত্র বুকিং মানি জমা দিলেও নিশ্চিত উপহার পাবেন ১টি (৩২ পিস) কোম্পানির মনোগ্রামখচিত <strong>লাক্সারি ডিনার সেট</strong>!
@@ -5985,7 +5962,7 @@
         <!-- 3. Two Towers Schemes Comparison (Building A vs Building B) -->
         <div class="s10-towers-grid">
           <!-- Tower A -->
-          <div class="s10-tower-card s10-tower-a">
+          <div class="s10-tower-card s10-tower-a" id="s10TowerA" onclick="s10ManualSelect('tower-a')">
             <div class="s10-tower-head">
               <div class="s10-tower-title-pill pill-tower-a">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
@@ -5994,37 +5971,46 @@
               <div class="s10-tower-size">১৬৩৫+ বর্গফুট <span style="font-size: 12.5px; font-weight: 700; color: #006837;">(৪ বেড, ৩ বাথ, ৩ বারান্দা)</span></div>
             </div>
 
-            <!-- Price Boxes -->
+            <!-- Price Boxes with Emerge Badge container -->
             <div class="s10-price-row">
               <div class="s10-price-box">
-                <span class="s10-price-lbl">🏷️ জমির মূল্য:</span>
+                <span class="s10-price-lbl">জমির মূল্য:</span>
                 <span class="s10-price-val">১৫,০০,০০০/- <span style="font-size: 11.5px; font-weight: 700;">(১৫ লাখ)</span></span>
               </div>
-              <div class="s10-price-box" style="border-color: rgba(0, 104, 55, 0.4); background: #f0fdf4;">
-                <span class="s10-price-lbl">🏗️ এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
-                <span class="s10-price-val s10-price-val-highlight">৫০,০০,০০০/- <span style="font-size: 11.5px; font-weight: 700;">(৫০ লাখ)</span></span>
+              <div class="s10-price-box s10-lump-price-box" id="s10PriceBoxA" style="border-color: rgba(0, 104, 55, 0.4); background: #f0fdf4;">
+                <span class="s10-price-lbl">এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
+                <span class="s10-price-val s10-price-val-highlight" id="s10PriceValA">৫০,০০,০০০/- <span style="font-size: 11.5px; font-weight: 700;">(৫০ লাখ)</span></span>
+                
+                <!-- DYNAMIC POP-OUT CASHBACK BADGE -->
+                <div class="s10-emerge-cashback s10-emerge-a" id="s10EmergeA">
+                  <div class="s10-emerge-sparkle">✨</div>
+                  <div class="s10-emerge-info">
+                    <span class="s10-emerge-title">নিশ্চিত ক্যাশ রিটার্ন / বিকল্প উমরাহ:</span>
+                    <span class="s10-emerge-val">মাসিক ২৫,০০০/- টাকা <small>(টানা ২ বছর)</small></span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Offers Points (All 6 points from poster) -->
             <ul class="s10-offers-list">
-              <li>
+              <li id="s10OfferA1">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>অনুষ্ঠানের দিন এককালীন ৫০ লাখ জমা:</strong> ২ বছর পর্যন্ত প্রতি লাখে ৫০০/- হারে মাসিক <strong>২৫,০০০/- টাকা</strong> অথবা <strong>২ জনের উমরাহ হজ্জ</strong>।</span>
               </li>
-              <li>
+              <li id="s10OfferA2">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>১ মাসের মধ্যে এককালীন ৫০ লাখ জমা:</strong> ১ বছর পর্যন্ত প্রতি লাখে ৫০০/- হারে মাসিক <strong>২৫,০০০/- টাকা</strong> অথবা <strong>১ জনের উমরাহ হজ্জ</strong>।</span>
               </li>
-              <li>
+              <li id="s10OfferA3">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>জমির মূল্য ১৫ লাখ জমা:</strong> অনুষ্ঠানে দিলে ১৮ মাস মাসিক <strong>৭,৫০০/- টাকা</strong> | ৩ মাসের মধ্যে দিলে ১ বছর মাসিক <strong>৭,৫০০/- টাকা</strong>।</span>
               </li>
-              <li>
+              <li id="s10OfferA4">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>বুকিং ১ লাখ + ডাউনপেমেন্ট ৩ লাখ (মোট ৪ লাখ):</strong> পাবেন ১টি <span class="gold-tag">Laptop / 32" Smart LED TV</span></span>
               </li>
-              <li>
+              <li id="s10OfferA5">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>শুধু বুকিং মানি জমাদানকারী:</strong> পাবেন ১টি <span class="gold-tag">৩২ পিস মনোগ্রামখচিত লাক্সারি ডিনার সেট</span></span>
               </li>
@@ -6032,7 +6018,7 @@
           </div>
 
           <!-- Tower B -->
-          <div class="s10-tower-card s10-tower-b">
+          <div class="s10-tower-card s10-tower-b" id="s10TowerB" onclick="s10ManualSelect('tower-b')">
             <div class="s10-tower-head">
               <div class="s10-tower-title-pill pill-tower-b">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
@@ -6041,37 +6027,46 @@
               <div class="s10-tower-size">১৩০৮+ বর্গফুট <span style="font-size: 12.5px; font-weight: 700; color: #b45309;">(৩ বেড, ২ বাথ, ২ বারান্দা)</span></div>
             </div>
 
-            <!-- Price Boxes -->
+            <!-- Price Boxes with Emerge Badge container -->
             <div class="s10-price-row">
               <div class="s10-price-box">
-                <span class="s10-price-lbl">🏷️ জমির মূল্য:</span>
+                <span class="s10-price-lbl">জমির মূল্য:</span>
                 <span class="s10-price-val">১২,০০,০০০/- <span style="font-size: 11.5px; font-weight: 700;">(১২ লাখ)</span></span>
               </div>
-              <div class="s10-price-box" style="border-color: rgba(217, 119, 6, 0.4); background: #fffbeb;">
-                <span class="s10-price-lbl">🏗️ এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
-                <span class="s10-price-val s10-price-val-highlight">৪০,০০,০০০/- <span style="font-size: 11.5px; font-weight: 700;">(৪০ লাখ)</span></span>
+              <div class="s10-price-box s10-lump-price-box" id="s10PriceBoxB" style="border-color: rgba(217, 119, 6, 0.4); background: #fffbeb;">
+                <span class="s10-price-lbl">এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
+                <span class="s10-price-val s10-price-val-highlight" id="s10PriceValB">৪০,০০,০০০/- <span style="font-size: 11.5px; font-weight: 700;">(৪০ লাখ)</span></span>
+                
+                <!-- DYNAMIC POP-OUT CASHBACK BADGE -->
+                <div class="s10-emerge-cashback s10-emerge-b" id="s10EmergeB">
+                  <div class="s10-emerge-sparkle">✨</div>
+                  <div class="s10-emerge-info">
+                    <span class="s10-emerge-title">নিশ্চিত ক্যাশ রিটার্ন / বিকল্প উমরাহ:</span>
+                    <span class="s10-emerge-val">মাসিক ২০,০০০/- টাকা <small>(টানা ২ বছর)</small></span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Offers Points (All 6 points from poster) -->
             <ul class="s10-offers-list">
-              <li>
+              <li id="s10OfferB1">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>অনুষ্ঠানের দিন এককালীন ৪০ লাখ জমা:</strong> ২ বছর পর্যন্ত প্রতি লাখে ৫০০/- হারে মাসিক <strong>২০,০০০/- টাকা</strong> অথবা <strong>২ জনের উমরাহ হজ্জ</strong>।</span>
               </li>
-              <li>
+              <li id="s10OfferB2">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>১ মাসের মধ্যে এককালীন ৪০ লাখ জমা:</strong> ১ বছর পর্যন্ত প্রতি লাখে ৫০০/- হারে মাসিক <strong>২০,০০০/- টাকা</strong> অথবা <strong>১ জনের উমরাহ হজ্জ</strong>।</span>
               </li>
-              <li>
+              <li id="s10OfferB3">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>জমির মূল্য ১২ লাখ জমা:</strong> অনুষ্ঠানে দিলে ১৮ মাস মাসিক <strong>৬,০০০/- টাকা</strong> | ৩ মাসের মধ্যে দিলে ১ বছর মাসিক <strong>৬,০০০/- টাকা</strong>।</span>
               </li>
-              <li>
+              <li id="s10OfferB4">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>বুকিং ১ লাখ + ডাউনপেমেন্ট ৩ লাখ (মোট ৪ লাখ):</strong> পাবেন ১টি <span class="gold-tag">Laptop / 32" Smart LED TV</span></span>
               </li>
-              <li>
+              <li id="s10OfferB5">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 <span><strong>শুধু বুকিং মানি জমাদানকারী:</strong> পাবেন ১টি <span class="gold-tag">৩২ পিস মনোগ্রামখচিত লাক্সারি ডিনার সেট</span></span>
               </li>
@@ -6080,12 +6075,12 @@
         </div>
 
         <!-- 4. Special Mega Benefit Bar (5 Lakh Taka Benefit) -->
-        <div class="s10-mega-benefit-banner">
-          <div class="s10-benefit-icon">🎁</div>
+        <div class="s10-mega-benefit-banner" id="s10MegaBenefit" onclick="s10ManualSelect('mega-benefit')">
+          <div class="s10-benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
           <p class="s10-benefit-text">
             <strong>বিঃ দ্রঃ বিশেষ সুবিধা —</strong> এককালীন জমা সাপেক্ষে ফ্ল্যাট/জমির <strong>রেজিস্ট্রি ফি</strong>, <strong>রাজউকসহ সরকারি অনুমোদন খরচ</strong> এবং <strong>মাটি ভরাট খরচ</strong> সম্পূর্ণ কোম্পানি প্রদান করিবে।
           </p>
-          <div class="s10-benefit-badge">✨ কাস্টমার সরাসরি ৫ (পাঁচ) লক্ষ টাকা লাভবান হবেন</div>
+          <div class="s10-benefit-badge">কাস্টমার সরাসরি ৫ (পাঁচ) লক্ষ টাকা লাভবান হবেন</div>
         </div>
       </div>
     </div>
@@ -6162,21 +6157,21 @@
           <!-- EXCLUSIVE OFFER & PRICE BANNER -->
           <div class="exclusive-offer-banner">
             <div class="offer-left">
-              <span class="offer-gift-icon">🎁</span>
+              <span class="offer-gift-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
               <div>
                 <p class="offer-text-main">প্রতি ফ্ল্যাট/শেয়ারের সাথে ১টি দোকান সম্পূর্ণ ফ্রি!</p>
                 <p class="offer-subtext">সীমিত সময়ের বিশেষ অফার • নিশ্চিত বাণিজ্যিক রিটার্ন</p>
               </div>
             </div>
             <div class="price-tag-pill">
-              <span>🏷️ আকর্ষণীয় শেয়ার বুকিং</span>
+              <span>আকর্ষণীয় শেয়ার বুকিং</span>
             </div>
           </div>
         </div>
 
         <!-- Right: Towering Building Render (Starts right from bottom, massive scale) -->
         <div class="finale-building-dock">
-          <img src="fainal-building.png" onerror="this.src='times_square_images/fainal-building.png'" alt="Times Square Building" class="towering-building-img">
+          <img src="fainal-building.webp" onerror="this.src='times_square_images/fainal-building.webp'" alt="Times Square Building" class="towering-building-img">
         </div>
       </div>
     </div>
@@ -6473,7 +6468,7 @@
         status: "completed",
         statusText: "সম্পন্ন প্রকল্প",
         loc: "নিউ টাউন আবাসিক এলাকা, কেন্দ্রীয় জামে মসজিদ রোড, সাইনবোর্ড, ডেমরা, ঢাকা",
-        img: "times_square_images/projects/rose_garden.jpeg"
+        img: "times_square_images/projects/rose_garden.webp"
       },
       {
         id: 20,
@@ -6481,7 +6476,7 @@
         status: "completed",
         statusText: "সম্পন্ন প্রকল্প",
         loc: "নিউ টাউন, এ/৬, ৯ নং রোড, শাহীনবোর্ড, ঢাকা",
-        img: "times_square_images/projects/darus_saeed_tower.jpeg"
+        img: "times_square_images/projects/darus_saeed_tower.webp"
       },
       {
         id: 22,
@@ -6489,7 +6484,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "নিউ টাউন আবাসিক এলাকা, ব্লক-এ, শহর পল্লী, রোড নং ৫, হাজী বাদশা মিয়া রোড, মাতুয়াইল, ডেমরা, ঢাকা",
-        img: "times_square_images/projects/green_garden.jpeg"
+        img: "times_square_images/projects/green_garden.webp"
       },
       {
         id: 23,
@@ -6497,7 +6492,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "নিউ টাউন আ/এ, কেন্দ্রীয় জামে মসজিদ সংলগ্ন, মাতুয়াইল, ডেমরা, ঢাকা",
-        img: "times_square_images/projects/abrar_garden.jpeg"
+        img: "times_square_images/projects/abrar_garden.webp"
       },
       {
         id: 28,
@@ -6505,7 +6500,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "আশিয়ান মেডিকেল সংলগ্ন ৩০০ ফিট, ঢাকা",
-        img: "times_square_images/projects/our_london_tower.png"
+        img: "times_square_images/projects/our_london_tower.webp"
       },
       {
         id: 25,
@@ -6513,7 +6508,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "২৪ ফুট রোড, শনির আখড়া, ঢাকা",
-        img: "times_square_images/projects/khondokar_garden.png"
+        img: "times_square_images/projects/khondokar_garden.webp"
       },
       {
         id: 27,
@@ -6521,7 +6516,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "শনিরআখড়া, শেখদী, যাত্রাবাড়ী, ঢাকা",
-        img: "times_square_images/projects/swadesh_garden.jpeg"
+        img: "times_square_images/projects/swadesh_garden.webp"
       },
       {
         id: 26,
@@ -6529,7 +6524,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "লন্ডন মার্কেট সানারপাড়, ডেমরা, ঢাকা",
-        img: "times_square_images/projects/iconic_city.jpeg"
+        img: "times_square_images/projects/iconic_city.webp"
       },
       {
         id: 19,
@@ -6537,7 +6532,7 @@
         status: "ongoing",
         statusText: "চলমান প্রকল্প",
         loc: "বসুন্ধরা রিভার ভিউ, ব্লক এ, প্লট নং-৬৫৫/৬৫৬, রোড নং-০৯",
-        img: "times_square_images/projects/riverview_1.png"
+        img: "times_square_images/projects/riverview_1.webp"
       }
     ];
 
@@ -6563,8 +6558,8 @@
     let s13IsTransitioning = false;
     let s13HeroTimeout = null;
 
-    const S13_INTRO_HERO_MS = 2800;  /* Intro text display duration */
-    const S13_BATCH_HOLD_MS = 5200;  /* Card display duration per batch */
+    const S13_INTRO_HERO_MS = 6500;   /* Slower, dignified intro: 6.5s */
+    const S13_BATCH_HOLD_MS = 16000;  /* Relaxed, calm batch duration: 16s per set */
 
     function renderSlide13Batch(batchIdx) {
       if (currentSlide !== 9) return;
@@ -6771,7 +6766,7 @@
     let s7AutoTimer = null;
     let s7IntroTimeout = null;
     let s7Progress = 0;
-    const S7_CYCLE_MS = 4800;
+    const S7_CYCLE_MS = 12700; // Synced with 63.6s narration (5 rooms)
     const S7_INTRO_MS = 2800;
 
     function s7SkipIntro() {
@@ -6863,16 +6858,10 @@
     }
 
     function onSlide7Enter() {
-      const intro = document.getElementById('s7HeroIntro');
-      if (intro) intro.classList.remove('hidden');
       s7StopTimer();
-
-      s7IntroTimeout = setTimeout(() => {
-        if (currentSlide === 7) {
-          if (intro) intro.classList.add('hidden');
-          s7GoToRoom(0);
-        }
-      }, S7_INTRO_MS);
+      const intro = document.getElementById('s7HeroIntro');
+      if (intro) intro.classList.add('hidden');
+      s7GoToRoom(0);
     }
 
     function onSlide7Leave() {
@@ -6916,7 +6905,7 @@
     let s8CurrentIndex = 0;
     let s8AutoTimer = null;
     let s8Progress = 0;
-    const S8_CYCLE_MS = 4800;
+    const S8_CYCLE_MS = 14500; // Synced with 72.6s narration (5 facilities)
 
     function s8GoToFacility(idx) {
       s8CurrentIndex = idx;
@@ -7010,16 +6999,10 @@
     }
 
     function onSlide8Enter() {
-      const intro = document.getElementById('s8HeroIntro');
-      if (intro) intro.classList.remove('hidden');
       s8StopTimer();
-
-      s8IntroTimeout = setTimeout(() => {
-        if (currentSlide === 8) {
-          if (intro) intro.classList.add('hidden');
-          s8GoToFacility(0);
-        }
-      }, S8_INTRO_MS);
+      const intro = document.getElementById('s8HeroIntro');
+      if (intro) intro.classList.add('hidden');
+      s8GoToFacility(0);
     }
 
     function onSlide8Leave() {
@@ -7093,6 +7076,224 @@
       }
     }
 
+    /* =========================================================
+       SLIDE 10: DYNAMIC COMMERCIAL CLIMAX CONTROLLER
+       Synchronized with slid 10.wav (70.93s):
+       0.0s - 7.0s: Intro & Welcome to Mega Offers
+       7.0s - 15.5s: Building A Price Focus (50 Lakh pop-up)
+       15.5s - 24.5s: Building A Monthly Return (25,000 emerge) & Umrah Hajj
+       24.5s - 33.5s: Building B Price Focus (40 Lakh pop-up)
+       33.5s - 39.0s: Building B Monthly Return (20,000 emerge) & Umrah Hajj
+       39.0s - 49.5s: Gift 2: Laptop & 32" Smart LED TV
+       49.5s - 56.0s: Gift 3: 32 Piece Luxury Dinner Set
+       56.0s - 66.5s: Mega Benefit Banner (5 Lakh Taka Company Benefit)
+       66.5s - 70.9s+: Celebration Finale & Confetti
+       ========================================================= */
+    let s10FallbackTimer = null;
+    let s10CurrentPhaseIndex = 0;
+    const s10Phases = [
+      'intro',
+      'tower-a-price',
+      'tower-a-monthly',
+      'tower-b-price',
+      'tower-b-monthly',
+      'gift-laptop-tv',
+      'gift-dinner-set',
+      'mega-benefit',
+      'finale'
+    ];
+
+    function s10SetPhase(phase) {
+      const towerA = document.getElementById('s10TowerA');
+      const towerB = document.getElementById('s10TowerB');
+      const priceBoxA = document.getElementById('s10PriceBoxA');
+      const priceBoxB = document.getElementById('s10PriceBoxB');
+      const emergeA = document.getElementById('s10EmergeA');
+      const emergeB = document.getElementById('s10EmergeB');
+      const giftUmrah = document.getElementById('s10GiftUmrah');
+      const giftLaptop = document.getElementById('s10GiftLaptop');
+      const giftDinner = document.getElementById('s10GiftDinner');
+      const megaBenefit = document.getElementById('s10MegaBenefit');
+
+      const offerA1 = document.getElementById('s10OfferA1');
+      const offerA4 = document.getElementById('s10OfferA4');
+      const offerA5 = document.getElementById('s10OfferA5');
+      const offerB1 = document.getElementById('s10OfferB1');
+      const offerB4 = document.getElementById('s10OfferB4');
+      const offerB5 = document.getElementById('s10OfferB5');
+
+      const resetAll = () => {
+        if (towerA) towerA.classList.remove('tower-spotlight', 'tower-dimmed');
+        if (towerB) towerB.classList.remove('tower-spotlight', 'tower-dimmed');
+        if (priceBoxA) priceBoxA.classList.remove('pop-price');
+        if (priceBoxB) priceBoxB.classList.remove('pop-price');
+        if (emergeA) emergeA.classList.remove('show');
+        if (emergeB) emergeB.classList.remove('show');
+        if (giftUmrah) giftUmrah.classList.remove('gift-spotlight', 'gift-dimmed');
+        if (giftLaptop) giftLaptop.classList.remove('gift-spotlight', 'gift-dimmed');
+        if (giftDinner) giftDinner.classList.remove('gift-spotlight', 'gift-dimmed');
+        if (megaBenefit) megaBenefit.classList.remove('benefit-spotlight');
+
+        [offerA1, offerA4, offerA5, offerB1, offerB4, offerB5].forEach(el => {
+          if (el) el.classList.remove('offer-spotlight');
+        });
+      };
+
+      resetAll();
+
+      switch (phase) {
+        case 'tower-a-price':
+          if (towerA) towerA.classList.add('tower-spotlight');
+          if (towerB) towerB.classList.add('tower-dimmed');
+          if (priceBoxA) priceBoxA.classList.add('pop-price');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
+          break;
+
+        case 'tower-a-monthly':
+          if (towerA) towerA.classList.add('tower-spotlight');
+          if (towerB) towerB.classList.add('tower-dimmed');
+          if (priceBoxA) priceBoxA.classList.add('pop-price');
+          if (emergeA) emergeA.classList.add('show');
+          if (offerA1) offerA1.classList.add('offer-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
+          break;
+
+        case 'tower-b-price':
+          if (towerB) towerB.classList.add('tower-spotlight');
+          if (towerA) towerA.classList.add('tower-dimmed');
+          if (priceBoxB) priceBoxB.classList.add('pop-price');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
+          break;
+
+        case 'tower-b-monthly':
+          if (towerB) towerB.classList.add('tower-spotlight');
+          if (towerA) towerA.classList.add('tower-dimmed');
+          if (priceBoxB) priceBoxB.classList.add('pop-price');
+          if (emergeB) emergeB.classList.add('show');
+          if (offerB1) offerB1.classList.add('offer-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
+          break;
+
+        case 'gift-laptop-tv':
+          if (giftLaptop) giftLaptop.classList.add('gift-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
+          if (offerA4) offerA4.classList.add('offer-spotlight');
+          if (offerB4) offerB4.classList.add('offer-spotlight');
+          break;
+
+        case 'gift-dinner-set':
+          if (giftDinner) giftDinner.classList.add('gift-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (offerA5) offerA5.classList.add('offer-spotlight');
+          if (offerB5) offerB5.classList.add('offer-spotlight');
+          break;
+
+        case 'mega-benefit':
+          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
+          break;
+
+        case 'finale':
+          if (priceBoxA) priceBoxA.classList.add('pop-price');
+          if (priceBoxB) priceBoxB.classList.add('pop-price');
+          if (emergeA) emergeA.classList.add('show');
+          if (emergeB) emergeB.classList.add('show');
+          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
+          if (giftLaptop) giftLaptop.classList.add('gift-spotlight');
+          if (giftDinner) giftDinner.classList.add('gift-spotlight');
+          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
+          break;
+
+        case 'intro':
+        default:
+          break;
+      }
+    }
+
+    function s10AudioTimeUpdate() {
+      if (currentSlide !== 10 || !currentVoiceAudio) return;
+      const t = currentVoiceAudio.currentTime;
+      if (t < 7.0) {
+        s10SetPhase('intro');
+      } else if (t < 15.5) {
+        s10SetPhase('tower-a-price');
+      } else if (t < 24.5) {
+        s10SetPhase('tower-a-monthly');
+      } else if (t < 33.5) {
+        s10SetPhase('tower-b-price');
+      } else if (t < 39.0) {
+        s10SetPhase('tower-b-monthly');
+      } else if (t < 49.5) {
+        s10SetPhase('gift-laptop-tv');
+      } else if (t < 56.0) {
+        s10SetPhase('gift-dinner-set');
+      } else if (t < 66.5) {
+        s10SetPhase('mega-benefit');
+      } else {
+        s10SetPhase('finale');
+      }
+    }
+
+    function s10ManualSelect(action) {
+      if (s10FallbackTimer) {
+        clearInterval(s10FallbackTimer);
+        s10FallbackTimer = null;
+      }
+      if (action === 'tower-a') {
+        const emergeA = document.getElementById('s10EmergeA');
+        if (emergeA && emergeA.classList.contains('show')) {
+          s10SetPhase('tower-a-price');
+        } else {
+          s10SetPhase('tower-a-monthly');
+        }
+      } else if (action === 'tower-b') {
+        const emergeB = document.getElementById('s10EmergeB');
+        if (emergeB && emergeB.classList.contains('show')) {
+          s10SetPhase('tower-b-price');
+        } else {
+          s10SetPhase('tower-b-monthly');
+        }
+      } else if (action === 'gift-umrah') {
+        s10SetPhase('tower-a-monthly');
+      } else if (action === 'gift-laptop-tv') {
+        s10SetPhase('gift-laptop-tv');
+      } else if (action === 'gift-dinner-set') {
+        s10SetPhase('gift-dinner-set');
+      } else if (action === 'mega-benefit') {
+        s10SetPhase('mega-benefit');
+      }
+    }
+
+    function onSlide10Enter() {
+      s10SetPhase('intro');
+      if (!currentVoiceAudio || currentVoiceAudio.paused) {
+        if (s10FallbackTimer) clearInterval(s10FallbackTimer);
+        s10CurrentPhaseIndex = 0;
+        s10FallbackTimer = setInterval(() => {
+          s10CurrentPhaseIndex = (s10CurrentPhaseIndex + 1) % s10Phases.length;
+          s10SetPhase(s10Phases[s10CurrentPhaseIndex]);
+        }, 4200);
+      }
+    }
+
+    function onSlide10Leave() {
+      if (s10FallbackTimer) {
+        clearInterval(s10FallbackTimer);
+        s10FallbackTimer = null;
+      }
+      s10SetPhase('reset');
+    }
+
+
     function buildDots() {
       const container = document.getElementById('dotsContainer');
       container.innerHTML = '';
@@ -7126,20 +7327,30 @@
       if (!soundEnabled) return;
 
                   const slideAudioMapping = {
-        1: 'audio/slide_1.mp3',
-        2: 'audio/slide_2.mp3',
-        3: 'audio/slide_3.mp3',
-        4: 'audio/slide_4.mp3',
-        5: 'audio/slide_5.mp3',
-        6: 'audio/slide_6.mp3',
-        7: 'audio/slide_7.mp3',
-        8: 'audio/slide_11.mp3',
+        1: 'new audio/slide_1.wav',
+        2: 'new audio/slide 2.wav',
+        3: 'new audio/slid 3.wav',
+        4: 'new audio/slid 4.wav',
+        5: 'new audio/slid 5.wav',
+        6: 'new audio/slid 6.wav',
+        7: 'new audio/slid 7.wav',
+        8: 'new audio/slid 8.wav',
+        9: 'new audio/slid 9.wav',
+        10: 'new audio/slid 10.wav',
         11: 'audio/slide_13.mp3'
       };
       const audioSrc = slideAudioMapping[slideIndex];
       if (!audioSrc) return;
 
       currentVoiceAudio = new Audio(audioSrc);
+
+      if (slideIndex === 10) {
+        if (s10FallbackTimer) {
+          clearInterval(s10FallbackTimer);
+          s10FallbackTimer = null;
+        }
+        currentVoiceAudio.addEventListener('timeupdate', s10AudioTimeUpdate);
+      }
 
       currentVoiceAudio.onended = () => {
         // If auto-play is active, advance to next slide after narration completes
@@ -7230,6 +7441,12 @@
         onSlide6Enter();
       } else {
         onSlide6Leave();
+      }
+
+      if (currentSlide === 10) {
+        onSlide10Enter();
+      } else {
+        onSlide10Leave();
       }
     }
 
@@ -7414,55 +7631,88 @@
         }, delay);
       });
 
-      // ── STEP 5: Satellite map fades out gracefully (20s) ──
+      // ── STEP 5: Satellite map fades into Plot view at 14s (perfect sync with narration) ──
       setTimeout(() => {
         if (dot3) { dot2 && dot2.classList.remove('active'); dot3.classList.add('active'); }
         if (canvas) {
-          canvas.style.transition = 'opacity 1.6s ease';
+          canvas.style.transition = 'opacity 1.2s ease';
           canvas.style.opacity = '0';
         }
-      }, 20500);
+      }, 14000);
 
-      // ── STEP 6: Pure white masterplan architectural canvas draws itself (22s) ──
+      // ── STEP 6: Masterplan architectural plot canvas reveals itself (15s) ──
       setTimeout(() => {
         if (mpCanvas) {
-          mpCanvas.style.transition = 'opacity 1.2s ease';
+          mpCanvas.style.transition = 'opacity 1.0s ease';
           mpCanvas.style.opacity = '1';
           setTimeout(() => {
             mpCanvas.classList.add('phase-reveal');
-          }, 100);
+          }, 80);
         }
-      }, 22000);
+      }, 15200);
 
-      // ── STEP 7: Halka Zoom-Out to reveal surrounding plots (Greenville, BCS School, Eden River, EST Town) (29s) ──
+      // ── STEP 7: Smooth Zoom-Out & surrounding projects reveal (Greenville, Eden River, BCS School, EST Town) (19s) ──
       setTimeout(() => {
         if (mpScene) {
           mpScene.classList.add('zoomed-out');
         }
-        // Smoothly reveal surrounding landmark plots with delay
-        setTimeout(() => {
-          const eg = document.getElementById('ngEdenRiver');
-          if (eg) { eg.style.transition = 'opacity 1s ease'; eg.style.opacity = '1'; }
-        }, 600);
         setTimeout(() => {
           const gv = document.getElementById('ngGreenville');
           if (gv) { gv.style.transition = 'opacity 1s ease'; gv.style.opacity = '1'; }
-        }, 1100);
+        }, 500);
+        setTimeout(() => {
+          const eg = document.getElementById('ngEdenRiver');
+          if (eg) { eg.style.transition = 'opacity 1s ease'; eg.style.opacity = '1'; }
+        }, 1200);
         setTimeout(() => {
           const bs = document.getElementById('ngBcsSchool');
           if (bs) { bs.style.transition = 'opacity 1s ease'; bs.style.opacity = '1'; }
-        }, 1600);
+        }, 1800);
         setTimeout(() => {
           const et = document.getElementById('ngEstTown');
           if (et) { et.style.transition = 'opacity 1s ease'; et.style.opacity = '1'; }
-        }, 2100);
+        }, 2400);
 
-        // Show replay button at the end
+        // Show replay button
         setTimeout(() => {
           if (replayBtn) replayBtn.style.display = 'flex';
           s5Running = false;
-        }, 4000);
-      }, 29000);
+        }, 5000);
+      }, 19000);
+    }
+
+    
+    function s5GoToPhase(phaseNum) {
+      const canvas = document.getElementById('s5Canvas');
+      const mpCanvas = document.getElementById('s5MasterplanCanvas');
+      const mpScene = document.getElementById('s5MpScene');
+      const dot1 = document.getElementById('s5Dot1');
+      const dot2 = document.getElementById('s5Dot2');
+      const dot3 = document.getElementById('s5Dot3');
+      const neighbors = ['ngEdenRiver','ngGreenville','ngBcsSchool','ngEstTown'];
+
+      if (phaseNum === 1 || phaseNum === 2) {
+        if (canvas) { canvas.style.opacity = '1'; }
+        if (mpCanvas) { mpCanvas.style.opacity = '0'; mpCanvas.classList.remove('phase-reveal'); }
+        if (dot1) dot1.classList.toggle('active', phaseNum === 1);
+        if (dot2) dot2.classList.toggle('active', phaseNum === 2);
+        if (dot3) dot3.classList.remove('active');
+      } else if (phaseNum === 3) {
+        // Direct jump to Masterplan Plot View
+        if (canvas) { canvas.style.opacity = '0'; }
+        if (mpCanvas) {
+          mpCanvas.style.opacity = '1';
+          mpCanvas.classList.add('phase-reveal');
+        }
+        if (mpScene) { mpScene.classList.add('zoomed-out'); }
+        neighbors.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) { el.style.opacity = '1'; }
+        });
+        if (dot1) dot1.classList.remove('active');
+        if (dot2) dot2.classList.remove('active');
+        if (dot3) dot3.classList.add('active');
+      }
     }
 
     function onSlide5Enter() {
@@ -7483,7 +7733,7 @@
         tag: 'লেভেল: বেজমেন্ট ১ ও ২',
         title: 'স্মার্ট অটোমেটেড বেজমেন্ট কার পার্কিং',
         sub: 'দ্বি-তল বিশিষ্ট সুরক্ষিত অটোমেটেড পার্কিং, প্রশস্ত ড্রাইভিং র‍্যাম্প ও দ্রুতগতির ইভি চার্জিং স্টেশন',
-        img: 'image/parking.jpg',
+        img: 'image/parking.webp',
         animType: 'slide-right', // Horizontal Slide Wipe
         isContain: false
       },
@@ -7495,7 +7745,7 @@
         tag: 'লেভেল: গ্রাউন্ড থেকে ৪র্থ তলা',
         title: 'আন্তর্জাতিক মানের মেগা সুপারশপ',
         sub: 'দৈনন্দিন প্রয়োজনীয় গ্রোসারি ও শীর্ষ ব্র্যান্ড সমাহার নিয়ে সুবিশাল আধুনিক শপিং হাব',
-        img: 'image/supershop.png',
+        img: 'image/supershop.webp',
         animType: 'fade', // Cinematic Cross-Fade
         isContain: false
       },
@@ -7506,7 +7756,7 @@
         tag: 'লেভেল: গ্রাউন্ড থেকে ৪র্থ তলা',
         title: 'প্রিমিয়াম ক্যাফে ও ফ্যামিলি ডাইনিং',
         sub: 'রুচিশীল খাবার, আড্ডার পরিবেশ ও পরিবার নিয়ে ডাইনিংয়ের অভিজাত ব্যবস্থা',
-        img: 'image/cafe restaurent.png',
+        img: 'image/cafe restaurent.webp',
         animType: 'slide-up', // Smooth Vertical Slide
         isContain: false
       },
@@ -7517,7 +7767,7 @@
         tag: 'লেভেল: গ্রাউন্ড থেকে ৪র্থ তলা',
         title: '২৪/৭ সেন্ট্রাল ফার্মেসি ও হেলথ কেয়ার',
         sub: 'জরুরি ওষুধ ও প্রয়োজনীয় স্বাস্থ্যসেবা সামগ্রী সার্বক্ষণিক হাতের নাগালে',
-        img: 'image/pharmacy.png',
+        img: 'image/pharmacy.webp',
         animType: 'zoom-fade', // Soft Zoom & Blur Fade
         isContain: false
       },
@@ -7529,7 +7779,7 @@
         tag: 'লেভেল: ৫ম তলা এক্সক্লুসিভ',
         title: 'ওয়ার্ল্ড ক্লাস ফিটনেস জিমনেশিয়াম',
         sub: 'উন্নত কার্ডিও ও স্ট্রেন্থ ইকুইপমেন্টসহ প্রফেশনাল ফিটনেস ট্রেইনারের তত্ত্বাবধান',
-        img: 'image/gym.png',
+        img: 'image/gym.webp',
         animType: 'slide-right', // Energetic Slide
         isContain: false
       },
@@ -7540,7 +7790,7 @@
         tag: 'লেভেল: ৫ম তলা এক্সক্লুসিভ',
         title: 'নান্দনিক সেন্ট্রাল মসজিদ ও ওজুখানা',
         sub: 'প্রশান্তিময় পরিবেশে জামাতে নামাজ আদায়ের জন্য সুপ্রশস্ত ও সুন্দর ব্যবস্থা',
-        img: 'image/mosq.png',
+        img: 'image/mosq.webp',
         animType: 'fade', // Peaceful, serene dissolve fade
         isContain: false
       },
@@ -7551,7 +7801,7 @@
         tag: 'লেভেল: ৫ম তলা এক্সক্লুসিভ',
         title: 'গ্র্যান্ড কমিউনিটি ও ব্যাঙ্কোয়েট হল',
         sub: 'পারিবারিক উৎসব, সম্মেলন ও সামাজিক গেট-টুগেদারের জন্য সুপরিসর আধুনিক হল',
-        img: 'image/comiunity hall.png',
+        img: 'image/comiunity hall.webp',
         animType: 'slide-up', // Grand Hall Slide-up
         isContain: false
       },
@@ -7562,7 +7812,7 @@
         tag: 'লেভেল: ৫ম তলা এক্সক্লুসিভ',
         title: 'নিরাপদ কিডস প্লে জোন ও বিনোদন',
         sub: 'শিশুদের আনন্দময় শৈশব ও খেলার জন্য সার্বক্ষণিক নজরদারিতে সুরক্ষিত ইনডোর জোন',
-        img: 'image/kids zone.png',
+        img: 'image/kids zone.webp',
         animType: 'zoom-fade', // Playful Zoom-Fade
         isContain: false
       },
@@ -7573,7 +7823,7 @@
         tag: 'লেভেল: ৫ম তলা এক্সক্লুসিভ',
         title: 'রেসিডেন্টস এক্সক্লুসিভ ক্লাব হাউস',
         sub: 'ইনডোর স্পোর্টস, আড্ডা ও অবসর কাটানোর আভিজাত্যপূর্ণ আয়োজন',
-        img: 'image/club house.png',
+        img: 'image/club house.webp',
         animType: 'slide-right', // Lounge Slide
         isContain: false
       },
@@ -7585,7 +7835,7 @@
         tag: 'লেভেল: ৬ষ্ঠ থেকে ১৯তম তলা',
         title: '২১ তলা আইকনিক রেসিডেন্সিয়াল টাওয়ার',
         sub: 'টাওয়ার-এ ও টাওয়ার-বি মিলিয়ে ২৫২টি সুরম্য ও খোলামেলা লাক্সারি অ্যাপার্টমেন্ট',
-        img: 'image/time squre bulding with background.jpeg',
+        img: 'image/time squre bulding with background.webp',
         animType: 'slide-up', // Architectural Bottom-to-Top Rise
         isContain: false
       },
@@ -7597,7 +7847,7 @@
         tag: 'লেভেল: ২১ তলার চূড়ায়',
         title: 'রুফটপ ইনফিনিটি সুইমিং পুল',
         sub: 'আকাশছোঁয়া উচ্চতায় নীল জলের স্নিগ্ধতা, বিশ্বমানের ফিল্ট্রেশন ও রিলাক্সেশনের অভিজাত ব্যবস্থা',
-        img: 'image/swiming_pool.jpg',
+        img: 'image/swiming_pool.webp',
         animType: 'fade',
         isContain: false
       },
@@ -7609,7 +7859,7 @@
         tag: 'লেভেল: ২১ তলার চূড়ায়',
         title: 'নান্দনিক রুফটপ গার্ডেন ও ল্যান্ডস্কেপ',
         sub: 'সবুজে ঘেরা ছাদবাগান, বসার ব্যবস্থা ও মুক্ত নির্মল বাতাসের স্নিগ্ধ পরিবেশ',
-        img: 'image/rooftop garden.png',
+        img: 'image/rooftop garden.webp',
         animType: 'fade', // Scenic Nature Fade
         isContain: false
       },
@@ -7620,7 +7870,7 @@
         tag: 'লেভেল: ২১ তলার চূড়ায়',
         title: '৩৬০° প্যানোরামিক স্কাই লাউঞ্জ ভিউ',
         sub: 'শহরের দিগন্ত বিস্তৃত মনোরম দৃশ্য ও রক্তিম সূর্যাস্তের অসাধারণ অনুভূতি',
-        img: 'image/rooftop view.png',
+        img: 'image/rooftop view.webp',
         animType: 'zoom-fade', // Panoramic Zoom-Fade
         isContain: false
       },
@@ -7631,7 +7881,7 @@
         tag: 'লেভেল: ২১ তলার চূড়ায়',
         title: 'আকাশছোঁয়া রুফটপ ওয়াকিং ট্র্যাক',
         sub: 'প্রাতঃভ্রমণ ও সান্ধ্যকালীন হাঁটার জন্য উন্মুক্ত ও নিরাপদ ট্র্যাক',
-        img: 'image/walking space.png',
+        img: 'image/walking space.webp',
         animType: 'slide-right', // Track Slide
         isContain: false
       },
@@ -7642,7 +7892,7 @@
         tag: 'লেভেল: ২১ তলার চূড়ায়',
         title: 'খোলা আকাশের নিচে গ্রিন সিটিং স্পেস',
         sub: 'পরিবার ও বন্ধুদের সাথে নৈসর্গিক পরিবেশে প্রাণবন্ত গল্প ও বিশ্রামের স্থান',
-        img: 'image/green sitting spae.png',
+        img: 'image/green sitting spae.webp',
         animType: 'fade', // Peaceful Evening Dissolve
         isContain: false
       }
