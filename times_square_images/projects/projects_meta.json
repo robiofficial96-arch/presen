@@ -1,0 +1,92 @@
+[
+  {
+    "id": 21,
+    "title": "Rose Garden",
+    "title_bn": "রোজ গার্ডেন",
+    "status": "completed",
+    "status_bn": "সম্পন্ন প্রকল্প",
+    "location_bn": "নিউ টাউন আবাসিক এলাকা, কেন্দ্রীয় জামে মসজিদ রোড, সাইনবোর্ড, ডেমরা, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/Rose%20garden.jpeg",
+    "local_file": "rose_garden.jpeg"
+  },
+  {
+    "id": 20,
+    "title": "Darus Saeed Tower",
+    "title_bn": "দারুস সাঈদ টাওয়ার",
+    "status": "completed",
+    "status_bn": "সম্পন্ন প্রকল্প",
+    "location_bn": "নিউ টাউন, এ/৬, ৯ নং রোড, শাহীনবোর্ড, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/Darud%20sayed%20Tower.jpeg",
+    "local_file": "darus_saeed_tower.jpeg"
+  },
+  {
+    "id": 22,
+    "title": "Green Garden",
+    "title_bn": "গ্রীন গার্ডেন",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "নিউ টাউন আবাসিক এলাকা, ব্লক-এ, শহর পল্লী, রোড নং ৫, হাজী বাদশা মিয়া রোড, মাতুয়াইল, ডেমরা, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/green%20garden%20(1).jpeg",
+    "local_file": "green_garden.jpeg"
+  },
+  {
+    "id": 23,
+    "title": "Abrar Garden",
+    "title_bn": "আবরার গার্ডেন",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "নিউ টাউন আ/এ, কেন্দ্রীয় জামে মসজিদ সংলগ্ন, মাতুয়াইল, ডেমরা, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/our%20tours%20%26%20Travels/abrar%20garden%20(1).jpeg",
+    "local_file": "abrar_garden.jpeg"
+  },
+  {
+    "id": 28,
+    "title": "Our London Tower",
+    "title_bn": "আওয়ার লন্ডন টাওয়ার",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "আশিয়ান মেডিকেল সংলগ্ন ৩০০ ফিট, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/our%20lodon%20tower.png",
+    "local_file": "our_london_tower.png"
+  },
+  {
+    "id": 25,
+    "title": "Our Khondokar Garden",
+    "title_bn": "আওয়ার খন্দকার গার্ডেন",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "২৪ ফুট রোড, শনির আখড়া, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/khondokar%20tower.png",
+    "local_file": "khondokar_garden.png"
+  },
+  {
+    "id": 27,
+    "title": "Swadesh Garden 1 & 2",
+    "title_bn": "স্বদেশ গার্ডেন ১ ও ২",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "শনিরআখড়া, শেখদী, যাত্রাবাড়ী, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/sodes%20garden%20(1).jpeg",
+    "local_file": "swadesh_garden.jpeg"
+  },
+  {
+    "id": 26,
+    "title": "Our Iconic City",
+    "title_bn": "আওয়ার আইকনিক সিটি",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "লন্ডন মার্কেট সানারপাড়, ডেমরা, ঢাকা",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/iconic%20city%20(1).jpeg",
+    "local_file": "iconic_city.jpeg"
+  },
+  {
+    "id": 19,
+    "title": "Riverview-1",
+    "title_bn": "রিভারভিউ - ১",
+    "status": "ongoing",
+    "status_bn": "চলমান প্রকল্প",
+    "location_bn": "বসুন্ধরা রিভার ভিউ, ব্লক এ, প্লট নং-৬৫৫/৬৫৬, রোড নং-০৯",
+    "img_url": "https://bceonjnxvjsduddydnvh.supabase.co/storage/v1/object/public/ourbuilders/Revirview-1.png",
+    "local_file": "riverview_1.png"
+  }
+]

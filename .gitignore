@@ -1,0 +1,27 @@
+# Scratch & debug scripts
+*.py
+*.txt
+*.bak
+*.pre*.bak
+__pycache__/
+
+# Scratch debug and test screenshots
+test_*
+verified_*
+verify_*
+screenshot_*
+check_*.png
+s7_*.png
+s8_*.png
+s13_*.png
+slide6_*.png
+slide8_*.png
+slide13_*.png
+temp_*
+
+# Intermediate snippets
+s2_*
+s6_*
+slide2_*
+slide6_markup.html
+nav_snippet.js
