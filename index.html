@@ -7696,19 +7696,14 @@
        SYNCHRONIZED WITH VOICE1.WAV NARRATION (135.05s)
        ========================================================= */
     let s10FallbackTimer = null;
-    let s10CurrentPhaseIndex = 0;
     const s10Phases = [
       'intro',
       'tower-a-price',
-      'tower-a-monthly',
-      'gift-umrah',
       'tower-b-price',
-      'tower-b-monthly',
       'land-cashback',
       'gift-laptop-tv',
-      'gift-dinner-set',
-      'mega-benefit',
-      'finale'
+      'post-ceremony-perks',
+      'gift-dinner-set'
     ];
 
     let s10CurrentActivePhase = null;
@@ -7716,6 +7711,7 @@
     function s10DismissIntro() {
       const intro = document.getElementById('s10HeroIntro');
       if (intro) intro.classList.add('hidden');
+      s10SetPhase('tower-a-price', true);
     }
 
     function s10SetPhase(phase, force = false) {
@@ -7763,23 +7759,11 @@
 
       switch (phase) {
         case 'intro':
-          // Intro banner handles 0-14.5s; chart stays in clean, stable state
+          // Intro banner handles 0 - 19.5s; chart stays in clean, stable state
           break;
 
         case 'tower-a-price':
-          // 14.5 - 21.0s: Tower A & 50 Lakh spotlight
-          if (towerA) towerA.classList.add('tower-spotlight');
-          if (towerB) towerB.classList.add('tower-dimmed');
-          if (priceBoxA) priceBoxA.classList.add('pop-price');
-          if (emergeA) emergeA.classList.add('show');
-          if (perkA1) perkA1.classList.add('perk-spotlight');
-          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
-          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
-          if (giftDinner) giftDinner.classList.add('gift-dimmed');
-          break;
-
-        case 'gift-umrah':
-          // 21.0 - 27.5s: Umrah gift card spotlights & expands
+          // 20 - 44s: Tower A & 50 Lakh spotlight, 25k/month cashback popup, Umrah Hajj
           if (towerA) towerA.classList.add('tower-spotlight');
           if (towerB) towerB.classList.add('tower-dimmed');
           if (priceBoxA) priceBoxA.classList.add('pop-price');
@@ -7791,114 +7775,120 @@
           break;
 
         case 'tower-b-price':
-          // 27.5 - 34.5s: Tower B & 40 Lakh spotlight & 20k cashback
+          // 45 - 49s: Tower B & 40 Lakh spotlight & 20k cashback popup, Umrah Hajj
           if (towerB) towerB.classList.add('tower-spotlight');
           if (towerA) towerA.classList.add('tower-dimmed');
           if (priceBoxB) priceBoxB.classList.add('pop-price');
           if (emergeB) emergeB.classList.add('show');
           if (perkB1) perkB1.classList.add('perk-spotlight');
-          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
           if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
           if (giftDinner) giftDinner.classList.add('gift-dimmed');
           break;
 
         case 'land-cashback':
-          // 34.5 - 46.0s: Land prices & monthly cashback highlight
+          // 50 - 85s (1:25): Land prices (15L & 12L) & monthly cashback (7.5k & 6k)
           if (landA) landA.classList.add('highlight-land');
           if (landB) landB.classList.add('highlight-land');
           if (perkA2) perkA2.classList.add('perk-spotlight');
           if (perkB2) perkB2.classList.add('perk-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
           break;
 
         case 'gift-laptop-tv':
-          // 46.0 - 55.0s: Laptop / 32" Smart TV gift card spotlights & expands
+          // 85 - 99s (1:25 - 1:39): Laptop / 32" Smart LED TV gift card spotlights & expands
           if (giftLaptop) giftLaptop.classList.add('gift-spotlight');
           if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
           if (giftDinner) giftDinner.classList.add('gift-dimmed');
+          break;
+
+        case 'post-ceremony-perks':
+          // 99 - 114s (1:39 - 1:54): Post-ceremony perks (1 month after ceremony & 3 months land)
           if (perkA3) perkA3.classList.add('perk-spotlight');
           if (perkB3) perkB3.classList.add('perk-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
           break;
 
         case 'gift-dinner-set':
-          // 55.0 - 65.0s: 32-pc Luxury Dinner Set gift card spotlights & expands
-          if (giftDinner) giftDinner.classList.add('gift-spotlight');
-          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
-          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
-          break;
-
-        case 'mega-benefit':
-          // 65.0 - 74.0s: 5 Lakh direct savings mega banner spotlights
-          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
-          break;
-
         case 'finale':
-          // 74.0s+: Complete celebration finale
+          // 114s+ (1:54 - end voice): 32-pc Luxury Dinner Set & 5 Lakh Savings Mega Banner
+          if (giftDinner) giftDinner.classList.add('gift-spotlight');
+          if (giftUmrah) giftUmrah.classList.remove('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.remove('gift-dimmed');
+          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
           if (priceBoxA) priceBoxA.classList.add('pop-price');
           if (priceBoxB) priceBoxB.classList.add('pop-price');
           if (emergeA) emergeA.classList.add('show');
           if (emergeB) emergeB.classList.add('show');
-          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
-          if (giftLaptop) giftLaptop.classList.add('gift-spotlight');
-          if (giftDinner) giftDinner.classList.add('gift-spotlight');
-          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
           break;
+      }
+    }
+
+    function s10ProcessTime(t) {
+      const intro = document.getElementById('s10HeroIntro');
+      if (t < 19.5) {
+        // 1 - 19s: onusthan.png Ceremony Hero Banner ("বায়না চুক্তিনামা সম্পাদন অনুষ্ঠান")
+        if (intro) intro.classList.remove('hidden');
+        s10SetPhase('intro');
+      } else {
+        // 19.5s+: Dismiss banner and reveal comparison chart
+        if (intro) intro.classList.add('hidden');
+
+        if (t < 45.0) {
+          // 20 - 44s: এককালীন ৫০ লাখ দিলে ভবন A (Building A 50L price, 25k/mo cashback popup & Umrah card)
+          s10SetPhase('tower-a-price');
+        } else if (t < 50.0) {
+          // 45 - 49s: ভবন B এর এককালীন ৪০ লাখ এর টা (Building B 40L price & 20k/mo cashback popup)
+          s10SetPhase('tower-b-price');
+        } else if (t < 85.0) {
+          // 50 - 1:25 (85s): জমির মূল্য দিলে (Tower A 15L & Tower B 12L land prices, 7.5k/6k monthly cashback)
+          s10SetPhase('land-cashback');
+        } else if (t < 99.0) {
+          // 1:25 - 1:39 (85-99s): laptop / 32" Smart LED TV gift card
+          s10SetPhase('gift-laptop-tv');
+        } else if (t < 114.0) {
+          // 1:39 - 1:54 (99-114s): অনুষ্ঠানের পর কার্যকর প্রণোদনা (Post-ceremony perks)
+          s10SetPhase('post-ceremony-perks');
+        } else {
+          // 1:54 - শেষ (114s+): booking dile diner set (৩২ পিস লাক্সারি ডিনার সেট ও ৫ লাখ টাকা মেগা সেভিংস ব্যানার)
+          s10SetPhase('gift-dinner-set');
+        }
       }
     }
 
     function s10AudioTimeUpdate() {
       if (currentSlide !== 10 || !currentVoiceAudio) return;
-      const t = currentVoiceAudio.currentTime;
-
-      const intro = document.getElementById('s10HeroIntro');
-      if (t < 14.5) {
-        // 0 - 14.5s: onusthan.png Ceremony Hero Banner
-        if (intro) intro.classList.remove('hidden');
-        s10SetPhase('intro');
-      } else {
-        // 14.5s+: Dismiss banner and spotlight each section in the comparison chart
-        if (intro) intro.classList.add('hidden');
-
-        if (t < 21.0) {
-          // 14.5 - 21.0s: Tower A 50 Lakh & 25k cashback
-          s10SetPhase('tower-a-price');
-        } else if (t < 27.5) {
-          // 21.0 - 27.5s: Umrah package & 25k cashback
-          s10SetPhase('gift-umrah');
-        } else if (t < 34.5) {
-          // 27.5 - 34.5s: Tower B 40 Lakh & 20k cashback
-          s10SetPhase('tower-b-price');
-        } else if (t < 46.0) {
-          // 34.5 - 46.0s: Land booking & monthly cashback
-          s10SetPhase('land-cashback');
-        } else if (t < 55.0) {
-          // 46.0 - 55.0s: Laptop / 32" Smart LED TV
-          s10SetPhase('gift-laptop-tv');
-        } else if (t < 65.0) {
-          // 55.0 - 65.0s: 32-pc Luxury Dinner Set
-          s10SetPhase('gift-dinner-set');
-        } else if (t < 74.0) {
-          // 65.0 - 74.0s: 5 Lakh direct savings banner
-          s10SetPhase('mega-benefit');
-        } else {
-          // 74.0s+: Complete celebration finale
-          s10SetPhase('finale');
-        }
-      }
+      s10ProcessTime(currentVoiceAudio.currentTime);
     }
 
     function onSlide10Enter() {
       s10CurrentActivePhase = null;
+      if (s10FallbackTimer) { clearInterval(s10FallbackTimer); s10FallbackTimer = null; }
+
       const intro = document.getElementById('s10HeroIntro');
+      if (intro) intro.classList.remove('hidden');
+      s10ProcessTime(0);
+
+      // Only start fallback timer if voiceover is muted or not playing
       if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
-        if (intro) intro.classList.add('hidden');
-        s10SetPhase('finale', true);
-      } else {
-        if (intro) intro.classList.remove('hidden');
-        s10SetPhase('intro', true);
+        let sec = 0;
+        s10FallbackTimer = setInterval(() => {
+          if (currentSlide !== 10) { clearInterval(s10FallbackTimer); return; }
+          sec += 1;
+          s10ProcessTime(sec);
+        }, 1000);
       }
     }
 
     function onSlide10Leave() {
+      if (s10FallbackTimer) {
+        clearInterval(s10FallbackTimer);
+        s10FallbackTimer = null;
+      }
       s10CurrentActivePhase = null;
       const intro = document.getElementById('s10HeroIntro');
       if (intro) intro.classList.remove('hidden');
@@ -7909,54 +7899,22 @@
         clearInterval(s10FallbackTimer);
         s10FallbackTimer = null;
       }
+      const intro = document.getElementById('s10HeroIntro');
+      if (intro) intro.classList.add('hidden');
+
       if (action === 'tower-a') {
-        const emergeA = document.getElementById('s10EmergeA');
-        if (emergeA && emergeA.classList.contains('show')) {
-          s10SetPhase('tower-a-price');
-        } else {
-          s10SetPhase('tower-a-monthly');
-        }
+        s10SetPhase('tower-a-price', true);
       } else if (action === 'tower-b') {
-        const emergeB = document.getElementById('s10EmergeB');
-        if (emergeB && emergeB.classList.contains('show')) {
-          s10SetPhase('tower-b-price');
-        } else {
-          s10SetPhase('tower-b-monthly');
-        }
+        s10SetPhase('tower-b-price', true);
       } else if (action === 'gift-umrah') {
-        s10SetPhase('gift-umrah');
+        s10SetPhase('gift-umrah', true);
       } else if (action === 'gift-laptop-tv') {
-        s10SetPhase('gift-laptop-tv');
+        s10SetPhase('gift-laptop-tv', true);
       } else if (action === 'gift-dinner-set') {
-        s10SetPhase('gift-dinner-set');
+        s10SetPhase('gift-dinner-set', true);
       } else if (action === 'mega-benefit') {
-        s10SetPhase('mega-benefit');
+        s10SetPhase('mega-benefit', true);
       }
-    }
-
-    function onSlide10Enter() {
-      s10CurrentActivePhase = null;
-      s10SetPhase('intro', true);
-      if (s10FallbackTimer) { clearInterval(s10FallbackTimer); s10FallbackTimer = null; }
-
-      // Only start fallback cycling if voiceover is muted or not playing
-      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
-        s10CurrentPhaseIndex = 0;
-        s10FallbackTimer = setInterval(() => {
-          if (currentSlide !== 10) { clearInterval(s10FallbackTimer); return; }
-          s10CurrentPhaseIndex = (s10CurrentPhaseIndex + 1) % s10Phases.length;
-          s10SetPhase(s10Phases[s10CurrentPhaseIndex]);
-        }, 4200);
-      }
-    }
-
-    function onSlide10Leave() {
-      if (s10FallbackTimer) {
-        clearInterval(s10FallbackTimer);
-        s10FallbackTimer = null;
-      }
-      s10CurrentActivePhase = null;
-      s10SetPhase('intro', true);
     }
 
     /* =========================================================
