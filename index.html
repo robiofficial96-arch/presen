@@ -2034,69 +2034,30 @@
 
     .s6-fs-img {
       position: absolute;
-      inset: -5% -5%;
-      width: 110%;
-      height: 110%;
+      inset: -3% -3%;
+      width: 106%;
+      height: 106%;
       object-fit: cover;
       display: block;
       opacity: 0;
-      transform-origin: center center;
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform, opacity;
+      transform: scale(1.0);
+      transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
       pointer-events: none;
     }
 
     .s6-fs-img.active {
       opacity: 1;
       z-index: 2;
+      animation: s6GentleKenBurns 18s ease-out forwards;
     }
 
-    /* Active, Noticeable & Dynamic Cinematic Ken Burns Camera Motion ("নিরাচরা") */
-    .s6-motion-1 {
-      animation: s6KenBurnsMotion1 14s cubic-bezier(0.25, 0.8, 0.35, 1) infinite alternate;
-    }
-
-    .s6-motion-2 {
-      animation: s6KenBurnsMotion2 14s cubic-bezier(0.25, 0.8, 0.35, 1) infinite alternate;
-    }
-
-    .s6-motion-3 {
-      animation: s6KenBurnsMotion3 14s cubic-bezier(0.25, 0.8, 0.35, 1) infinite alternate;
-    }
-
-    @keyframes s6KenBurnsMotion1 {
+    @keyframes s6GentleKenBurns {
       0% {
-        transform: scale(1.02) translate(0%, 0%);
-      }
-      50% {
-        transform: scale(1.10) translate(-1.8%, -1.2%);
+        transform: scale(1.0);
       }
       100% {
-        transform: scale(1.16) translate(-3.0%, -2.2%);
-      }
-    }
-
-    @keyframes s6KenBurnsMotion2 {
-      0% {
-        transform: scale(1.16) translate(2.5%, 1.8%);
-      }
-      50% {
-        transform: scale(1.09) translate(0.5%, 0.4%);
-      }
-      100% {
-        transform: scale(1.03) translate(-2.0%, -1.2%);
-      }
-    }
-
-    @keyframes s6KenBurnsMotion3 {
-      0% {
-        transform: scale(1.07) translate(-2.6%, 1.8%);
-      }
-      50% {
-        transform: scale(1.14) translate(1.4%, -1.4%);
-      }
-      100% {
-        transform: scale(1.08) translate(2.8%, 1.2%);
+        transform: scale(1.05);
       }
     }
 
@@ -8757,50 +8718,49 @@
     }
 
     let s6ActiveBuffer = 1;
+    let s6ImageFadeTimer = null;
 
-    function s6SelectFacility(globalIndex, isManual = false, forceRevealed = false) {
+    // Preload Slide 6 images into browser cache for zero-lag silky transitions
+    function s6PreloadImages() {
+      s6Facilities.forEach(f => {
+        const img = new Image();
+        img.src = f.img;
+      });
+    }
+    s6PreloadImages();
+
+    function s6SelectFacility(globalIndex, isManual = false) {
       if (globalIndex < 0 || globalIndex >= s6Facilities.length) return;
-
-      // Clear any running animation or timers
-      if (s6AnimTimer) {
-        clearTimeout(s6AnimTimer);
-        s6AnimTimer = null;
-      }
-      if (s6CleanupTimer) {
-        clearTimeout(s6CleanupTimer);
-        s6CleanupTimer = null;
-      }
 
       s6CurrentFacilityIndex = globalIndex;
       const item = s6Facilities[globalIndex];
       s6CurrentFloor = item.floor;
 
-      // Update Dual-Buffer Full Screen Images with Silky Cross-Fade & Active Motion
-      const nextBuffer = s6ActiveBuffer === 1 ? 2 : 1;
+      // Update Dual-Buffer Full Screen Images
+      const nextBuffer = (s6ActiveBuffer === 1) ? 2 : 1;
       const curImg = document.getElementById('s6FsImg' + s6ActiveBuffer);
       const nextImg = document.getElementById('s6FsImg' + nextBuffer);
 
       if (nextImg) {
-        // Set new image source
-        nextImg.src = item.img;
-
-        // Apply an active dynamic camera motion cycle (s6-motion-1, s6-motion-2, s6-motion-3)
-        const motionClass = 's6-motion-' + ((globalIndex % 3) + 1);
-        nextImg.className = 's6-fs-img ' + motionClass;
-
-        // Force reflow and activate new image with smooth cross-fade
-        void nextImg.offsetWidth;
-        nextImg.classList.add('active');
-
-        // Gracefully remove old active image after cross-fade completes
-        if (forceRevealed) {
-          if (curImg && curImg !== nextImg) curImg.classList.remove('active');
-        } else {
-          const oldImg = curImg;
-          s6CleanupTimer = setTimeout(() => {
-            if (oldImg && oldImg !== nextImg) oldImg.classList.remove('active');
-          }, 850);
+        if (s6ImageFadeTimer) {
+          clearTimeout(s6ImageFadeTimer);
+          s6ImageFadeTimer = null;
         }
+
+        // Set image source and trigger smooth fade in
+        nextImg.src = item.img;
+        nextImg.classList.remove('active');
+
+        requestAnimationFrame(() => {
+          nextImg.classList.add('active');
+
+          const oldImg = curImg;
+          s6ImageFadeTimer = setTimeout(() => {
+            if (oldImg && oldImg !== nextImg) {
+              oldImg.classList.remove('active');
+            }
+          }, 800);
+        });
 
         s6ActiveBuffer = nextBuffer;
       }
@@ -8811,42 +8771,14 @@
       if (chipTag) chipTag.textContent = item.tag;
       if (chipName) chipName.textContent = item.shortName;
 
-      // Render only the sleek small pills bar
+      // Update subfacilities navigation bar
       s6RenderSubfacilitiesBar(item.floor, globalIndex);
 
-      // Trigger Curtain Transition (Silky Soft Dissolve / Slide / Zoom)
+      // Keep curtain hidden permanently to avoid screen-blocking stutter
       const curtain = document.getElementById('s6TitleCurtain');
-      if (curtain) {
-        if (forceRevealed) {
-          curtain.style.display = 'none';
-        } else {
-          curtain.style.display = 'flex';
-          curtain.className = 's6-title-curtain';
-          void curtain.offsetWidth; // Force reflow
-          curtain.classList.add('visible');
+      if (curtain) curtain.style.display = 'none';
 
-          // Update curtain title texts
-          const tagText = document.getElementById('s6CurtainTagText');
-          const heading = document.getElementById('s6CurtainHeading');
-          const sub = document.getElementById('s6CurtainSub');
-          if (tagText) tagText.textContent = item.tag;
-          if (heading) heading.textContent = item.title;
-          if (sub) sub.textContent = item.sub;
-
-          // Hold title screen comfortably for 2200ms, then softly dissolve away into the photo!
-          s6AnimTimer = setTimeout(() => {
-            curtain.classList.remove('visible');
-            curtain.classList.add('anim-' + item.animType);
-
-            // Hide curtain after dissolve animation finishes (~1900ms)
-            s6CleanupTimer = setTimeout(() => {
-              curtain.style.display = 'none';
-            }, 1900);
-          }, 2200);
-        }
-      }
-
-      if (isManual && !forceRevealed) {
+      if (isManual) {
         s6RestartAutoCycle();
       }
     }
