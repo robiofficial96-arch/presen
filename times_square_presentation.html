@@ -8199,27 +8199,25 @@
       if (s4AutoTimer) { clearInterval(s4AutoTimer); s4AutoTimer = null; }
       const t = currentVoiceAudio.currentTime;
 
-      // Pacing aligned to speech: 1 switch per topic, calm & stable
+      // Exact timestamps requested by user:
+      // 0 - 12s: ৪০ কাঠা জমি
+      // 12 - 23s: ২১ তলা মেগা ভবন
+      // 23 - 30s: ২৫২ টি অ্যাপার্টমেন্ট
+      // 30s - end: ৬০ ও ৩৫ ফুট রাস্তা
       let target = 1;
-      if (t < 6.0) {
-        target = 1; // 40 Katha land
-      } else if (t < 13.5) {
-        target = 2; // 21 Floors building
-      } else if (t < 20.5) {
-        target = 3; // 252 Apartments
-      } else if (t < 29.0) {
-        target = 4; // Road connection
+      if (t < 12.0) {
+        target = 1; // ৪০ কাঠা জমি
+      } else if (t < 23.0) {
+        target = 2; // ২১ তলা মেগা ভবন
+      } else if (t < 30.0) {
+        target = 3; // ২৫২ টি অ্যাপার্টমেন্ট
       } else {
-        target = 5; // Overview
+        target = 4; // ৬০ ও ৩৫ ফুট রাস্তা
       }
 
       if (target === s4LastRenderedScene) return; // STRICT GUARD: Only transition once per phase
 
-      if (target <= 4) {
-        s4SwitchScene(target, false);
-      } else {
-        s4HighlightAllCards();
-      }
+      s4SwitchScene(target, false);
     }
 
     function s4RestartTimer() {
@@ -8227,7 +8225,7 @@
       s4AutoTimer = setInterval(() => {
         let next = (s4CurrentScene % 4) + 1;
         s4SwitchScene(next, false);
-      }, 5500);
+      }, 6500);
     }
 
     function onSlide4Enter() {
@@ -8240,11 +8238,10 @@
         s4AutoTimer = setInterval(() => {
           if (currentSlide !== 4) { clearInterval(s4AutoTimer); return; }
           sec += 1;
-          if (sec < 6) s4SwitchScene(1, false);
-          else if (sec < 14) s4SwitchScene(2, false);
-          else if (sec < 21) s4SwitchScene(3, false);
-          else if (sec < 30) s4SwitchScene(4, false);
-          else s4HighlightAllCards();
+          if (sec < 12) s4SwitchScene(1, false);
+          else if (sec < 23) s4SwitchScene(2, false);
+          else if (sec < 30) s4SwitchScene(3, false);
+          else s4SwitchScene(4, false);
         }, 1000);
       }
     }
