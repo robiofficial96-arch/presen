@@ -706,6 +706,7 @@
       .share-highlight-tags { justify-content: center; }
       .finale-building-dock { height: 45vh; }
       .towering-building-img { height: 45vh; }
+      .s11-bg-img { opacity: 0.35; }
     }
   
         /* =========================================================
@@ -4257,6 +4258,8 @@
       width: 100%;
       height: 100%;
       z-index: 10;
+      overflow: hidden;
+      pointer-events: none;
     }
 
     .s11-bg-img {
@@ -4264,18 +4267,26 @@
       right: 0;
       bottom: 0;
       height: 100%;
-      width: auto;
-      max-width: 55vw;
-      object-fit: cover;
+      width: 100%;
+      object-fit: contain;
       object-position: bottom right;
       filter: drop-shadow(-15px 0 40px rgba(0, 0, 0, 0.8));
+      pointer-events: none;
     }
 
     .s11-bg-veil {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(9, 19, 30, 0.98) 0%, rgba(9, 19, 30, 0.92) 50%, rgba(9, 19, 30, 0.45) 85%, rgba(9, 19, 30, 0.25) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(9, 19, 30, 0.98) 0%,
+        rgba(9, 19, 30, 0.92) 42%,
+        rgba(9, 19, 30, 0.65) 58%,
+        rgba(9, 19, 30, 0.20) 78%,
+        rgba(9, 19, 30, 0.05) 100%
+      );
       z-index: 12;
+      pointer-events: none;
     }
 
     .s11-container {
