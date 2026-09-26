@@ -99,6 +99,20 @@
       font-weight: 700;
     }
 
+    .top-btn.paused {
+      background: #fef3c7 !important;
+      color: #b45309 !important;
+      border-color: #f59e0b !important;
+      font-weight: 700 !important;
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.45);
+      animation: pauseButtonPulse 1.6s infinite alternate ease-in-out;
+    }
+
+    @keyframes pauseButtonPulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); box-shadow: 0 0 18px rgba(245, 158, 11, 0.6); }
+    }
+
     /* Fullscreen Slides Viewport */
     .fullscreen-deck {
       position: relative;
@@ -4888,9 +4902,9 @@
       <span id="soundIcon"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>
       <span id="soundLabel">ভয়েস অন</span>
     </button>
-    <button class="top-btn" id="bgmBtn" onclick="toggleBGM()" title="আবহ সঙ্গীত">
-      <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      <span id="bgmLabel">আবহ সঙ্গীত</span>
+    <button class="top-btn" id="pauseBtn" onclick="togglePause()" title="পজ করুন (যেকোনো সময় থামাতে পারেন)">
+      <span id="pauseIcon"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></span>
+      <span id="pauseLabel">পজ</span>
     </button>
     <button class="top-btn" id="autoBtn" onclick="toggleAutoPlay()" title="অটো প্লে">
       <span id="autoIcon"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
@@ -6789,6 +6803,58 @@
       }
     }
 
+    let isVoicePaused = false;
+
+    function updatePauseBtnUI(paused) {
+      isVoicePaused = paused;
+      const pauseBtn = document.getElementById('pauseBtn');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const pauseLabel = document.getElementById('pauseLabel');
+      if (!pauseBtn) return;
+
+      if (paused) {
+        pauseBtn.classList.add('paused');
+        if (pauseIcon) {
+          pauseIcon.innerHTML = `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+        }
+        if (pauseLabel) pauseLabel.textContent = 'চালিয়ে যান';
+        pauseBtn.title = 'চালিয়ে যান (যেখান থেকে থেমেছিলেন)';
+      } else {
+        pauseBtn.classList.remove('paused');
+        if (pauseIcon) {
+          pauseIcon.innerHTML = `<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>`;
+        }
+        if (pauseLabel) pauseLabel.textContent = 'পজ';
+        pauseBtn.title = 'পজ করুন (যেকোনো সময় থামাতে পারেন)';
+      }
+    }
+
+    function togglePause() {
+      if (!isVoicePaused) {
+        // ---- PAUSE PLAYBACK RIGHT AT CURRENT POSITION ----
+        updatePauseBtnUI(true);
+        if (currentVoiceAudio && !currentVoiceAudio.paused) {
+          currentVoiceAudio.pause();
+        }
+        if (voiceAutoNextTimeout) {
+          clearTimeout(voiceAutoNextTimeout);
+          voiceAutoNextTimeout = null;
+        }
+      } else {
+        // ---- RESUME PLAYBACK FROM EXACT SAME POSITION ----
+        updatePauseBtnUI(false);
+        if (soundEnabled && currentVoiceAudio && currentVoiceAudio.paused) {
+          currentVoiceAudio.play().catch(e => console.log('Audio resume notice:', e));
+        } else if (soundEnabled && !currentVoiceAudio) {
+          playSlideVoice(currentSlide);
+        }
+      }
+    }
+
+    function toggleBGM() {
+      togglePause();
+    }
+
     function toggleSound() {
       soundEnabled = !soundEnabled;
       const soundBtn = document.getElementById('soundBtn');
@@ -6800,6 +6866,7 @@
         soundIcon.innerHTML = `<svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`;
         soundLabel.textContent = 'সাউন্ড অন';
         playSlideChime();
+        updatePauseBtnUI(false);
         playSlideVoice(currentSlide);
       } else {
         soundBtn.classList.remove('active');
@@ -6815,24 +6882,7 @@
           clearTimeout(voiceAutoNextTimeout);
           voiceAutoNextTimeout = null;
         }
-        if (bgmEnabled) toggleBGM();
-      }
-    }
-
-    function toggleBGM() {
-      bgmEnabled = !bgmEnabled;
-      const bgmBtn = document.getElementById('bgmBtn');
-      const bgmLabel = document.getElementById('bgmLabel');
-
-      if (bgmEnabled) {
-        initAudio();
-        startBGM();
-        bgmBtn.classList.add('active');
-        bgmLabel.textContent = 'সঙ্গীত বন্ধ';
-      } else {
-        stopBGM();
-        bgmBtn.classList.remove('active');
-        bgmLabel.textContent = 'আবহ সঙ্গীত';
+        updatePauseBtnUI(false);
       }
     }
 
@@ -7406,6 +7456,7 @@
         let sec = 0;
         s7AutoTimer = setInterval(() => {
           if (currentSlide !== 7) { clearInterval(s7AutoTimer); return; }
+          if (isVoicePaused) return;
           sec += 1;
           if (sec < 19) s7GoToRoom(0);
           else if (sec < 30) s7GoToRoom(1);
@@ -7597,6 +7648,7 @@
         let sec = 0;
         s8AutoTimer = setInterval(() => {
           if (currentSlide !== 8) { clearInterval(s8AutoTimer); return; }
+          if (isVoicePaused) return;
           sec += 1;
           if (sec < 23) s8GoToFacility(0);
           else if (sec < 34) s8GoToFacility(1);
@@ -7878,6 +7930,7 @@
         let sec = 0;
         s10FallbackTimer = setInterval(() => {
           if (currentSlide !== 10) { clearInterval(s10FallbackTimer); return; }
+          if (isVoicePaused) return;
           sec += 1;
           s10ProcessTime(sec);
         }, 1000);
@@ -7998,6 +8051,7 @@
         let sec = 0;
         s11TimelineTimer = setInterval(() => {
           if (currentSlide !== 11) { clearInterval(s11TimelineTimer); return; }
+          if (isVoicePaused) return;
           sec += 1;
           s11SetStepByTime(sec);
         }, 1000);
@@ -8041,6 +8095,7 @@
         currentVoiceAudio.pause();
         currentVoiceAudio.currentTime = 0;
       }
+      updatePauseBtnUI(false);
 
       if (!soundEnabled) return;
 
@@ -8281,6 +8336,7 @@
         let sec = 0;
         s4AutoTimer = setInterval(() => {
           if (currentSlide !== 4) { clearInterval(s4AutoTimer); return; }
+          if (isVoicePaused) return;
           sec += 1;
           if (sec < 12) s4SwitchScene(1, false);
           else if (sec < 23) s4SwitchScene(2, false);
@@ -8900,6 +8956,7 @@
         let sec = 0;
         s6AutoTimer = setInterval(() => {
           if (currentSlide !== 6) { clearInterval(s6AutoTimer); return; }
+          if (isVoicePaused) return;
           sec += 1;
           s6ProcessTime(sec);
         }, 1000);
@@ -8967,7 +9024,10 @@
         
         // If sound is enabled, let speech end handler drive transitions; also set safety timer (14s)
         if (!soundEnabled) {
-          autoPlayInterval = setInterval(nextSlide, 6500);
+          autoPlayInterval = setInterval(() => {
+            if (isVoicePaused) return;
+            nextSlide();
+          }, 6500);
         } else {
           // Play current voice if not playing
           if (!currentVoiceAudio || currentVoiceAudio.paused) {
@@ -8975,6 +9035,7 @@
           }
           // Safety fallback timer if audio fails to trigger
           autoPlayInterval = setInterval(() => {
+            if (isVoicePaused) return;
             if (currentVoiceAudio && !currentVoiceAudio.paused) return; // audio is still speaking
             nextSlide();
           }, 12000);
@@ -9013,6 +9074,8 @@
         toggleFullscreen();
       } else if (e.key.toLowerCase() === 'm') {
         toggleSound();
+      } else if (e.key.toLowerCase() === 'p') {
+        togglePause();
       }
     });
 
