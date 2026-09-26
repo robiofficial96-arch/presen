@@ -8387,32 +8387,36 @@
       if (currentSlide !== 5 || !currentVoiceAudio) return;
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to slid 5.wav Bengali narration (58.05s):
-      if (t < 6.0 && s5LastPhase < 1) {
+      // Exact timestamps requested by user:
+      // 1 - 30s: 1st map animation (Aerial zoom, Highway routes, Location & landmark pins)
+      // 30s - voice end: 2nd part (Masterplan plot mapping & surrounding mega projects)
+      if (t >= 0.5 && t < 7.0 && s5LastPhase < 1) {
         s5LastPhase = 1;
         s5TriggerZoomIn();
-      } else if (t >= 6.0 && t < 12.5 && s5LastPhase < 2) {
+      } else if (t >= 7.0 && t < 15.0 && s5LastPhase < 2) {
         s5LastPhase = 2;
         s5TriggerRoutes();
-      } else if (t >= 12.5 && t < 18.5 && s5LastPhase < 3) {
+      } else if (t >= 15.0 && t < 30.0 && s5LastPhase < 3) {
         s5LastPhase = 3;
         s5TriggerPins();
-      } else if (t >= 18.5 && t < 25.0 && s5LastPhase < 4) {
+      } else if (t >= 30.0 && t < 38.0 && s5LastPhase < 4) {
         s5LastPhase = 4;
+        // 30s: Transition to 2nd part (Masterplan plot canvas)
         s5TriggerMasterplan();
-      } else if (t >= 25.0 && s5LastPhase < 5) {
+      } else if (t >= 38.0 && s5LastPhase < 5) {
         s5LastPhase = 5;
+        // Surrounding mega projects mapping
         s5TriggerSurroundings();
       }
     }
 
     function s5StartAnimation() {
       s5ResetState();
-      setTimeout(s5TriggerZoomIn, 300);
-      setTimeout(s5TriggerRoutes, 4500);
-      setTimeout(s5TriggerPins, 10500);
-      setTimeout(s5TriggerMasterplan, 15000);
-      setTimeout(s5TriggerSurroundings, 22000);
+      setTimeout(s5TriggerZoomIn, 500);
+      setTimeout(s5TriggerRoutes, 7000);
+      setTimeout(s5TriggerPins, 15000);
+      setTimeout(s5TriggerMasterplan, 30000);
+      setTimeout(s5TriggerSurroundings, 38000);
     }
 
     function s5GoToPhase(phaseNum) {
