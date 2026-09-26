@@ -3559,14 +3559,17 @@
       justify-content: space-between;
       gap: 16px;
       padding-bottom: clamp(6px, 1vh, 10px);
+      padding-right: clamp(10px, 34vw, 530px);
       border-bottom: 1.5px solid rgba(0, 104, 55, 0.12);
       flex-shrink: 0;
+      min-width: 0;
     }
 
     .s10-head-left {
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
 
     .s10-mini-banner-img {
@@ -3602,6 +3605,7 @@
       font-weight: 800;
       box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* ---- 2. 3 GUARANTEED GIFTS ROW (LIVE ZOOM SPOTLIGHT) ---- */
@@ -3611,6 +3615,7 @@
       gap: clamp(10px, 1.4vw, 20px);
       margin: clamp(6px, 1vh, 10px) 0;
       flex-shrink: 0;
+      min-width: 0;
     }
 
     .s10-gift-card {
@@ -3626,6 +3631,7 @@
       overflow: hidden;
       transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
       cursor: pointer;
+      min-width: 0;
     }
 
     .s10-gift-card::before {
@@ -3751,6 +3757,7 @@
       gap: clamp(14px, 1.8vw, 26px);
       flex: 1;
       min-height: 0;
+      min-width: 0;
       margin: clamp(4px, 0.8vh, 8px) 0;
     }
 
@@ -3766,6 +3773,7 @@
       border: 2.2px solid transparent;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
+      min-width: 0;
     }
 
     .s10-tower-a {
@@ -3841,6 +3849,7 @@
       flex-shrink: 0;
       position: relative;
       margin: 6px 0;
+      min-width: 0;
     }
 
     .s10-price-box {
@@ -3853,6 +3862,7 @@
       gap: 2px;
       position: relative;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      min-width: 0;
     }
 
     .s10-price-box.highlight-land {
@@ -4166,14 +4176,14 @@
 
     
     
-    /* SLIDE 10 HERO INTRO BANNER (ONUSTHAN.PNG) */
+    /* SLIDE 10 HERO INTRO BANNER (ONUSTHAN.PNG / ONUSTHAN.WEBP) */
     .s10-hero-intro {
-      position: absolute !important;
+      position: fixed !important;
       inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      z-index: 100 !important;
-      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.97) 0%, rgba(254, 243, 199, 0.95) 60%, rgba(240, 253, 244, 0.98) 100%);
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 95 !important;
+      background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fef9c3 60%, #f0fdf4 100%) !important;
       backdrop-filter: blur(14px);
       display: flex;
       flex-direction: column;
@@ -4190,6 +4200,12 @@
       visibility: hidden !important;
       pointer-events: none !important;
       transform: scale(1.05) !important;
+    }
+    #slide-10:not(.active) .s10-hero-intro {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
     }
     .s10-onusthan-banner-img {
       max-width: clamp(340px, 50vw, 720px);
