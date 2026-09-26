@@ -694,613 +694,7 @@
       .towering-building-img { height: 45vh; }
     }
   
-    /* =========================================================
-       SLIDE 12: REFINED SHOWCASE - NO RIBBON, NO BUTTONS
-       GROUNDED TOWERING BUILDING, DUAL TOWERS & PRICE BANNER
-       ========================================================= */
-    #slide-9 {
-      position: absolute;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden !important;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: 0 0 0 clamp(16px, 2.5vw, 44px);
-      box-sizing: border-box;
-      background: radial-gradient(circle at 75% 45%, rgba(229, 27, 35, 0.04) 0%, transparent 55%),
-                  radial-gradient(circle at 15% 55%, rgba(0, 104, 55, 0.05) 0%, transparent 55%);
-    }
-
-    .celebration-confetti-canvas {
-      position: absolute !important;
-      inset: 0 !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      pointer-events: none !important;
-      z-index: 15 !important;
-    }
-
-    /* =========================================================
-       SLIDE 10: GRAND COMMERCIAL CLIMAX / EXCLUSIVE MEGA OFFERS
-       CLEAN, MINIMAL, BOLD TYPOGRAPHY & CINEMATIC FOCUS
-       ========================================================= */
-    #slide-10 {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100vw !important;
-      max-width: 100vw !important;
-      height: 100vh !important;
-      max-height: 100vh !important;
-      margin: 0 !important;
-      padding: clamp(12px, 1.8vh, 22px) clamp(24px, 3vw, 56px) clamp(10px, 1.4vh, 18px) clamp(24px, 3vw, 56px) !important;
-      box-sizing: border-box !important;
-      background: radial-gradient(circle at 85% 65%, rgba(254, 243, 199, 0.45) 0%, transparent 50%),
-                  radial-gradient(circle at 15% 25%, rgba(220, 252, 231, 0.55) 0%, transparent 45%),
-                  linear-gradient(135deg, #f8fdf9 0%, #ffffff 50%, #fcfbf5 100%) !important;
-      overflow: hidden !important;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .s10-container {
-      width: 100%;
-      max-width: 1680px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 0 auto;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 20;
-    }
-
-    /* ---- HEADER ---- */
-    .s10-header {
-      text-align: center;
-      margin-bottom: clamp(4px, 0.8vh, 8px);
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .s10-ceremony-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
-      color: #ffffff;
-      padding: 3px 18px;
-      border-radius: 9999px;
-      font-size: clamp(12px, 0.85vw, 14px);
-      font-weight: 800;
-      letter-spacing: 0.3px;
-      box-shadow: 0 4px 12px rgba(185, 28, 28, 0.35);
-      animation: ceremonyPulse 2.5s infinite ease-in-out;
-    }
-
-    @keyframes ceremonyPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-
-    .s10-header .slide-title {
-      font-size: clamp(22px, 2vw, 32px);
-      font-weight: 900;
-      color: #000000 !important;
-      margin: 2px 0 0 0;
-      line-height: 1.2;
-    }
-
-    /* ---- 3 GUARANTEED GIFTS ROW (CLEAN, PROMINENT VISUALS) ---- */
-    .s10-gifts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(12px, 1.6vw, 24px);
-      margin-bottom: clamp(8px, 1.2vh, 14px);
-      flex-shrink: 0;
-    }
-
-    .s10-gift-card {
-      background: linear-gradient(145deg, #ffffff 0%, #fefcf7 100%);
-      border: 2.2px solid rgba(217, 119, 6, 0.28);
-      border-radius: 20px;
-      padding: clamp(10px, 1.3vh, 14px) clamp(14px, 1.3vw, 20px);
-      display: flex;
-      align-items: center;
-      gap: clamp(12px, 1.4vw, 20px);
-      box-shadow: 0 8px 22px rgba(0, 104, 55, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-    }
-
-    .s10-gift-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4.5px;
-      background: linear-gradient(90deg, #006837 0%, #c5a059 50%, #006837 100%);
-    }
-
-    .s10-gift-img-wrap {
-      width: clamp(85px, 8vw, 120px);
-      height: clamp(70px, 7.5vh, 95px);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 6px;
-      border: 1.5px solid rgba(0, 0, 0, 0.06);
-      transition: all 0.35s ease;
-    }
-
-    .s10-gift-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-    }
-
-    .s10-gift-card:hover .s10-gift-img {
-      transform: scale(1.1);
-    }
-
-    .s10-gift-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .s10-gift-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(217, 119, 6, 0.12);
-      color: #b45309;
-      font-size: clamp(11px, 0.8vw, 13px);
-      font-weight: 800;
-      padding: 2px 10px;
-      border-radius: 9999px;
-      width: fit-content;
-      transition: all 0.3s ease;
-    }
-
-    .s10-gift-title {
-      font-size: clamp(16px, 1.25vw, 21px);
-      font-weight: 900;
-      color: #000000 !important;
-      margin: 0;
-      line-height: 1.25;
-    }
-
-    .s10-gift-sub {
-      font-size: clamp(12px, 0.86vw, 14px);
-      font-weight: 700;
-      color: #006837 !important;
-      margin: 0;
-    }
-
-    /* GIFT SPOTLIGHT */
-    .s10-gift-card.gift-spotlight {
-      transform: translateY(-6px) scale(1.06);
-      border-color: #d97706 !important;
-      background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%) !important;
-      box-shadow: 0 16px 40px rgba(217, 119, 6, 0.38), 0 0 28px rgba(245, 158, 11, 0.35);
-      z-index: 35;
-    }
-
-    .s10-gift-card.gift-spotlight .s10-gift-img-wrap {
-      border-color: rgba(217, 119, 6, 0.5);
-      background: #ffffff;
-      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.25);
-    }
-
-    .s10-gift-card.gift-spotlight .s10-gift-img {
-      transform: scale(1.2);
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
-    }
-
-    .s10-gift-card.gift-spotlight .s10-gift-badge {
-      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-      color: #ffffff;
-    }
-
-    .s10-gift-card.gift-dimmed {
-      opacity: 0.5;
-      transform: scale(0.98);
-    }
-
-    /* ---- 2 TOWER SCHEMES (BUILDING A & B) ---- */
-    .s10-towers-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(16px, 2vw, 32px);
-      flex: 1;
-      min-height: 0;
-      margin-bottom: clamp(10px, 1.4vh, 16px);
-    }
-
-    .s10-tower-card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: clamp(14px, 1.8vh, 22px) clamp(18px, 2vw, 28px);
-      box-shadow: 0 10px 30px rgba(0, 104, 55, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      position: relative;
-      border: 2.5px solid transparent;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      gap: clamp(12px, 1.6vh, 18px);
-    }
-
-    .s10-tower-a {
-      border-color: rgba(0, 104, 55, 0.35);
-      background: linear-gradient(160deg, #ffffff 0%, #f6fcf8 100%);
-    }
-
-    .s10-tower-b {
-      border-color: rgba(217, 119, 6, 0.35);
-      background: linear-gradient(160deg, #ffffff 0%, #fffef8 100%);
-    }
-
-    .s10-tower-card.tower-spotlight {
-      transform: translateY(-4px) scale(1.02);
-      z-index: 30;
-    }
-
-    .s10-tower-a.tower-spotlight {
-      border-color: #006837 !important;
-      box-shadow: 0 18px 46px rgba(0, 104, 55, 0.24), 0 0 24px rgba(0, 104, 55, 0.18);
-    }
-
-    .s10-tower-b.tower-spotlight {
-      border-color: #d97706 !important;
-      box-shadow: 0 18px 46px rgba(217, 119, 6, 0.28), 0 0 24px rgba(217, 119, 6, 0.18);
-    }
-
-    .s10-tower-card.tower-dimmed {
-      opacity: 0.5;
-      transform: scale(0.98);
-    }
-
-    .s10-tower-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px dashed rgba(0, 104, 55, 0.2);
-      padding-bottom: 6px;
-      flex-shrink: 0;
-    }
-
-    .s10-tower-title-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #ffffff;
-      padding: 4px 16px;
-      border-radius: 9999px;
-      font-size: clamp(14px, 1vw, 17px);
-      font-weight: 900;
-      letter-spacing: 0.3px;
-    }
-
-    .pill-tower-a {
-      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
-    }
-
-    .pill-tower-b {
-      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-    }
-
-    .s10-tower-size {
-      font-size: clamp(15px, 1.15vw, 18.5px);
-      font-weight: 900;
-      color: #000000 !important;
-    }
-
-    /* PRICE DISPLAY BAR */
-    .s10-price-row {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 12px;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .s10-price-box {
-      background: #ffffff;
-      border: 1.6px solid rgba(0, 0, 0, 0.1);
-      border-radius: 16px;
-      padding: clamp(10px, 1.3vh, 15px) clamp(14px, 1.3vw, 20px);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      position: relative;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .s10-price-lbl {
-      font-size: clamp(12px, 0.86vw, 14px);
-      font-weight: 800;
-      color: #555;
-    }
-
-    .s10-price-val {
-      font-size: clamp(19px, 1.4vw, 24px);
-      font-weight: 900;
-      color: #000000 !important;
-      line-height: 1.2;
-      transition: all 0.3s ease;
-    }
-
-    .s10-price-val-highlight {
-      color: #b91c1c !important;
-    }
-
-    /* 50 LAKH & 40 LAKH POPPING EFFECT */
-    .s10-lump-price-box.pop-price {
-      transform: scale(1.12);
-      z-index: 45;
-      border-color: #b91c1c !important;
-      background: linear-gradient(135deg, #fff1f2 0%, #fee2e2 100%) !important;
-      box-shadow: 0 14px 36px rgba(185, 28, 28, 0.45), 0 0 22px rgba(239, 68, 68, 0.35);
-      animation: pricePulse 1.2s infinite ease-in-out alternate;
-    }
-
-    @keyframes pricePulse {
-      0% { transform: scale(1.12); }
-      100% { transform: scale(1.17); box-shadow: 0 18px 44px rgba(185, 28, 28, 0.6), 0 0 28px rgba(239, 68, 68, 0.5); }
-    }
-
-    .s10-lump-price-box.pop-price .s10-price-val {
-      font-size: clamp(23px, 1.7vw, 29px) !important;
-      letter-spacing: 0.3px;
-    }
-
-    /* DYNAMIC CASHBACK EMERGE BADGE */
-    .s10-emerge-cashback {
-      position: absolute;
-      top: calc(100% + 6px);
-      left: -6px;
-      right: -6px;
-      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
-      color: #ffffff;
-      border-radius: 14px;
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 14px 32px rgba(0, 104, 55, 0.5), 0 0 20px rgba(34, 197, 94, 0.4);
-      border: 2px solid #86efac;
-      z-index: 60;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-12px) scale(0.85);
-      pointer-events: none;
-      transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .s10-emerge-b {
-      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-      box-shadow: 0 14px 32px rgba(217, 119, 6, 0.5), 0 0 20px rgba(251, 191, 36, 0.4);
-      border-color: #fde68a;
-    }
-
-    .s10-emerge-cashback.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0) scale(1.04);
-      pointer-events: auto;
-      animation: emergeFloat 2s infinite ease-in-out alternate;
-    }
-
-    @keyframes emergeFloat {
-      0% { transform: translateY(0) scale(1.04); }
-      100% { transform: translateY(-4px) scale(1.07); box-shadow: 0 18px 40px rgba(0, 104, 55, 0.65), 0 0 28px rgba(74, 222, 128, 0.55); }
-    }
-
-    .s10-emerge-b.show {
-      animation: emergeFloatB 2s infinite ease-in-out alternate;
-    }
-
-    @keyframes emergeFloatB {
-      0% { transform: translateY(0) scale(1.04); }
-      100% { transform: translateY(-4px) scale(1.07); box-shadow: 0 18px 40px rgba(217, 119, 6, 0.65), 0 0 28px rgba(251, 191, 36, 0.55); }
-    }
-
-    .s10-emerge-sparkle {
-      font-size: 24px;
-      line-height: 1;
-      animation: spinGlow 3s infinite linear;
-    }
-
-    @keyframes spinGlow {
-      0% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.2); }
-      100% { transform: rotate(360deg) scale(1); }
-    }
-
-    .s10-emerge-info {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.25;
-    }
-
-    .s10-emerge-title {
-      font-size: clamp(10px, 0.76vw, 12px);
-      font-weight: 800;
-      color: #dcfce7;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-
-    .s10-emerge-b .s10-emerge-title {
-      color: #fef3c7;
-    }
-
-    .s10-emerge-val {
-      font-size: clamp(15px, 1.15vw, 18px);
-      font-weight: 900;
-      color: #fef08a;
-      white-space: nowrap;
-    }
-
-    .s10-emerge-val small {
-      font-size: clamp(11px, 0.8vw, 13px);
-      font-weight: 700;
-      color: #ffffff;
-      opacity: 0.95;
-    }
-
-    /* CLEAN 3-CARD HIGHLIGHT TILES INSIDE EACH TOWER (NO LONG BULLETS) */
-    .s10-key-perks {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(10px, 1.3vh, 15px);
-      flex: 1;
-      justify-content: center;
-    }
-
-    .s10-perk-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1.6px solid rgba(0, 0, 0, 0.07);
-      border-radius: 16px;
-      padding: clamp(10px, 1.3vh, 14px) clamp(14px, 1.2vw, 18px);
-      transition: all 0.35s ease;
-    }
-
-    .s10-perk-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .s10-perk-icon {
-      font-size: 22px;
-      line-height: 1;
-    }
-
-    .s10-perk-title {
-      font-size: clamp(14px, 1.05vw, 16.5px);
-      font-weight: 700;
-      color: #000000 !important;
-    }
-
-    .s10-perk-val {
-      font-size: clamp(15px, 1.12vw, 17.5px);
-      font-weight: 900;
-      color: #006837;
-      background: rgba(0, 104, 55, 0.09);
-      padding: 4px 14px;
-      border-radius: 9999px;
-      white-space: nowrap;
-    }
-
-    .s10-tower-b .s10-perk-val {
-      color: #b45309;
-      background: rgba(217, 119, 6, 0.1);
-    }
-
-    .s10-perk-row.perk-spotlight {
-      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
-      border-color: #006837 !important;
-      transform: translateX(4px) scale(1.02);
-      box-shadow: 0 6px 16px rgba(0, 104, 55, 0.2);
-    }
-
-    .s10-tower-b .s10-perk-row.perk-spotlight {
-      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
-      border-color: #d97706 !important;
-      box-shadow: 0 6px 16px rgba(217, 119, 6, 0.2);
-    }
-
-    /* ---- 5 LAKH SPECIAL BENEFIT BANNER ---- */
-    .s10-mega-benefit-banner {
-      background: linear-gradient(135deg, #006837 0%, #004d26 50%, #854d0e 100%);
-      color: #ffffff;
-      border-radius: 18px;
-      padding: clamp(8px, 1.1vh, 12px) clamp(18px, 2vw, 28px);
-      display: flex;
-      align-items: center;
-      gap: clamp(12px, 1.5vw, 20px);
-      box-shadow: 0 8px 24px rgba(0, 104, 55, 0.25);
-      border: 2px solid #fcd34d;
-      flex-shrink: 0;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-    }
-
-    .s10-benefit-icon {
-      font-size: clamp(26px, 2.2vw, 34px);
-      flex-shrink: 0;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-    }
-
-    .s10-benefit-text {
-      flex: 1;
-      margin: 0;
-      font-size: clamp(13px, 0.95vw, 15.5px);
-      font-weight: 700;
-      line-height: 1.45;
-      color: #ffffff;
-    }
-
-    .s10-benefit-text strong {
-      color: #fef08a;
-      font-weight: 900;
-    }
-
-    .s10-benefit-badge {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      color: #000000;
-      font-size: clamp(13px, 0.95vw, 15px);
-      font-weight: 900;
-      padding: 6px 18px;
-      border-radius: 9999px;
-      flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-      letter-spacing: 0.3px;
-      transition: all 0.3s ease;
-    }
-
-    .s10-mega-benefit-banner.benefit-spotlight {
-      transform: scale(1.02);
-      border-color: #fef08a !important;
-      box-shadow: 0 16px 44px rgba(234, 179, 8, 0.55), 0 0 32px rgba(234, 179, 8, 0.4);
-      animation: benefitGlow 1.4s infinite ease-in-out alternate;
-    }
-
-    @keyframes benefitGlow {
-      0% { transform: scale(1.02); box-shadow: 0 16px 44px rgba(234, 179, 8, 0.55); }
-      100% { transform: scale(1.035); box-shadow: 0 20px 52px rgba(234, 179, 8, 0.75), 0 0 38px rgba(254, 240, 138, 0.65); }
-    }
-
-    .s10-mega-benefit-banner.benefit-spotlight .s10-benefit-badge {
-      background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%);
-      transform: scale(1.05);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    }
-    /* =========================================================
+        /* =========================================================
        SLIDE 2: EXECUTIVE LEADERSHIP (IMAGE LEFT, CONTENT RIGHT)
        ========================================================= */
     #slide-2 {
@@ -3042,6 +2436,37 @@
       height: 100% !important;
     }
 
+
+    /* =========================================================
+       SLIDE 12: REFINED SHOWCASE - NO RIBBON, NO BUTTONS
+       GROUNDED TOWERING BUILDING, DUAL TOWERS & PRICE BANNER
+       ========================================================= */
+    #slide-9 {
+      position: absolute;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden !important;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 0 0 clamp(16px, 2.5vw, 44px);
+      box-sizing: border-box;
+      background: radial-gradient(circle at 75% 45%, rgba(229, 27, 35, 0.04) 0%, transparent 55%),
+                  radial-gradient(circle at 15% 55%, rgba(0, 104, 55, 0.05) 0%, transparent 55%);
+    }
+
+    .celebration-confetti-canvas {
+      position: absolute !important;
+      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
+      z-index: 15 !important;
+    }
+
     /* ============================================================
        SLIDE 13: OUR OTHER PROJECTS — EXTRA LARGE CENTERED INTRO + TALL PORTRAIT 3-CARD BATCHES
        ============================================================ */
@@ -4117,10 +3542,1138 @@
     }
 
   
-    /* ============================================================
-       SLIDE 11: GRAND FINALE - SHARE BOOKING & BUILDING VIEW
-       ============================================================ */
+    
+    /* =========================================================
+       SLIDE 10: AGREEMENT CEREMONY & BOOKING MEGA OFFERS
+       WITH FULLSCREEN ONUSTHAN.PNG, 3D SURPRISE BOX & DUAL CARDS
+       ========================================================= */
+    #slide-10 {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      background: radial-gradient(circle at 85% 65%, rgba(254, 243, 199, 0.45) 0%, transparent 50%),
+                  radial-gradient(circle at 15% 25%, rgba(220, 252, 231, 0.55) 0%, transparent 45%),
+                  linear-gradient(135deg, #f8fdf9 0%, #ffffff 50%, #fcfbf5 100%) !important;
+      overflow: hidden !important;
+    }
+
+    /* Fullscreen Hero Intro with onusthan.png */
+    .s10-hero-intro {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      z-index: 150 !important;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.96) 0%, rgba(254, 243, 199, 0.94) 60%, rgba(240, 253, 244, 0.98) 100%);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      box-sizing: border-box;
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .s10-hero-intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(1.08);
+    }
+
+    .s10-onusthan-banner-img {
+      max-width: clamp(340px, 52vw, 760px);
+      height: auto;
+      filter: drop-shadow(0 15px 35px rgba(180, 83, 9, 0.35));
+      animation: s10BannerFloat 3.5s ease-in-out infinite;
+      margin-bottom: 18px;
+    }
+
+    @keyframes s10BannerFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.02); }
+    }
+
+    .s10-intro-subtag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 24px;
+      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
+      color: #ffffff;
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 800;
+      border-radius: 9999px;
+      box-shadow: 0 4px 15px rgba(0, 104, 55, 0.35);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .s10-intro-tagline {
+      font-size: clamp(18px, 1.6vw, 26px);
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0 0 16px 0;
+      line-height: 1.3;
+    }
+
+    .s10-intro-click-hint {
+      font-size: 13px;
+      font-weight: 700;
+      color: #006837;
+      background: rgba(0, 104, 55, 0.08);
+      border: 1.5px dashed rgba(0, 104, 55, 0.4);
+      padding: 6px 20px;
+      border-radius: 9999px;
+      animation: s10HintPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes s10HintPulse {
+      0%, 100% { opacity: 0.75; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
+    /* Main Container */
+    .s10-container {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      max-width: 1680px;
+      height: 100%;
+      margin: 0 auto;
+      padding: clamp(10px, 1.5vh, 20px) clamp(20px, 3vw, 48px);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Top Compact Header */
+    .s10-compact-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 8px;
+      padding-right: clamp(200px, 32vw, 560px);
+      border-bottom: 1.5px solid rgba(0, 104, 55, 0.12);
+      flex-shrink: 0;
+    }
+
+    .s10-head-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .s10-mini-banner-img {
+      height: clamp(38px, 4.8vh, 52px);
+      width: auto;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .s10-head-title-block h2 {
+      margin: 0;
+      font-size: clamp(18px, 1.8vw, 27px);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    .s10-head-title-block p {
+      margin: 2px 0 0 0;
+      font-size: clamp(11.5px, 0.85vw, 13.5px);
+      color: #006837;
+      font-weight: 800;
+    }
+
+    .s10-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 18px;
+      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+      color: #ffffff;
+      border-radius: 9999px;
+      font-size: clamp(12px, 0.88vw, 14px);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+      white-space: nowrap;
+    }
+
+    /* 3D Surprise Box Overlay & Reveal Stage */
+    .s10-surprise-stage {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      z-index: 140 !important;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .s10-surprise-stage.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Animated 3D Gift Box */
+    .s10-gift-box-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 24px;
+      cursor: pointer;
+    }
+
+    .s10-gift-box-body {
+      position: absolute;
+      bottom: 0;
+      width: 130px;
+      height: 90px;
+      background: linear-gradient(135deg, #b45309 0%, #f59e0b 50%, #d97706 100%);
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), 0 0 30px rgba(245, 158, 11, 0.4);
+    }
+
+    .s10-gift-box-body::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 22px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #006837 0%, #10b981 100%);
+    }
+
+    .s10-gift-box-lid {
+      position: absolute;
+      top: 30px;
+      left: -6px;
+      width: 142px;
+      height: 32px;
+      background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .s10-gift-box-lid::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 22px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #006837 0%, #10b981 100%);
+    }
+
+    .s10-gift-box-lid::after {
+      content: '🎀';
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 32px;
+    }
+
+    .s10-gift-box-wrap.opened .s10-gift-box-lid {
+      transform: translateY(-50px) rotate(-24deg);
+    }
+
+    /* Pop-out Card from Box */
+    .s10-surprise-popout {
+      background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+      border: 3px solid #f59e0b;
+      border-radius: 24px;
+      padding: clamp(20px, 3vh, 32px) clamp(24px, 3vw, 42px);
+      max-width: 760px;
+      width: 90vw;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(245, 158, 11, 0.4);
+      transform: translateY(40px) scale(0.85);
+      opacity: 0;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    }
+
+    .s10-surprise-stage.active .s10-surprise-popout {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .s10-surprise-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .s10-surprise-title {
+      font-size: clamp(22px, 2.4vw, 36px);
+      font-weight: 900;
+      color: #000000;
+      margin: 0 0 14px 0;
+      line-height: 1.25;
+    }
+
+    .s10-surprise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+      text-align: left;
+    }
+
+    .s10-surprise-item {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid rgba(217, 119, 6, 0.3);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .s10-surprise-item img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .s10-surprise-item-info h4 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 900;
+      color: #006837;
+    }
+
+    .s10-surprise-item-info p {
+      margin: 4px 0 0 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .s10-surprise-close-btn {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 24px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .s10-surprise-close-btn:hover {
+      background: #006837;
+      transform: translateY(-2px);
+    }
+
+    /* Main Grid: Tower A and Tower B Cards */
+    .s10-towers-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(14px, 1.8vw, 24px);
+      flex: 1;
+      margin: clamp(8px, 1.2vh, 14px) 0;
+      align-items: stretch;
+    }
+
+    .s10-tower-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      border: 2px solid rgba(0, 104, 55, 0.22);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+      padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.6vw, 22px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .s10-tower-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 104, 55, 0.16);
+      border-color: #006837;
+    }
+
+    .s10-tower-card.tower-b-card {
+      border-color: rgba(217, 119, 6, 0.25);
+    }
+
+    .s10-tower-card.tower-b-card:hover {
+      border-color: #d97706;
+      box-shadow: 0 18px 40px rgba(217, 119, 6, 0.16);
+    }
+
+    .s10-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .s10-tower-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .badge-tower-a { background: linear-gradient(135deg, #006837 0%, #004d26 100%); }
+    .badge-tower-b { background: linear-gradient(135deg, #b45309 0%, #78350f 100%); }
+
+    .s10-sqft-size {
+      font-size: clamp(15px, 1.3vw, 19px);
+      font-weight: 900;
+      color: #000000;
+    }
+
+    /* Price boxes row */
+    .s10-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .s10-pbox {
+      border-radius: 12px;
+      padding: 8px 12px;
+      border: 1.5px solid rgba(0, 0, 0, 0.08);
+      background: #f8fafc;
+    }
+
+    .s10-pbox.pbox-lump {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-color: rgba(0, 104, 55, 0.35);
+      position: relative;
+    }
+
+    .s10-tower-card.tower-b-card .s10-pbox.pbox-lump {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border-color: rgba(217, 119, 6, 0.35);
+    }
+
+    .s10-plabel {
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .s10-pval {
+      font-size: clamp(16px, 1.4vw, 22px);
+      font-weight: 900;
+      color: #000000;
+    }
+
+    /* Key Perks list */
+    .s10-perks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .s10-perk-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: clamp(11.5px, 0.85vw, 13px);
+    }
+
+    .s10-perk-item.highlight-perk {
+      background: #f0fdf4;
+      border-color: rgba(0, 104, 55, 0.3);
+      font-weight: 800;
+    }
+
+    .s10-tower-card.tower-b-card .s10-perk-item.highlight-perk {
+      background: #fffbeb;
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+
+    .s10-perk-tag {
+      color: #000000;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .s10-perk-number {
+      font-weight: 900;
+      color: #006837;
+      white-space: nowrap;
+    }
+
+    .s10-tower-card.tower-b-card .s10-perk-number {
+      color: #b45309;
+    }
+
+    /* 4 Lakh Gift Box inside tower */
+    .s10-card-gift-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1.5px dashed #006837;
+      border-radius: 12px;
+      padding: 6px 12px;
+    }
+
+    .s10-card-gift-mini img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    .s10-card-gift-mini .gift-txt {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #000000;
+      line-height: 1.3;
+    }
+
+    .s10-card-gift-mini .gift-txt strong {
+      color: #006837;
+      font-weight: 900;
+    }
+
+    /* Bottom 5 Lakh Savings Banner */
+    .s10-savings-banner {
+      background: linear-gradient(90deg, #006837 0%, #064e3b 50%, #006837 100%);
+      border: 2px solid #fbbf24;
+      border-radius: 16px;
+      padding: clamp(8px, 1.3vh, 14px) clamp(16px, 2.2vw, 28px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 104, 55, 0.35);
+      flex-shrink: 0;
+      animation: s10GlowPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes s10GlowPulse {
+      0%, 100% { box-shadow: 0 10px 30px rgba(0, 104, 55, 0.35); }
+      50% { box-shadow: 0 12px 35px rgba(251, 191, 36, 0.45); }
+    }
+
+    .s10-savings-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+    }
+
+    .s10-savings-icon {
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .s10-savings-left p {
+      margin: 0;
+      font-size: clamp(12px, 0.95vw, 14.5px);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    .s10-savings-left strong {
+      color: #fde047;
+      font-weight: 900;
+    }
+
+    .s10-savings-badge {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      color: #000000;
+      font-size: clamp(13px, 1.05vw, 16px);
+      font-weight: 900;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+
+    
+    /* -------------------------------------------------------------
+       SLIDE 10: 25,000 TK CASH EMERGE FROM GIFT BOX + FULLSCREEN UMRAH
+       ------------------------------------------------------------- */
+    /* 3D Gift Box Center Stage */
+    .s10-surprise-stage {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      z-index: 140 !important;
+      background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.94) 0%, rgba(5, 10, 20, 0.98) 100%);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .s10-surprise-stage.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .s10-box-center-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    /* Animated 3D Gift Box */
+    .s10-gift-box-wrap {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      cursor: pointer;
+      z-index: 20;
+      transition: transform 0.4s ease;
+    }
+
+    .s10-gift-box-wrap:hover {
+      transform: scale(1.05);
+    }
+
+    .s10-gift-box-body {
+      position: absolute;
+      bottom: 0;
+      width: 170px;
+      height: 115px;
+      background: linear-gradient(135deg, #b45309 0%, #f59e0b 50%, #d97706 100%);
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 35px rgba(245, 158, 11, 0.45);
+      border: 2px solid rgba(254, 243, 199, 0.5);
+    }
+
+    .s10-gift-box-body::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 28px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #006837 0%, #10b981 100%);
+    }
+
+    .s10-gift-box-lid {
+      position: absolute;
+      top: 36px;
+      left: -8px;
+      width: 186px;
+      height: 38px;
+      background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 25;
+      border: 2px solid rgba(254, 243, 199, 0.6);
+    }
+
+    .s10-gift-box-lid::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 28px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #006837 0%, #10b981 100%);
+    }
+
+    .s10-gift-box-lid::after {
+      content: '🎀';
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .s10-gift-box-wrap.opened .s10-gift-box-lid {
+      transform: translateY(-65px) rotate(-26deg);
+    }
+
+    /* 25,000 Taka Emerge Token Directly Out of Box */
+    .s10-cash-emerge-token {
+      position: absolute;
+      bottom: 60px;
+      z-index: 10;
+      background: linear-gradient(135deg, #ffffff 0%, #fffbeb 50%, #fef3c7 100%);
+      border: 3px solid #fbbf24;
+      border-radius: 22px;
+      padding: clamp(16px, 2.2vh, 24px) clamp(22px, 2.5vw, 36px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 45px rgba(251, 191, 36, 0.6);
+      text-align: center;
+      max-width: 580px;
+      width: 90vw;
+      opacity: 0;
+      transform: translateY(30px) scale(0.65);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .s10-cash-emerge-token.popped-out {
+      opacity: 1;
+      transform: translateY(-130px) scale(1);
+      pointer-events: auto;
+    }
+
+    .s10-token-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 16px;
+      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 800;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    .s10-token-amount {
+      font-size: clamp(28px, 3.2vw, 46px);
+      font-weight: 900;
+      color: #b45309;
+      line-height: 1.15;
+      margin: 2px 0 6px 0;
+      text-shadow: 0 2px 8px rgba(217, 119, 6, 0.2);
+    }
+
+    .s10-token-sub {
+      font-size: clamp(13px, 1.05vw, 16px);
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    .s10-token-desc {
+      font-size: clamp(11.5px, 0.85vw, 13px);
+      font-weight: 600;
+      color: #475569;
+      margin: 6px 0 0 0;
+    }
+
+    /* FULLSCREEN UMRAH HAJJ SHOWCASE (100% Fullscreen image/umrahhajj.png) */
+    .s10-umrah-fullscreen {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      z-index: 145 !important;
+      background: #000000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .s10-umrah-fullscreen.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .s10-umrah-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.05);
+      animation: s10UmrahZoom 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes s10UmrahZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.06); }
+    }
+
+    .s10-umrah-top-banner {
+      position: absolute;
+      top: clamp(24px, 4vh, 48px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(251, 191, 36, 0.6);
+      border-radius: 9999px;
+      padding: clamp(10px, 1.6vh, 18px) clamp(24px, 3.2vw, 46px);
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(251, 191, 36, 0.35);
+      white-space: nowrap;
+    }
+
+    .s10-umrah-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #fde047;
+      font-size: clamp(12px, 0.9vw, 14.5px);
+      font-weight: 800;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .s10-umrah-main-title {
+      font-size: clamp(20px, 2.2vw, 34px);
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0;
+      line-height: 1.2;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+    }
+
+
+    /* =========================================================
+       SLIDE 11: 5X ASSET VALUATION MULTIPLIER & WEALTH TRANSFORMATION
+       POWERED BY VOICE2.WAV & CRISP FINANCIAL CARDS
+       ========================================================= */
     #slide-11 {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      background: #09131e !important;
+    }
+
+    .s11-bg-wrap {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    .s11-bg-img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: auto;
+      max-width: 55vw;
+      object-fit: cover;
+      object-position: bottom right;
+      filter: drop-shadow(-15px 0 40px rgba(0, 0, 0, 0.8));
+    }
+
+    .s11-bg-veil {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(9, 19, 30, 0.98) 0%, rgba(9, 19, 30, 0.92) 50%, rgba(9, 19, 30, 0.45) 85%, rgba(9, 19, 30, 0.25) 100%);
+      z-index: 12;
+    }
+
+    .s11-container {
+      position: relative;
+      z-index: 25;
+      width: 100%;
+      max-width: 1680px;
+      height: 100%;
+      margin: 0 auto;
+      padding: clamp(14px, 2.2vh, 28px) clamp(24px, 3.5vw, 54px);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Slide 11 Header */
+    .s11-header {
+      max-width: 900px;
+      flex-shrink: 0;
+    }
+
+    .s11-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 16px;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
+      border-radius: 9999px;
+      color: #fbbf24;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .s11-title {
+      font-size: clamp(22px, 2.4vw, 36px);
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 6px 0;
+      line-height: 1.25;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .s11-subtitle {
+      font-size: clamp(13px, 1.05vw, 16px);
+      color: #94a3b8;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .s11-subtitle strong {
+      color: #34d399;
+    }
+
+    /* 4-Card Asset Progression Stage */
+    .s11-cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(8px, 1.3vh, 14px);
+      max-width: 940px;
+      margin: clamp(10px, 1.8vh, 18px) 0;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .s11-step-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: clamp(10px, 1.4vh, 16px) clamp(16px, 1.8vw, 24px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.45;
+      transform: translateX(-15px);
+    }
+
+    .s11-step-card.active {
+      opacity: 1;
+      transform: translateX(0);
+      background: linear-gradient(90deg, rgba(0, 104, 55, 0.3) 0%, rgba(15, 23, 42, 0.7) 100%);
+      border-color: #34d399;
+      box-shadow: 0 8px 25px rgba(0, 104, 55, 0.3);
+    }
+
+    .s11-step-card.card-grand-total {
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.3) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border-color: #f59e0b;
+    }
+
+    .s11-step-card.card-grand-total.active {
+      box-shadow: 0 10px 35px rgba(245, 158, 11, 0.4);
+      border-color: #fbbf24;
+      transform: scale(1.02);
+    }
+
+    .s11-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .s11-card-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .s11-step-card.active .s11-card-ico {
+      background: #006837;
+    }
+
+    .s11-step-card.card-grand-total.active .s11-card-ico {
+      background: #d97706;
+    }
+
+    .s11-card-info h4 {
+      margin: 0;
+      font-size: clamp(15px, 1.25vw, 18px);
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .s11-card-info p {
+      margin: 3px 0 0 0;
+      font-size: clamp(12px, 0.9vw, 13.5px);
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .s11-card-val {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .s11-val-num {
+      display: block;
+      font-size: clamp(17px, 1.6vw, 24px);
+      font-weight: 900;
+      color: #34d399;
+      line-height: 1.2;
+    }
+
+    .s11-step-card.card-grand-total .s11-val-num {
+      color: #fbbf24;
+      font-size: clamp(20px, 1.9vw, 28px);
+    }
+
+    .s11-val-lbl {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    /* Bottom 5X Multiplier Golden Bar */
+    .s11-multiplier-strip {
+      background: linear-gradient(90deg, #b45309 0%, #d97706 50%, #b45309 100%);
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: clamp(8px, 1.4vh, 14px) clamp(18px, 2.4vw, 32px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+      flex-shrink: 0;
+    }
+
+    .s11-mult-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      font-size: clamp(13px, 1.05vw, 16px);
+      font-weight: 800;
+    }
+
+    .s11-mult-progress {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .s11-mult-progress span.highlight {
+      color: #fde047;
+      font-size: 15px;
+    }
+
+    .s11-mult-badge {
+      background: #000000;
+      color: #fbbf24;
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 900;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      border: 1.5px solid #fbbf24;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      animation: s11BadgePop 2s infinite ease-in-out;
+    }
+
+    @keyframes s11BadgePop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    /* ============================================================
+       SLIDE 12: GRAND FINALE - SHARE BOOKING & BUILDING VIEW
+       ============================================================ */
+    #slide-12 {
       background: radial-gradient(circle at 85% 65%, rgba(254, 243, 199, 0.55) 0%, transparent 50%),
                   radial-gradient(circle at 15% 25%, rgba(220, 252, 231, 0.65) 0%, transparent 45%),
                   linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #fefce8 100%) !important;
@@ -5874,195 +6427,279 @@
          SLIDE 12: GRAND FINALE - SHARE BOOKING & BUILDING VIEW
          WITH CONTINUOUS CELEBRATORY OPENING FALL
          ========================================== -->
+        <!-- ==========================================
+         SLIDE 10: AGREEMENT CEREMONY & BOOKING MEGA OFFERS
+         POWERED BY VOICE1.WAV WITH ONUSTHAN.PNG & 3D SURPRISE BOX
+         ========================================== -->
+        <!-- ==========================================
+         SLIDE 10: AGREEMENT CEREMONY & BOOKING MEGA OFFERS
+         POWERED BY VOICE1.WAV WITH 25K CASH EMERGE & FULLSCREEN UMRAH
+         ========================================== -->
     <div class="slide" id="slide-10">
-      <canvas id="confettiCanvas" class="celebration-confetti-canvas" style="position: absolute !important; inset: 0 !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; pointer-events: none !important; z-index: 15 !important;"></canvas>
-      
+      <!-- 1. Fullscreen Hero Intro with onusthan.png -->
+      <div class="s10-hero-intro" id="s10HeroIntro" onclick="s10DismissIntro()">
+        <img src="onusthan.png" alt="বায়না চুক্তিনামা সম্পাদন অনুষ্ঠান" class="s10-onusthan-banner-img">
+        <div class="s10-intro-subtag">বিশেষ মেগা অফার ও নিশ্চিত উপহার</div>
+        <div class="s10-intro-tagline">২৬ ও ২৭ সেপ্টেম্বর ২০২৬ • সীমিত সময়ের বিশেষ আয়োজন</div>
+        <div class="s10-intro-click-hint">অফার দেখতে ক্লিক করুন অথবা অপেক্ষা করুন ➔</div>
+      </div>
+
+      <!-- 2. 3D Animated Gift Box Stage with 25,000 Tk Cash Token Emerge -->
+      <div class="s10-surprise-stage" id="s10SurpriseStage" onclick="s10DismissSurprise()">
+        <div class="s10-box-center-container">
+          <!-- 25,000 Tk Cash Emerge Token (Pops directly out from inside the box) -->
+          <div class="s10-cash-emerge-token" id="s10CashToken">
+            <div class="s10-token-badge">✨ এককালীন বুকিংয়ের বিশেষ নগদ প্রণোদনা ✨</div>
+            <div class="s10-token-amount">মাসিক ২৫,০০০/- ৳</div>
+            <p class="s10-token-sub">টানা ২ বছর পর্যন্ত প্রতি মাসে নিশ্চিত ক্যাশব্যাক!</p>
+            <p class="s10-token-desc">এককালীন ৫০ লক্ষ টাকা জমার সাথে সাথেই প্রতি লাখে ৫০০ টাকা হারে (ভবন B-তে মাসিক ২০,০০০/-)</p>
+          </div>
+
+          <!-- 3D Gift Box -->
+          <div class="s10-gift-box-wrap" id="s10GiftBox">
+            <div class="s10-gift-box-lid"></div>
+            <div class="s10-gift-box-body"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Fullscreen Umrah Hajj Showcase (100% Fullscreen image/umrahhajj.png) -->
+      <div class="s10-umrah-fullscreen" id="s10UmrahFullscreen" onclick="s10DismissUmrah()">
+        <img src="image/umrahhajj.png" alt="পবিত্র উমরাহ হজ্জ" class="s10-umrah-bg-img">
+        <div class="s10-umrah-top-banner">
+          <div class="s10-umrah-pill-tag">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>এককালীন বুকিংয়ের বিশেষ বিকল্প মেগা অফার</span>
+          </div>
+          <h2 class="s10-umrah-main-title">২ জনের সম্পূর্ণ রাজকীয় উমরাহ হজ প্যাকেজ সম্পূর্ণ ফ্রি!</h2>
+        </div>
+      </div>
+
+      <!-- 4. Main Slide Container -->
       <div class="s10-container">
-        <!-- 1. Header with Ceremony Tag & Bold Clean Title -->
-        <div class="s10-header">
-          <div class="s10-ceremony-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span>বায়না চুক্তিনামা সম্পাদন অনুষ্ঠান • বিশেষ মেগা অফার</span>
-          </div>
-          <h2 class="slide-title">এককালীন পরিশোধ ও বুকিংয়ে নিশ্চিত উপহার ও মেগা ক্যাশব্যাক</h2>
-        </div>
-
-        <!-- 2. Guaranteed Gifts Showcase (3 Visual Showcase Cards) -->
-        <div class="s10-gifts-grid">
-          <!-- Gift 1: Umrah Hajj -->
-          <div class="s10-gift-card" id="s10GiftUmrah" onclick="s10ManualSelect('gift-umrah')">
-            <div class="s10-gift-img-wrap">
-              <img src="image/umrahhajj.webp" onerror="this.src='times_square_images/projects/umrahhajj.webp'" alt="Umrah Hajj" class="s10-gift-img">
-            </div>
-            <div class="s10-gift-body">
-              <span class="s10-gift-badge">এককালীন পরিশোধে মেগা অফার</span>
-              <h3 class="s10-gift-title">২ জনের পবিত্র উমরাহ হজ্জ</h3>
-              <p class="s10-gift-sub">অথবা টানা ২ বছর নিশ্চিত ক্যাশ রিটার্ন</p>
+        <!-- Compact Header -->
+        <div class="s10-compact-head">
+          <div class="s10-head-left">
+            <img src="onusthan.png" alt="Agreement Ceremony" class="s10-mini-banner-img">
+            <div class="s10-head-title-block">
+              <h2>এককালীন পরিশোধ ও বুকিংয়ে নিশ্চিত উপহার ও মেগা ক্যাশব্যাক</h2>
+              <p>২৬ ও ২৭ সেপ্টেম্বর ২০২৬-এর বিশেষ সুযোগ বনাম পরবর্তী অফার কাঠামো</p>
             </div>
           </div>
-
-          <!-- Gift 2: Laptop or 32" LED TV -->
-          <div class="s10-gift-card" id="s10GiftLaptop" onclick="s10ManualSelect('gift-laptop-tv')">
-            <div class="s10-gift-img-wrap">
-              <img src="image/laptop-tv.webp" onerror="this.src='times_square_images/projects/laptop-tv.webp'" alt="Laptop and 32 inch LED TV" class="s10-gift-img">
-            </div>
-            <div class="s10-gift-body">
-              <span class="s10-gift-badge">বুকিং + ডাউনপেমেন্ট (মোট ৪ লাখ)</span>
-              <h3 class="s10-gift-title">Laptop অথবা 32" Smart TV</h3>
-              <p class="s10-gift-sub">নিশ্চিত ব্র্যান্ডেড উপহার</p>
-            </div>
-          </div>
-
-          <!-- Gift 3: Luxury Dinner Set -->
-          <div class="s10-gift-card" id="s10GiftDinner" onclick="s10ManualSelect('gift-dinner-set')">
-            <div class="s10-gift-img-wrap">
-              <img src="image/dinner-set.webp" onerror="this.src='times_square_images/projects/dinner-set.webp'" alt="32 Piece Dinner Set" class="s10-gift-img">
-            </div>
-            <div class="s10-gift-body">
-              <span class="s10-gift-badge">শুধু বুকিং মানি জমাদানকারী</span>
-              <h3 class="s10-gift-title">৩২ পিস লাক্সারি ডিনার সেট</h3>
-              <p class="s10-gift-sub">কোম্পানির মনোগ্রামখচিত নিশ্চিত উপহার</p>
-            </div>
+          <div class="s10-date-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>২৬ ও ২৭ সেপ্টেম্বর বিশেষ আয়োজন</span>
           </div>
         </div>
 
-        <!-- 3. Two Towers Schemes Comparison (Building A vs Building B) -->
-        <div class="s10-towers-grid">
-          <!-- Tower A -->
-          <div class="s10-tower-card s10-tower-a" id="s10TowerA" onclick="s10ManualSelect('tower-a')">
-            <div class="s10-tower-head">
-              <div class="s10-tower-title-pill pill-tower-a">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
+        <!-- Towers Stage (Tower A & Tower B) -->
+        <div class="s10-towers-stage">
+          <!-- Tower A Card -->
+          <div class="s10-tower-card tower-a-card" id="s10CardTowerA">
+            <div class="s10-card-head">
+              <div class="s10-tower-badge badge-tower-a">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
                 <span>ভবন A (টাওয়ার-১)</span>
               </div>
-              <div class="s10-tower-size">১৬৩৫+ বর্গফুট <span style="font-size: 13px; font-weight: 700; color: #006837;">(৪ বেড • ৩ বাথ • ৩ বারান্দা)</span></div>
+              <div class="s10-sqft-size">১৬৩৫+ <span style="font-size: 13px; font-weight: 700; color: #006837;">বর্গফুট</span></div>
             </div>
 
-            <!-- Price Boxes with Emerge Badge container -->
-            <div class="s10-price-row">
-              <div class="s10-price-box">
-                <span class="s10-price-lbl">জমির মূল্য:</span>
-                <span class="s10-price-val">১৫,০০,০০০/- <span style="font-size: 12px; font-weight: 700;">(১৫ লাখ)</span></span>
+            <!-- Price grid -->
+            <div class="s10-pricing-grid">
+              <div class="s10-pbox">
+                <span class="s10-plabel">জমির মূল্য (এককালীন):</span>
+                <span class="s10-pval">১৫,০০,০০০/- <span style="font-size: 11px; font-weight: 700;">(১৫ লাখ)</span></span>
               </div>
-              <div class="s10-price-box s10-lump-price-box" id="s10PriceBoxA" style="border-color: rgba(0, 104, 55, 0.4); background: #f0fdf4;">
-                <span class="s10-price-lbl">এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
-                <span class="s10-price-val s10-price-val-highlight" id="s10PriceValA">৫০,০০,০০০/- <span style="font-size: 12px; font-weight: 700;">(৫০ লাখ)</span></span>
-                
-                <!-- DYNAMIC POP-OUT CASHBACK BADGE -->
-                <div class="s10-emerge-cashback s10-emerge-a" id="s10EmergeA">
-                  <div class="s10-emerge-sparkle">✨</div>
-                  <div class="s10-emerge-info">
-                    <span class="s10-emerge-title">নিশ্চিত ক্যাশ রিটার্ন / বিকল্প উমরাহ:</span>
-                    <span class="s10-emerge-val">মাসিক ২৫,০০০/- টাকা <small>(টানা ২ বছর)</small></span>
-                  </div>
-                </div>
+              <div class="s10-pbox pbox-lump">
+                <span class="s10-plabel">এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
+                <span class="s10-pval" style="color: #006837;">৫০,০০,০০০/- <span style="font-size: 11px; font-weight: 700;">(৫০ লাখ)</span></span>
               </div>
             </div>
 
-            <!-- Clean Highlight Perks (No Tiny Long Bullets) -->
-            <div class="s10-key-perks">
-              <div class="s10-perk-row" id="s10PerkA1">
-                <div class="s10-perk-left">
-                  <span class="s10-perk-icon">🎁</span>
-                  <span class="s10-perk-title">এককালীন ৫০ লাখ জমায় মাসিক রিটার্ন:</span>
-                </div>
-                <span class="s10-perk-val">মাসিক ২৫,০০০/- (২ বছর)</span>
+            <!-- Perks list -->
+            <div class="s10-perks-list">
+              <div class="s10-perk-item highlight-perk">
+                <span class="s10-perk-tag">🕋 ২৬-২৭ সেপ্টে. এককালীন ৫০ লাখ:</span>
+                <span class="s10-perk-number">২ বছর ২৫,০০০/- ৳/মাস বা ২ জনের উমরাহ</span>
               </div>
-
-              <div class="s10-perk-row" id="s10PerkA2">
-                <div class="s10-perk-left">
-                  <span class="s10-perk-icon">🕋</span>
-                  <span class="s10-perk-title">বিকল্প অফার (এককালীন ৫০ লাখ):</span>
-                </div>
-                <span class="s10-perk-val">২ জনের পবিত্র উমরাহ হজ্জ</span>
+              <div class="s10-perk-item">
+                <span class="s10-perk-tag">💰 ২৬-২৭ সেপ্টে. জমির মূল্য ১৫ লাখ:</span>
+                <span class="s10-perk-number">১৮ মাস ৭,৫০০/- ৳/মাস নগদ প্রণোদনা</span>
               </div>
+              <div class="s10-perk-item">
+                <span class="s10-perk-tag">⏳ ২৬-২৭ এর পর (১ মাসের মধ্যে):</span>
+                <span class="s10-perk-number">১ বছর ২৫,০০০/- ৳/মাস বা ১ জনের উমরাহ</span>
+              </div>
+            </div>
 
-              <div class="s10-perk-row" id="s10PerkA3">
-                <div class="s10-perk-left">
-                  <span class="s10-perk-icon">💻</span>
-                  <span class="s10-perk-title">বুকিং + ডাউনপেমেন্ট (মোট ৪ লাখ):</span>
-                </div>
-                <span class="s10-perk-val">Laptop / 32" Smart TV</span>
+            <!-- 4 Lakh Booking Mini Gift -->
+            <div class="s10-card-gift-mini">
+              <img src="image/laptop-tv.png" alt="Laptop or LED TV">
+              <div class="gift-txt">
+                <strong>৪ লাখ টাকা জমা প্যাকেজ:</strong> বুকিং ১ লাখ + ডাউনপেমেন্ট ৩ লাখ = নিশ্চিত <strong>Laptop অথবা 32" Smart LED TV!</strong>
               </div>
             </div>
           </div>
 
-          <!-- Tower B -->
-          <div class="s10-tower-card s10-tower-b" id="s10TowerB" onclick="s10ManualSelect('tower-b')">
-            <div class="s10-tower-head">
-              <div class="s10-tower-title-pill pill-tower-b">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
+          <!-- Tower B Card -->
+          <div class="s10-tower-card tower-b-card" id="s10CardTowerB">
+            <div class="s10-card-head">
+              <div class="s10-tower-badge badge-tower-b">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
                 <span>ভবন B (টাওয়ার-২)</span>
               </div>
-              <div class="s10-tower-size">১৩০৮+ বর্গফুট <span style="font-size: 13px; font-weight: 700; color: #b45309;">(৩ বেড • ২ বাথ • ২ বারান্দা)</span></div>
+              <div class="s10-sqft-size">১৩০৮+ <span style="font-size: 13px; font-weight: 700; color: #b45309;">বর্গফুট</span></div>
             </div>
 
-            <!-- Price Boxes with Emerge Badge container -->
-            <div class="s10-price-row">
-              <div class="s10-price-box">
-                <span class="s10-price-lbl">জমির মূল্য:</span>
-                <span class="s10-price-val">১২,০০,০০০/- <span style="font-size: 12px; font-weight: 700;">(১২ লাখ)</span></span>
+            <!-- Price grid -->
+            <div class="s10-pricing-grid">
+              <div class="s10-pbox">
+                <span class="s10-plabel">জমির মূল্য (এককালীন):</span>
+                <span class="s10-pval">১২,০০,০০০/- <span style="font-size: 11px; font-weight: 700;">(১২ লাখ)</span></span>
               </div>
-              <div class="s10-price-box s10-lump-price-box" id="s10PriceBoxB" style="border-color: rgba(217, 119, 6, 0.4); background: #fffbeb;">
-                <span class="s10-price-lbl">এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
-                <span class="s10-price-val s10-price-val-highlight" id="s10PriceValB">৪০,০০,০০০/- <span style="font-size: 12px; font-weight: 700;">(৪০ লাখ)</span></span>
-                
-                <!-- DYNAMIC POP-OUT CASHBACK BADGE -->
-                <div class="s10-emerge-cashback s10-emerge-b" id="s10EmergeB">
-                  <div class="s10-emerge-sparkle">✨</div>
-                  <div class="s10-emerge-info">
-                    <span class="s10-emerge-title">নিশ্চিত ক্যাশ রিটার্ন / বিকল্প উমরাহ:</span>
-                    <span class="s10-emerge-val">মাসিক ২০,০০০/- টাকা <small>(টানা ২ বছর)</small></span>
-                  </div>
-                </div>
+              <div class="s10-pbox pbox-lump">
+                <span class="s10-plabel">এককালীন মূল্য (নির্মাণসহ - ১ম ৫০ জন):</span>
+                <span class="s10-pval" style="color: #b45309;">৪০,০০,০০০/- <span style="font-size: 11px; font-weight: 700;">(৪০ লাখ)</span></span>
               </div>
             </div>
 
-            <!-- Clean Highlight Perks (No Tiny Long Bullets) -->
-            <div class="s10-key-perks">
-              <div class="s10-perk-row" id="s10PerkB1">
-                <div class="s10-perk-left">
-                  <span class="s10-perk-icon">🎁</span>
-                  <span class="s10-perk-title">এককালীন ৪০ লাখ জমায় মাসিক রিটার্ন:</span>
-                </div>
-                <span class="s10-perk-val">মাসিক ২০,০০০/- (২ বছর)</span>
+            <!-- Perks list -->
+            <div class="s10-perks-list">
+              <div class="s10-perk-item highlight-perk">
+                <span class="s10-perk-tag">🕋 ২৬-২৭ সেপ্টে. এককালীন ৪০ লাখ:</span>
+                <span class="s10-perk-number">২ বছর ২০,০০০/- ৳/মাস বা ২ জনের উমরাহ</span>
               </div>
-
-              <div class="s10-perk-row" id="s10PerkB2">
-                <div class="s10-perk-left">
-                  <span class="s10-perk-icon">🕋</span>
-                  <span class="s10-perk-title">বিকল্প অফার (এককালীন ৪০ লাখ):</span>
-                </div>
-                <span class="s10-perk-val">২ জনের পবিত্র উমরাহ হজ্জ</span>
+              <div class="s10-perk-item">
+                <span class="s10-perk-tag">💰 ২৬-২৭ সেপ্টে. জমির মূল্য ১২ লাখ:</span>
+                <span class="s10-perk-number">১৮ মাস ৬,০০০/- ৳/মাস নগদ প্রণোদনা</span>
               </div>
+              <div class="s10-perk-item">
+                <span class="s10-perk-tag">⏳ ২৬-২৭ এর পর (১ মাসের মধ্যে):</span>
+                <span class="s10-perk-number">১ বছর ২০,০০০/- ৳/মাস বা ১ জনের উমরাহ</span>
+              </div>
+            </div>
 
-              <div class="s10-perk-row" id="s10PerkB3">
-                <div class="s10-perk-left">
-                  <span class="s10-perk-icon">💻</span>
-                  <span class="s10-perk-title">বুকিং + ডাউনপেমেন্ট (মোট ৪ লাখ):</span>
-                </div>
-                <span class="s10-perk-val">Laptop / 32" Smart TV</span>
+            <!-- Post-date Dinner set gift mini -->
+            <div class="s10-card-gift-mini">
+              <img src="image/dinner-set.png" alt="Dinner Set">
+              <div class="gift-txt">
+                <strong>সাধারণ বুকিং উপহার:</strong> ২৬ ও ২৭ তারিখের পর শুধু বুকিং মানি জমা দিলেও নিশ্চিত <strong>৩২ পিস লাক্সারি ডিনার সেট!</strong>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 4. Special Mega Benefit Bar (5 Lakh Taka Benefit) -->
-        <div class="s10-mega-benefit-banner" id="s10MegaBenefit" onclick="s10ManualSelect('mega-benefit')">
-          <div class="s10-benefit-icon">🎁</div>
-          <p class="s10-benefit-text">
-            <strong>কোম্পানি মেগা সুবিধা —</strong> এককালীন জমায় ফ্ল্যাট ও জমির <strong>রেজিস্ট্রি ফি</strong>, <strong>সরকারি অনুমোদন খরচ</strong> এবং <strong>মাটি ভরাট খরচ</strong> সম্পূর্ণ কোম্পানি বহন করবে।
-          </p>
-          <div class="s10-benefit-badge">সরাসরি ৫ (পাঁচ) লক্ষ টাকা সাশ্রয়!</div>
+        <!-- 4. Bottom 5 Lakh Savings Banner -->
+        <div class="s10-savings-banner" id="s10SavingsBanner">
+          <div class="s10-savings-left">
+            <div class="s10-savings-icon">💎</div>
+            <p>
+              <strong>কোম্পানি মেগা বেনিফিট —</strong> এককালীন জমায় ফ্ল্যাট ও জমির <strong>রেজিস্ট্রি ফি</strong>, রাজউকসহ <strong>সরকারি সকল অনুমোদন খরচ</strong> এবং <strong>মাটি ভরাট খরচ</strong> সম্পূর্ণ কোম্পানি প্রদান করবে।
+            </p>
+          </div>
+          <div class="s10-savings-badge">সরাসরি ৫,০০,০০০/- (পাঁচ লাখ) টাকা সেভ!</div>
         </div>
       </div>
     </div>
-  
-    <!-- ==========================================
-         SLIDE 11: GRAND FINALE - SHARE BOOKING & BUILDING VIEW
-         WITH CONTINUOUS CELEBRATORY OPENING FALL
-         ========================================== -->
+
     <div class="slide" id="slide-11">
+      <!-- Fullscreen Architectural Backdrop -->
+      <div class="s11-bg-wrap">
+        <img src="fainal-building.webp" onerror="this.src='times_square_images/fainal-building.webp'" alt="Times Square Building" class="s11-bg-img">
+        <div class="s11-bg-veil"></div>
+      </div>
+
+      <!-- Main Content Stage -->
+      <div class="s11-container">
+        <!-- Header -->
+        <div class="s11-header">
+          <div class="s11-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/></svg>
+            <span>সম্পদ রূপান্তর ও লাভজনকতা বিশ্লেষণ</span>
+          </div>
+          <h2 class="s11-title">৫০ লাখ টাকার সাধারণ বিনিয়োগ প্রকল্প শেষে রূপ নেবে আড়াই থেকে সাড়ে তিন কোটি টাকার নিশ্চিত সম্পদে!</h2>
+          <p class="s11-subtitle">নিষ্কণ্টক জমি, রাজউক প্ল্যান ও বিশ্বমানের কনডমিনিয়াম সুবিধার মাধ্যমে <strong>বিনিয়োগের প্রায় ৫ গুণ (5X) মেগা রিটার্ন</strong></p>
+        </div>
+
+        <!-- 4 Progression Steps (Asset Scale) -->
+        <div class="s11-cards-grid">
+          <!-- Step 1: Flat Value -->
+          <div class="s11-step-card active" id="s11Step1">
+            <div class="s11-card-left">
+              <div class="s11-card-ico">🏢</div>
+              <div class="s11-card-info">
+                <h4>১৬৩৫ বর্গফুট বিলাসবহুল রাজকীয় ফ্ল্যাট</h4>
+                <p>বর্তমান স্ট্যান্ডার্ড বাজারদর প্রতি বর্গফুট ন্যূনতম ১০,০০০/- টাকা হিসেবে নিশ্চিত সম্পদ মূল্য (১৩০৮ স্কয়ারফিটের ক্ষেত্রে ১ কোটি ৩০ লক্ষ+)</p>
+              </div>
+            </div>
+            <div class="s11-card-val">
+              <span class="s11-val-num">১,৬৩,৫০,০০০/- ৳</span>
+              <span class="s11-val-lbl">ফ্ল্যাটের বর্তমান সম্পদ মূল্য</span>
+            </div>
+          </div>
+
+          <!-- Step 2: Commercial Shop Share -->
+          <div class="s11-step-card" id="s11Step2">
+            <div class="s11-card-left">
+              <div class="s11-card-ico">🏪</div>
+              <div class="s11-card-info">
+                <h4>বাণিজ্যিক শপ / শপিং স্পেসের যৌথ অংশীদারিত্ব</h4>
+                <p>ভবনের ৫ তলা মেগা কমার্শিয়াল শপিং সেন্টারের মূল্যবান ১টি দোকান/স্পেসের পূর্ণ অংশের মালিকানা সুবিধা</p>
+              </div>
+            </div>
+            <div class="s11-card-val">
+              <span class="s11-val-num">৫০,০০,০০০ - ৮০,০০,০০০/- ৳</span>
+              <span class="s11-val-lbl">দোকান অংশের সম্পদ মূল্য</span>
+            </div>
+          </div>
+
+          <!-- Step 3: Lifestyle Amenities Share -->
+          <div class="s11-step-card" id="s11Step3">
+            <div class="s11-card-left">
+              <div class="s11-card-ico">🏊‍♂️</div>
+              <div class="s11-card-info">
+                <h4>যৌথ আধুনিক লাইফস্টাইল ও রুফটপ ক্লাবের অংশ</h4>
+                <p>সুইমিং পুল, জিমনেসিয়াম, রুফটপ গার্ডেন, সেন্ট্রাল মসজিদ, কিডস প্লেজোন ও কমিউনিটি হলের অংশীদারিত্ব</p>
+              </div>
+            </div>
+            <div class="s11-card-val">
+              <span class="s11-val-num">৩৭,০০,০০০/- ৳</span>
+              <span class="s11-val-lbl">যৌথ অংশের মালিকানা মূল্য</span>
+            </div>
+          </div>
+
+          <!-- Step 4: Grand Total Asset -->
+          <div class="s11-step-card card-grand-total" id="s11Step4">
+            <div class="s11-card-left">
+              <div class="s11-card-ico">🚀</div>
+              <div class="s11-card-info">
+                <h4>সর্বমোট অর্জিত স্থায়ী সম্পদ (Total Asset Value)</h4>
+                <p>আপনার প্রদত্ত মাত্র ৪০ থেকে ৫০ লাখ টাকার সাধারণ বিনিয়োগ প্রকল্প শেষে পরিণত হচ্ছে সুবিশাল স্থায়ী সম্পদে</p>
+              </div>
+            </div>
+            <div class="s11-card-val">
+              <span class="s11-val-num">২,৫০,০০,০০০ - ৩,৫০,০০,০০০/- ৳</span>
+              <span class="s11-val-lbl">আড়াই থেকে সাড়ে তিন কোটি টাকার সম্পদ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multiplier Bottom Strip -->
+        <div class="s11-multiplier-strip" id="s11MultStrip">
+          <div class="s11-mult-left">
+            <span>মূল বিনিয়োগ বনাম অর্জিত সম্পদের অনুপাত:</span>
+            <div class="s11-mult-progress">
+              <span>৫০ লাখ টাকা খরচ</span>
+              <span>➔</span>
+              <span class="highlight">৩.৫ কোটি টাকার মালিক</span>
+            </div>
+          </div>
+          <div class="s11-mult-badge">🚀 খরচের / ইনভেস্টের ৫ গুণ (5X) সম্পদ!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" id="slide-12">
       <canvas id="confettiCanvas" class="celebration-confetti-canvas" style="position: absolute !important; inset: 0 !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; pointer-events: none !important; z-index: 15 !important;"></canvas>
       
       <div class="finale-showcase-stage">
@@ -6162,7 +6799,7 @@
     <button class="dock-arrow" id="prevBtn" onclick="prevSlide()" title="পূর্ববর্তী স্লাইড">
       <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
     </button>
-    <div class="dock-count" id="slideIndicator">০১ / ১৪</div>
+    <div class="dock-count" id="slideIndicator">০১ / ১২</div>
     <button class="dock-arrow" id="nextBtn" onclick="nextSlide()" title="পরবর্তী স্লাইড">
       <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
     </button>
@@ -6171,7 +6808,7 @@
   <!-- SCRIPT -->
   <script>
     let currentSlide = 1;
-    const totalSlides = 11;
+    const totalSlides = 12;
     let autoPlayInterval = null;
     let isAutoPlaying = false;
     let soundEnabled = true;
@@ -7246,24 +7883,199 @@
       }
     }
 
+        /* =========================================================
+       SLIDE 10: AUTOMATED TIMELINE CONTROLLER
+       POWERED BY VOICE1.WAV (~135s)
+       - 0s - 17s: onusthan.png intro
+       - 17s - 25s: 3D gift box opens
+       - 25s - 33s: 25,000 Tk cash token pops upward out of gift box!
+       - 33s - 43s: Fullscreen Umrah Hajj (image/umrahhajj.png)
+       - 43s+: Main comparative cards & 5 Lakh savings banner
+       ========================================================= */
+    let s10TimelineTimer = null;
+
+    function s10DismissIntro() {
+      const intro = document.getElementById('s10HeroIntro');
+      if (intro) intro.classList.add('hidden');
+    }
+
+    function s10ShowGiftBox() {
+      s10DismissIntro();
+      const stage = document.getElementById('s10SurpriseStage');
+      const box = document.getElementById('s10GiftBox');
+      if (stage) stage.classList.add('active');
+      if (box) box.classList.add('opened');
+    }
+
+    function s10PopCashToken() {
+      s10ShowGiftBox();
+      const token = document.getElementById('s10CashToken');
+      if (token) token.classList.add('popped-out');
+    }
+
+    function s10DismissSurprise() {
+      const stage = document.getElementById('s10SurpriseStage');
+      if (stage) stage.classList.remove('active');
+    }
+
+    function s10ShowUmrahFullscreen() {
+      s10DismissIntro();
+      s10DismissSurprise();
+      const umrah = document.getElementById('s10UmrahFullscreen');
+      if (umrah) umrah.classList.add('active');
+    }
+
+    function s10DismissUmrah() {
+      const umrah = document.getElementById('s10UmrahFullscreen');
+      if (umrah) umrah.classList.remove('active');
+    }
+
     function onSlide10Enter() {
-      s10SetPhase('intro');
-      if (!currentVoiceAudio || currentVoiceAudio.paused) {
-        if (s10FallbackTimer) clearInterval(s10FallbackTimer);
-        s10CurrentPhaseIndex = 0;
-        s10FallbackTimer = setInterval(() => {
-          s10CurrentPhaseIndex = (s10CurrentPhaseIndex + 1) % s10Phases.length;
-          s10SetPhase(s10Phases[s10CurrentPhaseIndex]);
-        }, 4200);
-      }
+      // 1. Reset initial state
+      const intro = document.getElementById('s10HeroIntro');
+      const stage = document.getElementById('s10SurpriseStage');
+      const box = document.getElementById('s10GiftBox');
+      const token = document.getElementById('s10CashToken');
+      const umrah = document.getElementById('s10UmrahFullscreen');
+
+      if (intro) intro.classList.remove('hidden');
+      if (stage) stage.classList.remove('active');
+      if (box) box.classList.remove('opened');
+      if (token) token.classList.remove('popped-out');
+      if (umrah) umrah.classList.remove('active');
+
+      if (s10TimelineTimer) clearInterval(s10TimelineTimer);
+
+      let elapsedSec = 0;
+      s10TimelineTimer = setInterval(() => {
+        if (currentSlide !== 10) {
+          clearInterval(s10TimelineTimer);
+          return;
+        }
+
+        // Real audio playback time if available, fallback to interval
+        let curTime = elapsedSec;
+        if (currentVoiceAudio && !currentVoiceAudio.paused && !isNaN(currentVoiceAudio.currentTime)) {
+          curTime = currentVoiceAudio.currentTime;
+        } else {
+          elapsedSec += 1;
+        }
+
+        // Timeline milestones precisely matched to voice1.wav:
+        if (curTime < 17) {
+          // 0 - 17s: onusthan.png Ceremony intro
+          if (intro) intro.classList.remove('hidden');
+          if (stage) stage.classList.remove('active');
+          if (umrah) umrah.classList.remove('active');
+        } else if (curTime >= 17 && curTime < 25) {
+          // 17s - 25s: Gift box appears & opens
+          s10ShowGiftBox();
+          if (token) token.classList.remove('popped-out');
+          if (umrah) umrah.classList.remove('active');
+        } else if (curTime >= 25 && curTime < 33) {
+          // 25s - 33s: "মাসে ২৫ হাজার টাকা করে" -> Cash token pops out of the gift box!
+          s10PopCashToken();
+          if (umrah) umrah.classList.remove('active');
+        } else if (curTime >= 33 && curTime < 43) {
+          // 33s - 43s: "উমরাহ হজ" -> Fullscreen Umrah Hajj image displays!
+          s10ShowUmrahFullscreen();
+        } else if (curTime >= 43) {
+          // 43s+: Main comparative cards displayed
+          s10DismissUmrah();
+          s10DismissSurprise();
+          s10DismissIntro();
+        }
+
+        // Highlight cards based on progress
+        const cardA = document.getElementById('s10CardTowerA');
+        const cardB = document.getElementById('s10CardTowerB');
+        const savings = document.getElementById('s10SavingsBanner');
+
+        if (curTime >= 43 && curTime < 65) {
+          if (cardA) cardA.style.borderColor = '#006837';
+          if (cardB) cardB.style.borderColor = '';
+        } else if (curTime >= 65 && curTime < 85) {
+          if (cardB) cardB.style.borderColor = '#d97706';
+        } else if (curTime >= 95) {
+          if (savings) {
+            savings.style.transform = 'scale(1.02)';
+            savings.style.borderColor = '#fde047';
+          }
+        }
+      }, 500);
     }
 
     function onSlide10Leave() {
-      if (s10FallbackTimer) {
-        clearInterval(s10FallbackTimer);
-        s10FallbackTimer = null;
+      if (s10TimelineTimer) {
+        clearInterval(s10TimelineTimer);
+        s10TimelineTimer = null;
       }
-      s10SetPhase('reset');
+      s10DismissUmrah();
+      s10DismissSurprise();
+    }
+
+    /* =========================================================
+       SLIDE 11: 5X ASSET PROGRESSION CONTROLLER
+       POWERED BY VOICE2.WAV (~67s)
+       ========================================================= */
+    let s11TimelineTimer = null;
+
+    function onSlide11Enter() {
+      // Reset all steps
+      for (let i = 1; i <= 4; i++) {
+        const step = document.getElementById(`s11Step${i}`);
+        if (step) {
+          if (i === 1) step.classList.add('active');
+          else step.classList.remove('active');
+        }
+      }
+
+      if (s11TimelineTimer) clearInterval(s11TimelineTimer);
+
+      let elapsedSec = 0;
+      s11TimelineTimer = setInterval(() => {
+        if (currentSlide !== 11) {
+          clearInterval(s11TimelineTimer);
+          return;
+        }
+
+        let curTime = elapsedSec;
+        if (currentVoiceAudio && !currentVoiceAudio.paused && !isNaN(currentVoiceAudio.currentTime)) {
+          curTime = currentVoiceAudio.currentTime;
+        } else {
+          elapsedSec += 1;
+        }
+
+        // Reveal Step 1: Flat (from ~6s)
+        const s1 = document.getElementById('s11Step1');
+        if (s1 && curTime >= 6) s1.classList.add('active');
+
+        // Reveal Step 2: Commercial Shop (~22s)
+        const s2 = document.getElementById('s11Step2');
+        if (s2 && curTime >= 22) s2.classList.add('active');
+
+        // Reveal Step 3: Amenities (~34s)
+        const s3 = document.getElementById('s11Step3');
+        if (s3 && curTime >= 34) s3.classList.add('active');
+
+        // Reveal Step 4: Grand Total (~44s)
+        const s4 = document.getElementById('s11Step4');
+        if (s4 && curTime >= 44) s4.classList.add('active');
+
+        // Multiplier strip pulse (~52s+)
+        const mult = document.getElementById('s11MultStrip');
+        if (mult && curTime >= 52) {
+          mult.style.transform = 'scale(1.02)';
+          mult.style.borderColor = '#ffffff';
+        }
+      }, 1000);
+    }
+
+    function onSlide11Leave() {
+      if (s11TimelineTimer) {
+        clearInterval(s11TimelineTimer);
+        s11TimelineTimer = null;
+      }
     }
 
     function buildDots() {
@@ -7308,8 +8120,9 @@
         7: 'new audio/slid 7.wav',
         8: 'new audio/slid 8.wav',
         9: 'new audio/slid 9.wav',
-        10: 'new audio/slid 10.wav',
-        11: 'audio/slide_13.mp3'
+        10: 'audio/voice1.wav',
+        11: 'audio/voice2.wav',
+        12: 'audio/slide_13.mp3'
       };
       const audioSrc = slideAudioMapping[slideIndex];
       if (!audioSrc) return;
@@ -7344,7 +8157,7 @@
     }
 
     function updateSlideUI() {
-      if (currentSlide === 11 || currentSlide === totalSlides) {
+      if (currentSlide === 12 || currentSlide === totalSlides) {
         startConfetti();
         
         const bBtn = document.getElementById('bookingNavBtn');
@@ -7419,6 +8232,12 @@
         onSlide10Enter();
       } else {
         onSlide10Leave();
+      }
+
+      if (currentSlide === 11) {
+        onSlide11Enter();
+      } else {
+        onSlide11Leave();
       }
     }
 
