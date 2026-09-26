@@ -8872,63 +8872,51 @@
 
     function s6ProcessTime(t) {
       // Audio duration: 73.01s (new audio/slid 6.wav)
-      // EXACT AUDIO SYNCHRONIZATION WITH NARRATION:
-      // Floor 1: বেজমেন্ট কার পার্কিং
-      // 0.0s - 16.0s: বেজমেন্ট পার্কিং (Facility 0: parking.webp)
-      //
-      // Floor 2: বাণিজ্যিক হাব (Commercial Hub)
-      // 16.0s - 22.0s: আন্তর্জাতিক মানের মেগা সুপারশপ (Facility 1: supershop.webp)
-      // 22.0s - 25.5s: রুচিশীল ফ্যামিলি ডাইনিং ও প্রিমিয়াম ক্যাফে (Facility 2: cafe restaurent.webp)
-      // 25.5s - 29.5s: ২৪/৭ সেন্ট্রাল ফার্মেসি ও হেলথ কেয়ার (Facility 3: pharmacy.webp)
-      //
-      // Floor 3: ৫ম তলা লাইফস্টাইল হাব (5th Floor Lifestyle Hub)
-      // 29.5s - 36.5s: ফিটনেস জিমনেশিয়াম (Facility 4: gym.webp)
-      // 36.5s - 39.5s: সেন্ট্রাল মসজিদ ও ওজুখানা (Facility 5: mosq.webp)
-      // 39.5s - 43.0s: গ্র্যান্ড কমিউনিটি ও ব্যাঙ্কোয়েট হল (Facility 6: comiunity hall.webp)
-      // 43.0s - 46.0s: ইনডোর কিডস প্লে জোন (Facility 7: kids zone.webp)
-      // 46.0s - 49.5s: অভিজাত ক্লাব হাউস ও ইনডোর স্পোর্টস (Facility 8: club house.webp)
-      //
-      // Floor 4: আবাসিক টাওয়ার (Residential Tower)
-      // 49.5s - 56.5s: ২১ তলা আইকনিক রেসিডেন্সিয়াল টাওয়ার (Facility 9: time squre bulding with background.webp)
-      //
-      // Floor 5: রুফটপ লেভেল (Rooftop Level)
-      // 56.5s - 60.5s: রুফটপ ইনফিনিটি সুইমিং পুল (Facility 10: swiming_pool.webp)
-      // 60.5s - 63.5s: নান্দনিক রুফটপ গার্ডেন (Facility 11: rooftop garden.webp)
-      // 63.5s - 66.5s: গ্রিন সিটিং এরিয়া (Facility 14: green sitting spae.webp)
-      // 66.5s - 69.5s: ৩৬০° প্যানোরামিক স্কাই লাউঞ্জ ভিউ (Facility 12: rooftop view.webp)
-      // 69.5s - end: আকাশছোঁয়া ওয়াকিং ট্র্যাক (Facility 13: walking space.webp)
+      // EXACT TIMESTAMPS SPECIFIED BY USER:
+      // 1-15 sncd: parking (Facility 0)
+      // 15-22: super shop (Facility 1)
+      // 22-24: dining o cafe (Facility 2)
+      // 24-28: pharmacy (Facility 3)
+      // 28-38: gym (Facility 4)
+      // 38-40: masjid (Facility 5)
+      // 40-42: community hall (Facility 6)
+      // 42-44: kids play zone (Facility 7)
+      // 44-49: club house (Facility 8)
+      // 49-56: residential building (Facility 9)
+      // 56-1min (60s): pool (Facility 10)
+      // 1:00-1:03 (60-63s): cchad garden (Facility 11)
+      // 1:03-1:05 (63-65s): green sitting lounch (Facility 14)
+      // 1:05-end (65s+): walking track (Facility 13)
 
       let targetIdx = 0;
-      if (t < 16.0) {
-        targetIdx = 0; // বেজমেন্ট পার্কিং
+      if (t < 15.0) {
+        targetIdx = 0; // পার্কিং
       } else if (t < 22.0) {
-        targetIdx = 1; // সুপারশপ
-      } else if (t < 25.5) {
-        targetIdx = 2; // ক্যাফে ও রেস্টুরেন্ট
-      } else if (t < 29.5) {
-        targetIdx = 3; // সেন্ট্রাল ফার্মেসি
-      } else if (t < 36.5) {
-        targetIdx = 4; // ফিটনেস জিম
-      } else if (t < 39.5) {
-        targetIdx = 5; // সেন্ট্রাল মসজিদ
-      } else if (t < 43.0) {
+        targetIdx = 1; // সুপার শপ
+      } else if (t < 24.0) {
+        targetIdx = 2; // ডাইনিং ও ক্যাফে
+      } else if (t < 28.0) {
+        targetIdx = 3; // ফার্মেসি
+      } else if (t < 38.0) {
+        targetIdx = 4; // জিম
+      } else if (t < 40.0) {
+        targetIdx = 5; // মসজিদ
+      } else if (t < 42.0) {
         targetIdx = 6; // কমিউনিটি হল
-      } else if (t < 46.0) {
+      } else if (t < 44.0) {
         targetIdx = 7; // কিডস প্লে জোন
-      } else if (t < 49.5) {
+      } else if (t < 49.0) {
         targetIdx = 8; // ক্লাব হাউস
-      } else if (t < 56.5) {
-        targetIdx = 9; // আবাসিক টাওয়ার
-      } else if (t < 60.5) {
-        targetIdx = 10; // সুইমিং পুল
-      } else if (t < 63.5) {
-        targetIdx = 11; // রুফটপ গার্ডেন
-      } else if (t < 66.5) {
-        targetIdx = 14; // গ্রিন সিটিং এরিয়া
-      } else if (t < 69.5) {
-        targetIdx = 12; // স্কাই লাউঞ্জ ভিউ
+      } else if (t < 56.0) {
+        targetIdx = 9; // আবাসিক বিল্ডিং
+      } else if (t < 60.0) {
+        targetIdx = 10; // পুল
+      } else if (t < 63.0) {
+        targetIdx = 11; // ছাদ বাগান
+      } else if (t < 65.0) {
+        targetIdx = 14; // গ্রিন সিটিং লাউঞ্জ
       } else {
-        targetIdx = 13; // ওয়াকিং ট্র্যাক
+        targetIdx = 13; // ওয়াকিং ট্র্যাক
       }
 
       if (targetIdx !== s6CurrentFacilityIndex) {
