@@ -7256,11 +7256,52 @@
       }
     }
 
+    function s7AudioTimeUpdate() {
+      if (currentSlide !== 7 || !currentVoiceAudio) return;
+      if (s7AutoTimer) { clearInterval(s7AutoTimer); s7AutoTimer = null; }
+      const t = currentVoiceAudio.currentTime;
+
+      // Precision timestamps aligned to slid 7.wav Bengali narration (63.65s):
+      let roomIdx = 0;
+      if (t < 4.5) {
+        // 0 - 4.5s: Intro
+        roomIdx = 0;
+      } else if (t < 10.5) {
+        // 4.5 - 10.5s: "আনন্দঘন মুহূর্তগুলোর জন্য সুপরিকল্পিত পর্যাপ্ত আলোকিত ও চমৎকার ড্রয়িং রুম"
+        roomIdx = 0; // Drawing room
+      } else if (t < 16.5) {
+        // 10.5 - 16.5s: "খাবারের তৃপ্তি বাড়াতে আধুনিক কিচেন সংলগ্ন সুপরিসর ও পরিচ্ছন্ন ডাইনিং স্পেস"
+        roomIdx = 1; // Dining room
+      } else if (t < 22.5) {
+        // 16.5 - 22.5s: "পর্যাপ্ত আলো বাতাস, বড় জানালা এবং আধুনিক মাস্টার বাথ সংযুক্ত এক নির্মল আবাস মাস্টার বেডরুম"
+        roomIdx = 2; // Master Bedroom
+      } else if (t < 28.5) {
+        // 22.5 - 28.5s: "প্রকৃতির স্নিগ্ধ পরশ ও উন্মুক্ত দৃশ্য উপভোগের মনোরম বারান্দা"
+        roomIdx = 3; // Balcony
+      } else if (t < 36.0) {
+        // 28.5 - 36.0s: "স্বাস্থ্যকর জীবনযাত্রার নিশ্চয়তায় প্রতিটি বাথরুমে থাকছে আধুনিক স্যানিটারি ফিটিংস"
+        roomIdx = 4; // Bathroom
+      } else {
+        // 36.0s+: Leisurely unhurried cycling through rooms with ambient outro
+        const outroT = t - 36.0;
+        roomIdx = Math.floor(outroT / 5.5) % S7_ROOMS.length;
+      }
+
+      if (roomIdx !== s7CurrentIndex) {
+        s7GoToRoom(roomIdx);
+      }
+    }
+
     function onSlide7Enter() {
       s7StopTimer();
       const intro = document.getElementById('s7HeroIntro');
       if (intro) intro.classList.add('hidden');
       s7GoToRoom(0);
+
+      // Only start fallback timer if voice is muted or paused
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
+        s7StartTimer();
+      }
     }
 
     function onSlide7Leave() {
@@ -7397,11 +7438,52 @@
       s8GoToFacility(0);
     }
 
+    function s8AudioTimeUpdate() {
+      if (currentSlide !== 8 || !currentVoiceAudio) return;
+      if (s8AutoTimer) { clearInterval(s8AutoTimer); s8AutoTimer = null; }
+      const t = currentVoiceAudio.currentTime;
+
+      // Precision timestamps aligned to slid 8.wav Bengali narration (72.61s):
+      let facilityIdx = 0;
+      if (t < 5.5) {
+        // 0 - 5.5s: Intro
+        facilityIdx = 0;
+      } else if (t < 12.0) {
+        // 5.5 - 12.0s: "সার্বক্ষণিক নিরাপত্তা নজরদারি পুরো ভবন ও প্রবেশদ্বারে থাকছে হাই ডেফিনেশন সেন্ট্রাল সিসিটিভি"
+        facilityIdx = 0; // CCTV & Security
+      } else if (t < 18.0) {
+        // 12.0 - 18.0s: "স্বাচ্ছন্দ্যময় জীবনযাত্রায় থাকছে শতভাগ পাওয়ার ব্যাকআপ আন্তর্জাতিক মানের হেভি ডিউটি জেনারেটর"
+        facilityIdx = 1; // 100% Power Backup & Generator
+      } else if (t < 24.0) {
+        // 18.0 - 24.0s: "বিশ্বমানের দ্রুতগতির স্মার্ট প্যাসেঞ্জার ও বেড লিফট এবং এস্কেলেটর"
+        facilityIdx = 2; // Modern Lift & Escalator
+      } else if (t < 30.0) {
+        // 24.0 - 30.0s: "আধুনিক অগ্নিনির্বাপণ ব্যবস্থা, স্মোক ডিটেক্টর, স্প্রিংকলার, সেন্ট্রাল ফায়ার হাইড্রেন্ট"
+        facilityIdx = 3; // Modern Fire Safety & Hydrant
+      } else if (t < 38.0) {
+        // 30.0 - 38.0s: "ডিপ টিউবওয়েল ও সেন্ট্রাল ওয়াটার ট্রিটমেন্ট প্লান্ট শতভাগ বিশুদ্ধ ও নিরাপদ পানি"
+        facilityIdx = 4; // Water Filtration System
+      } else {
+        // 38.0s+: Leisurely unhurried cycling through facilities with ambient outro
+        const outroT = t - 38.0;
+        facilityIdx = Math.floor(outroT / 6.0) % S8_FACILITIES.length;
+      }
+
+      if (facilityIdx !== s8CurrentIndex) {
+        s8GoToFacility(facilityIdx);
+      }
+    }
+
     function onSlide8Enter() {
       s8StopTimer();
       const intro = document.getElementById('s8HeroIntro');
       if (intro) intro.classList.add('hidden');
       s8GoToFacility(0);
+
+      // Only start fallback timer if voice is muted or paused
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
+        s8StartTimer();
+      }
     }
 
     function onSlide8Leave() {
@@ -7716,15 +7798,13 @@
 
     function onSlide10Enter() {
       s10SetPhase('intro');
+      if (s10FallbackTimer) { clearInterval(s10FallbackTimer); s10FallbackTimer = null; }
 
-      if (currentVoiceAudio && !currentVoiceAudio.paused) {
-        currentVoiceAudio.removeEventListener('timeupdate', s10AudioTimeUpdate);
-        currentVoiceAudio.addEventListener('timeupdate', s10AudioTimeUpdate);
-      } else {
-        // Fallback smooth auto-cycling if voiceover muted
-        if (s10FallbackTimer) clearInterval(s10FallbackTimer);
+      // Only start fallback cycling if voiceover is muted or not playing
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
         s10CurrentPhaseIndex = 0;
         s10FallbackTimer = setInterval(() => {
+          if (currentSlide !== 10) { clearInterval(s10FallbackTimer); return; }
           s10CurrentPhaseIndex = (s10CurrentPhaseIndex + 1) % s10Phases.length;
           s10SetPhase(s10Phases[s10CurrentPhaseIndex]);
         }, 4200);
@@ -7820,19 +7900,13 @@
 
     function onSlide11Enter() {
       s11SetStepByTime(0);
+      if (s11TimelineTimer) { clearInterval(s11TimelineTimer); s11TimelineTimer = null; }
 
-      if (currentVoiceAudio && !currentVoiceAudio.paused) {
-        currentVoiceAudio.removeEventListener('timeupdate', s11AudioTimeUpdate);
-        currentVoiceAudio.addEventListener('timeupdate', s11AudioTimeUpdate);
-      } else {
-        // Fallback timer if sound muted
-        if (s11TimelineTimer) clearInterval(s11TimelineTimer);
+      // Only start fallback timer if voiceover is muted or not playing
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
         let sec = 0;
         s11TimelineTimer = setInterval(() => {
-          if (currentSlide !== 11) {
-            clearInterval(s11TimelineTimer);
-            return;
-          }
+          if (currentSlide !== 11) { clearInterval(s11TimelineTimer); return; }
           sec += 1;
           s11SetStepByTime(sec);
         }, 1000);
@@ -7843,9 +7917,6 @@
       if (s11TimelineTimer) {
         clearInterval(s11TimelineTimer);
         s11TimelineTimer = null;
-      }
-      if (currentVoiceAudio) {
-        currentVoiceAudio.removeEventListener('timeupdate', s11AudioTimeUpdate);
       }
     }
 
@@ -7892,28 +7963,35 @@
         8: 'new audio/slid 8.wav',
         9: 'new audio/slid 9.wav',
         10: 'audio/voice1.wav',
-        11: 'audio/voice2.wav',
-        12: 'audio/slide_13.mp3'
+        11: 'audio/voice2.wav'
+        // Slide 12 has NO audio (visual celebration only)
       };
       const audioSrc = slideAudioMapping[slideIndex];
       if (!audioSrc) return;
 
       currentVoiceAudio = new Audio(audioSrc);
 
-      if (slideIndex === 10) {
-        if (s10FallbackTimer) {
-          clearInterval(s10FallbackTimer);
-          s10FallbackTimer = null;
-        }
-        currentVoiceAudio.addEventListener('timeupdate', s10AudioTimeUpdate);
+      const timeUpdateHandlers = {
+        4: s4AudioTimeUpdate,
+        5: s5AudioTimeUpdate,
+        6: s6AudioTimeUpdate,
+        7: s7AudioTimeUpdate,
+        8: s8AudioTimeUpdate,
+        10: s10AudioTimeUpdate,
+        11: s11AudioTimeUpdate
+      };
+      if (timeUpdateHandlers[slideIndex]) {
+        currentVoiceAudio.addEventListener('timeupdate', timeUpdateHandlers[slideIndex]);
       }
-      if (slideIndex === 11) {
-        if (s11TimelineTimer) {
-          clearInterval(s11TimelineTimer);
-          s11TimelineTimer = null;
-        }
-        currentVoiceAudio.addEventListener('timeupdate', s11AudioTimeUpdate);
-      }
+      currentVoiceAudio.addEventListener('playing', () => {
+        // Cancel all fallback timers immediately once voice actually starts playing
+        if (s4AutoTimer) { clearInterval(s4AutoTimer); s4AutoTimer = null; }
+        if (s6AutoTimer) { clearInterval(s6AutoTimer); s6AutoTimer = null; }
+        if (s7AutoTimer) { clearInterval(s7AutoTimer); s7AutoTimer = null; }
+        if (s8AutoTimer) { clearInterval(s8AutoTimer); s8AutoTimer = null; }
+        if (s10FallbackTimer) { clearInterval(s10FallbackTimer); s10FallbackTimer = null; }
+        if (s11TimelineTimer) { clearInterval(s11TimelineTimer); s11TimelineTimer = null; }
+      });
 
       currentVoiceAudio.onended = () => {
         // If auto-play is active, advance to next slide after narration completes
@@ -7980,6 +8058,8 @@
 
       if (currentSlide === 5) {
         onSlide5Enter();
+      } else {
+        onSlide5Leave();
       }
 
             if (currentSlide === 7) {
@@ -8052,6 +8132,37 @@
       }
     }
 
+    function s4HighlightAllCards() {
+      for (let i = 1; i <= 4; i++) {
+        const card = document.getElementById('s4Card' + i);
+        if (card) card.classList.add('active');
+      }
+    }
+
+    function s4AudioTimeUpdate() {
+      if (currentSlide !== 4 || !currentVoiceAudio) return;
+      if (s4AutoTimer) { clearInterval(s4AutoTimer); s4AutoTimer = null; }
+      const t = currentVoiceAudio.currentTime;
+
+      // Precision timestamps aligned to slid 4.wav Bengali narration (38.21s):
+      if (t < 5.5) {
+        // 0 - 5.5s: "৪০ কাঠা নিষ্কণ্টক জমির উপর গড়ে উঠছে..."
+        s4SwitchScene(1, false);
+      } else if (t < 12.5) {
+        // 5.5 - 12.5s: "২১ তলা বিশিষ্ট এই নান্দনিক স্কাইস্ক্র্যাপারে রয়েছে ২ তলা আন্ডারগ্রাউন্ড বেজমেন্ট..."
+        s4SwitchScene(2, false);
+      } else if (t < 18.5) {
+        // 12.5 - 18.5s: "সুউচ্চ টাওয়ারে পরিকল্পিত মোট ২৫২ টি অ্যাপার্টমেন্টের প্রতিটি শতভাগ আলো বাতাস..."
+        s4SwitchScene(3, false);
+      } else if (t < 27.0) {
+        // 18.5 - 27.0s: "সামনে ৬০ ফুট প্রশস্ত প্রধান সড়ক ও ডানে ৩৫ ফুট রোডের সরাসরি নির্বিঘ্ন সংযোগ..."
+        s4SwitchScene(4, false);
+      } else {
+        // 27.0s+: Outro & full project overview celebration
+        s4HighlightAllCards();
+      }
+    }
+
     function s4RestartTimer() {
       if (s4AutoTimer) clearInterval(s4AutoTimer);
       s4AutoTimer = setInterval(() => {
@@ -8062,7 +8173,20 @@
 
     function onSlide4Enter() {
       s4SwitchScene(1, false);
-      s4RestartTimer();
+      if (s4AutoTimer) clearInterval(s4AutoTimer);
+
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
+        let sec = 0;
+        s4AutoTimer = setInterval(() => {
+          if (currentSlide !== 4) { clearInterval(s4AutoTimer); return; }
+          sec += 1;
+          if (sec < 6) s4SwitchScene(1, false);
+          else if (sec < 13) s4SwitchScene(2, false);
+          else if (sec < 19) s4SwitchScene(3, false);
+          else if (sec < 28) s4SwitchScene(4, false);
+          else s4HighlightAllCards();
+        }, 1000);
+      }
     }
 
     function onSlide4Leave() {
@@ -8083,11 +8207,10 @@
        ========================================================= */
     let s5AnimTimer = null;
     let s5Running = false;
+    let s5LastPhase = -1;
 
-    function s5StartAnimation() {
-      if (s5Running) return;
-      s5Running = true;
-
+    function s5ResetState() {
+      s5LastPhase = -1;
       const canvas = document.getElementById('s5Canvas');
       const mpCanvas = document.getElementById('s5MasterplanCanvas');
       const mpScene = document.getElementById('s5MpScene');
@@ -8097,7 +8220,6 @@
       const dot2 = document.getElementById('s5Dot2');
       const dot3 = document.getElementById('s5Dot3');
 
-      // Reset state
       if (canvas) { canvas.style.opacity = '1'; canvas.classList.remove('phase-fadeout'); }
       if (mpCanvas) { mpCanvas.style.opacity = '0'; mpCanvas.classList.remove('phase-reveal'); }
       if (mpScene) { mpScene.classList.remove('zoomed-out'); }
@@ -8106,11 +8228,10 @@
         satBg.classList.remove('zooming');
       }
       if (replayBtn) replayBtn.style.display = 'none';
-      if (dot1) { dot1.classList.add('active'); }
-      if (dot2) { dot2.classList.remove('active'); }
-      if (dot3) { dot3.classList.remove('active'); }
+      if (dot1) dot1.classList.add('active');
+      if (dot2) dot2.classList.remove('active');
+      if (dot3) dot3.classList.remove('active');
 
-      // Reset all elements
       const routes = ['routeShahbag','routeBashundhara','routePadma','routeHighway'];
       const cities = ['cityShahbag','cityBashundhara','cityPadma','cityHighway'];
       const pins = ['pinKanchpur','pinBusTerminal','pinScollCollege','pinHospital','pinMRT','pinPadmaLink'];
@@ -8134,159 +8255,123 @@
         if (el) { el.style.opacity = '0'; el.style.transition = 'none'; }
       });
       if (mainPin) { mainPin.style.opacity = '0'; mainPin.style.transition = 'none'; }
-
-      // Force reflow
-      document.getElementById('s5MapSvg') && document.getElementById('s5MapSvg').getBBox;
-
-      // Clear any existing timers
-      if (s5AnimTimer) clearTimeout(s5AnimTimer);
-
-      // ── STEP 1: Satellite Map Zooms In slowly from wide view (0.3s) ──
-      setTimeout(() => {
-        if (satBg) {
-          satBg.classList.add('zooming');
-        }
-      }, 300);
-
-      // ── STEP 2: Slower, cinematic GPS route animation (after zoom arrives, 4.5s - 13.5s) ──
-      const routeTimings = [
-        { id: 'routeShahbag', cityId: 'cityShahbag', delay: 4500, duration: 5200 },
-        { id: 'routeBashundhara', cityId: 'cityBashundhara', delay: 5200, duration: 4800 },
-        { id: 'routePadma', cityId: 'cityPadma', delay: 6000, duration: 5000 },
-        { id: 'routeHighway', cityId: 'cityHighway', delay: 6800, duration: 4500 },
-      ];
-      routeTimings.forEach(({ id, cityId, delay, duration }) => {
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) {
-            el.style.transition = `stroke-dashoffset ${duration}ms cubic-bezier(0.2, 0.05, 0.2, 1)`;
-            el.style.strokeDashoffset = '0';
-          }
-          // City label appears smoothly as route begins
-          setTimeout(() => {
-            const city = document.getElementById(cityId);
-            if (city) { city.style.transition = 'opacity 1.0s ease'; city.style.opacity = '1'; }
-          }, duration * 0.45);
-        }, delay);
-      });
-
-      // ── STEP 3: Main project pin drops at Madanpur (10.5s) ──
-      setTimeout(() => {
-        if (dot2) { dot1 && dot1.classList.remove('active'); dot2.classList.add('active'); }
-        if (mainPin) {
-          mainPin.style.transition = 'opacity 1.0s cubic-bezier(0.34,1.56,0.64,1), transform 1.0s cubic-bezier(0.34,1.56,0.64,1)';
-          mainPin.style.transform = 'translateY(-24px)';
-          mainPin.style.opacity = '0';
-          setTimeout(() => {
-            mainPin.style.transform = 'translateY(0px)';
-            mainPin.style.opacity = '1';
-          }, 50);
-        }
-      }, 10500);
-
-      // ── STEP 4: Notable surrounding landmark pins appear one by one (12s – 18.5s) ──
-      const pinTimings = [
-        { id: 'pinKanchpur', delay: 11800 },
-        { id: 'pinBusTerminal', delay: 13200 },
-        { id: 'pinScollCollege', delay: 14600 },
-        { id: 'pinHospital', delay: 16000 },
-        { id: 'pinMRT', delay: 17200 },
-        { id: 'pinPadmaLink', delay: 18400 },
-      ];
-      pinTimings.forEach(({ id, delay }) => {
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) { el.style.transition = 'opacity 0.85s cubic-bezier(0.34,1.56,0.64,1)'; el.style.opacity = '1'; }
-        }, delay);
-      });
-
-      // ── STEP 5: Satellite map fades into Plot view at 14s (perfect sync with narration) ──
-      setTimeout(() => {
-        if (dot3) { dot2 && dot2.classList.remove('active'); dot3.classList.add('active'); }
-        if (canvas) {
-          canvas.style.transition = 'opacity 1.2s ease';
-          canvas.style.opacity = '0';
-        }
-      }, 14000);
-
-      // ── STEP 6: Masterplan architectural plot canvas reveals itself (15s) ──
-      setTimeout(() => {
-        if (mpCanvas) {
-          mpCanvas.style.transition = 'opacity 1.0s ease';
-          mpCanvas.style.opacity = '1';
-          setTimeout(() => {
-            mpCanvas.classList.add('phase-reveal');
-          }, 80);
-        }
-      }, 15200);
-
-      // ── STEP 7: Smooth Zoom-Out & surrounding projects reveal (Greenville, Eden River, BCS School, EST Town) (19s) ──
-      setTimeout(() => {
-        if (mpScene) {
-          mpScene.classList.add('zoomed-out');
-        }
-        setTimeout(() => {
-          const gv = document.getElementById('ngGreenville');
-          if (gv) { gv.style.transition = 'opacity 1s ease'; gv.style.opacity = '1'; }
-        }, 500);
-        setTimeout(() => {
-          const eg = document.getElementById('ngEdenRiver');
-          if (eg) { eg.style.transition = 'opacity 1s ease'; eg.style.opacity = '1'; }
-        }, 1200);
-        setTimeout(() => {
-          const bs = document.getElementById('ngBcsSchool');
-          if (bs) { bs.style.transition = 'opacity 1s ease'; bs.style.opacity = '1'; }
-        }, 1800);
-        setTimeout(() => {
-          const et = document.getElementById('ngEstTown');
-          if (et) { et.style.transition = 'opacity 1s ease'; et.style.opacity = '1'; }
-        }, 2400);
-
-        // Show replay button
-        setTimeout(() => {
-          if (replayBtn) replayBtn.style.display = 'flex';
-          s5Running = false;
-        }, 5000);
-      }, 19000);
     }
 
-    
-    function s5GoToPhase(phaseNum) {
-      const canvas = document.getElementById('s5Canvas');
-      const mpCanvas = document.getElementById('s5MasterplanCanvas');
-      const mpScene = document.getElementById('s5MpScene');
+    function s5TriggerZoomIn() {
+      const satBg = document.getElementById('s5SatBg');
+      if (satBg) satBg.classList.add('zooming');
+    }
+
+    function s5TriggerRoutes() {
+      const routeTimings = [
+        { id: 'routeShahbag', cityId: 'cityShahbag', duration: 4200 },
+        { id: 'routeBashundhara', cityId: 'cityBashundhara', duration: 3800 },
+        { id: 'routePadma', cityId: 'cityPadma', duration: 4000 },
+        { id: 'routeHighway', cityId: 'cityHighway', duration: 3600 },
+      ];
+      routeTimings.forEach(({ id, cityId, duration }) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.transition = `stroke-dashoffset ${duration}ms cubic-bezier(0.2, 0.05, 0.2, 1)`;
+          el.style.strokeDashoffset = '0';
+        }
+        const city = document.getElementById(cityId);
+        if (city) { city.style.transition = 'opacity 1.0s ease'; city.style.opacity = '1'; }
+      });
+    }
+
+    function s5TriggerPins() {
       const dot1 = document.getElementById('s5Dot1');
       const dot2 = document.getElementById('s5Dot2');
-      const dot3 = document.getElementById('s5Dot3');
-      const neighbors = ['ngEdenRiver','ngGreenville','ngBcsSchool','ngEstTown'];
+      if (dot1) dot1.classList.remove('active');
+      if (dot2) dot2.classList.add('active');
 
-      if (phaseNum === 1 || phaseNum === 2) {
-        if (canvas) { canvas.style.opacity = '1'; }
-        if (mpCanvas) { mpCanvas.style.opacity = '0'; mpCanvas.classList.remove('phase-reveal'); }
-        if (dot1) dot1.classList.toggle('active', phaseNum === 1);
-        if (dot2) dot2.classList.toggle('active', phaseNum === 2);
-        if (dot3) dot3.classList.remove('active');
-      } else if (phaseNum === 3) {
-        // Direct jump to Masterplan Plot View
-        if (canvas) { canvas.style.opacity = '0'; }
-        if (mpCanvas) {
-          mpCanvas.style.opacity = '1';
-          mpCanvas.classList.add('phase-reveal');
-        }
-        if (mpScene) { mpScene.classList.add('zoomed-out'); }
-        neighbors.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) { el.style.opacity = '1'; }
-        });
-        if (dot1) dot1.classList.remove('active');
-        if (dot2) dot2.classList.remove('active');
-        if (dot3) dot3.classList.add('active');
+      const mainPin = document.getElementById('s5ProjectMainPin');
+      if (mainPin) {
+        mainPin.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.34,1.56,0.64,1)';
+        mainPin.style.transform = 'translateY(0px)';
+        mainPin.style.opacity = '1';
+      }
+      ['pinKanchpur','pinBusTerminal','pinScollCollege','pinHospital','pinMRT','pinPadmaLink'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.transition = 'opacity 0.7s ease'; el.style.opacity = '1'; }
+      });
+    }
+
+    function s5TriggerMasterplan() {
+      const dot2 = document.getElementById('s5Dot2');
+      const dot3 = document.getElementById('s5Dot3');
+      if (dot2) dot2.classList.remove('active');
+      if (dot3) dot3.classList.add('active');
+
+      const canvas = document.getElementById('s5Canvas');
+      if (canvas) { canvas.style.transition = 'opacity 1s ease'; canvas.style.opacity = '0'; }
+      const mpCanvas = document.getElementById('s5MasterplanCanvas');
+      if (mpCanvas) {
+        mpCanvas.style.transition = 'opacity 1s ease';
+        mpCanvas.style.opacity = '1';
+        mpCanvas.classList.add('phase-reveal');
       }
     }
 
+    function s5TriggerSurroundings() {
+      const mpScene = document.getElementById('s5MpScene');
+      if (mpScene) mpScene.classList.add('zoomed-out');
+      ['ngGreenville','ngEdenRiver','ngBcsSchool','ngEstTown'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.transition = 'opacity 0.9s ease'; el.style.opacity = '1'; }
+      });
+      const replayBtn = document.getElementById('s5ReplayBtn');
+      if (replayBtn) replayBtn.style.display = 'flex';
+    }
+
+    function s5AudioTimeUpdate() {
+      if (currentSlide !== 5 || !currentVoiceAudio) return;
+      const t = currentVoiceAudio.currentTime;
+
+      // Precision timestamps aligned to slid 5.wav Bengali narration (58.05s):
+      if (t < 6.0 && s5LastPhase < 1) {
+        s5LastPhase = 1;
+        s5TriggerZoomIn();
+      } else if (t >= 6.0 && t < 12.5 && s5LastPhase < 2) {
+        s5LastPhase = 2;
+        s5TriggerRoutes();
+      } else if (t >= 12.5 && t < 18.5 && s5LastPhase < 3) {
+        s5LastPhase = 3;
+        s5TriggerPins();
+      } else if (t >= 18.5 && t < 25.0 && s5LastPhase < 4) {
+        s5LastPhase = 4;
+        s5TriggerMasterplan();
+      } else if (t >= 25.0 && s5LastPhase < 5) {
+        s5LastPhase = 5;
+        s5TriggerSurroundings();
+      }
+    }
+
+    function s5StartAnimation() {
+      s5ResetState();
+      setTimeout(s5TriggerZoomIn, 300);
+      setTimeout(s5TriggerRoutes, 4500);
+      setTimeout(s5TriggerPins, 10500);
+      setTimeout(s5TriggerMasterplan, 15000);
+      setTimeout(s5TriggerSurroundings, 22000);
+    }
+
+    function s5GoToPhase(phaseNum) {
+      if (phaseNum === 1) { s5ResetState(); s5TriggerZoomIn(); }
+      else if (phaseNum === 2) { s5TriggerRoutes(); s5TriggerPins(); }
+      else if (phaseNum === 3) { s5TriggerMasterplan(); s5TriggerSurroundings(); }
+    }
+
     function onSlide5Enter() {
-      s5Running = false;
-      setTimeout(() => { s5StartAnimation(); }, 250);
+      s5ResetState();
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
+        s5StartAnimation();
+      }
+    }
+
+    function onSlide5Leave() {
+      s5ResetState();
     }
 
     /* =========================================================
@@ -8623,9 +8708,59 @@
       }, 9200); // 9.2s per facility: luxurious, gentle, unhurried pace
     }
 
+    function s6AudioTimeUpdate() {
+      if (currentSlide !== 6 || !currentVoiceAudio) return;
+      if (s6AutoTimer) { clearInterval(s6AutoTimer); s6AutoTimer = null; }
+      const t = currentVoiceAudio.currentTime;
+
+      // Precision timestamps aligned to slid 6.wav Bengali narration (73.01s):
+      let targetIdx = 0;
+      if (t < 5.5) {
+        // 0 - 5.5s: Intro
+        targetIdx = 0;
+      } else if (t < 11.5) {
+        // 5.5 - 11.5s: "স্মার্ট অটোমেটিক কার পার্কিং এবং আধুনিক ইভি চার্জিং স্টেশন"
+        targetIdx = 0; // Parking
+      } else if (t < 14.5) {
+        // 11.5 - 14.5s: "গ্রাউন্ড থেকে চতুর্থ তলা পর্যন্ত আন্তর্জাতিক মানের মেগা সুপারশপ"
+        targetIdx = 1; // Supershop
+      } else if (t < 17.5) {
+        // 14.5 - 17.5s: "ক্যাফে এবং সার্বক্ষণিক স্বাস্থ্যসেবায় ২৪ ঘন্টা খোলা সেন্ট্রাল ফার্মেসি"
+        targetIdx = (t < 16.0) ? 2 : 3; // Cafe or Pharmacy
+      } else if (t < 20.5) {
+        // 17.5 - 20.5s: "এর ঠিক ওপরে ফিটনেস জিমনেসিয়াম ও প্রশান্তিময় সেন্ট্রাল মসজিদ"
+        targetIdx = (t < 19.0) ? 4 : 5; // Gym or Mosque
+      } else if (t < 24.5) {
+        // 20.5 - 24.5s: "সামাজিক উৎসব উদযাপনের গ্র্যান্ড কমিউনিটি হল ও কিডস প্লে জোন"
+        targetIdx = (t < 22.5) ? 6 : 7; // Community hall or Kids zone
+      } else if (t < 30.5) {
+        // 24.5 - 30.5s: "ষষ্ঠ থেকে ১৯ তম তলা পর্যন্ত টাওয়ার এ ও টাওয়ার বি"
+        targetIdx = 9; // 21-story Residential Tower
+      } else if (t < 35.0) {
+        // 30.5 - 35.0s: "রুফটপ ইনফিনিটি সুইমিং পুল"
+        targetIdx = 10; // Swimming pool
+      } else if (t < 39.0) {
+        // 35.0 - 39.0s: "নয়নাভিরাম ছাদ বাগান ও ওয়াকিং ট্র্যাক"
+        targetIdx = (t < 37.0) ? 11 : 13; // Rooftop garden or Walking track
+      } else if (t < 44.0) {
+        // 39.0 - 44.0s: "খোলা আকাশের নিচে গ্রীন সিটিং লাউঞ্জ এবং ৩৬০ ডিগ্রি স্কাই লাউঞ্জ ভিউ"
+        targetIdx = (t < 41.5) ? 14 : 12; // Green sitting or Rooftop view
+      } else {
+        // 44.0s+: Soft ambient outro cycling (5.5s per facility)
+        const outroT = t - 44.0;
+        targetIdx = Math.floor(outroT / 5.5) % s6Facilities.length;
+      }
+
+      if (targetIdx !== s6CurrentFacilityIndex) {
+        s6SelectFacility(targetIdx, false, true);
+      }
+    }
+
     function onSlide6Enter() {
       s6SelectFacility(0, false);
-      s6RestartAutoCycle();
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
+        s6RestartAutoCycle();
+      }
     }
 
     function onSlide6Leave() {
