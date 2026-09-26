@@ -2027,7 +2027,7 @@
       display: block;
       opacity: 0;
       transform-origin: center center;
-      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform, opacity;
       pointer-events: none;
     }
@@ -8736,14 +8736,14 @@
         void nextImg.offsetWidth;
         nextImg.classList.add('active');
 
-        // Gracefully remove old active image after 1800ms cross-fade completes
+        // Gracefully remove old active image after cross-fade completes
         if (forceRevealed) {
           if (curImg && curImg !== nextImg) curImg.classList.remove('active');
         } else {
           const oldImg = curImg;
-          setTimeout(() => {
-            if (oldImg) oldImg.classList.remove('active');
-          }, 1800);
+          s6CleanupTimer = setTimeout(() => {
+            if (oldImg && oldImg !== nextImg) oldImg.classList.remove('active');
+          }, 850);
         }
 
         s6ActiveBuffer = nextBuffer;
@@ -8814,62 +8814,94 @@
       }, 9200); // 9.2s per facility: luxurious, gentle, unhurried pace
     }
 
-    function s6AudioTimeUpdate() {
-      if (currentSlide !== 6 || !currentVoiceAudio) return;
-      if (s6AutoTimer) { clearInterval(s6AutoTimer); s6AutoTimer = null; }
-      const t = currentVoiceAudio.currentTime;
+    function s6ProcessTime(t) {
+      // Audio duration: 73.01s (new audio/slid 6.wav)
+      // EXACT AUDIO SYNCHRONIZATION WITH NARRATION:
+      // Floor 1: বেজমেন্ট কার পার্কিং
+      // 0.0s - 16.0s: বেজমেন্ট পার্কিং (Facility 0: parking.webp)
+      //
+      // Floor 2: বাণিজ্যিক হাব (Commercial Hub)
+      // 16.0s - 22.0s: আন্তর্জাতিক মানের মেগা সুপারশপ (Facility 1: supershop.webp)
+      // 22.0s - 25.5s: রুচিশীল ফ্যামিলি ডাইনিং ও প্রিমিয়াম ক্যাফে (Facility 2: cafe restaurent.webp)
+      // 25.5s - 29.5s: ২৪/৭ সেন্ট্রাল ফার্মেসি ও হেলথ কেয়ার (Facility 3: pharmacy.webp)
+      //
+      // Floor 3: ৫ম তলা লাইফস্টাইল হাব (5th Floor Lifestyle Hub)
+      // 29.5s - 36.5s: ফিটনেস জিমনেশিয়াম (Facility 4: gym.webp)
+      // 36.5s - 39.5s: সেন্ট্রাল মসজিদ ও ওজুখানা (Facility 5: mosq.webp)
+      // 39.5s - 43.0s: গ্র্যান্ড কমিউনিটি ও ব্যাঙ্কোয়েট হল (Facility 6: comiunity hall.webp)
+      // 43.0s - 46.0s: ইনডোর কিডস প্লে জোন (Facility 7: kids zone.webp)
+      // 46.0s - 49.5s: অভিজাত ক্লাব হাউস ও ইনডোর স্পোর্টস (Facility 8: club house.webp)
+      //
+      // Floor 4: আবাসিক টাওয়ার (Residential Tower)
+      // 49.5s - 56.5s: ২১ তলা আইকনিক রেসিডেন্সিয়াল টাওয়ার (Facility 9: time squre bulding with background.webp)
+      //
+      // Floor 5: রুফটপ লেভেল (Rooftop Level)
+      // 56.5s - 60.5s: রুফটপ ইনফিনিটি সুইমিং পুল (Facility 10: swiming_pool.webp)
+      // 60.5s - 63.5s: নান্দনিক রুফটপ গার্ডেন (Facility 11: rooftop garden.webp)
+      // 63.5s - 66.5s: গ্রিন সিটিং এরিয়া (Facility 14: green sitting spae.webp)
+      // 66.5s - 69.5s: ৩৬০° প্যানোরামিক স্কাই লাউঞ্জ ভিউ (Facility 12: rooftop view.webp)
+      // 69.5s - end: আকাশছোঁয়া ওয়াকিং ট্র্যাক (Facility 13: walking space.webp)
 
-      const curtain = document.getElementById('s6TitleCurtain');
-      if (curtain) curtain.style.display = 'none';
-
-      // Exact timestamps requested by user for Slide 6:
-      // 1 - 16s: Car parking 1st image
-      // 16 - 27s: বাণিজ্যিক হাব (Commercial hub)
-      // 27 - 45s: ৫ম তলা (5th floor lifestyle hub)
-      // 45 - 56s: আবাসিক টাওয়ার (Residential tower)
-      // 56s - end voice: রুফটপ (Rooftop infinity pool & garden)
       let targetIdx = 0;
       if (t < 16.0) {
-        // 0 - 16.0s: Car Parking 1st image (Facility 0)
-        targetIdx = 0;
-      } else if (t < 27.0) {
-        // 16.0 - 27.0s: বাণিজ্যিক হাব (Facility 1: Supershop & Shopping Center)
-        targetIdx = 1;
-      } else if (t < 45.0) {
-        // 27.0 - 45.0s: ৫ম তলা (5th Floor Lifestyle Hub)
-        // 27 - 36s: Grand Community Hall (Facility 6); 36 - 45s: Fitness Gym (Facility 4)
-        targetIdx = (t < 36.0) ? 6 : 4;
-      } else if (t < 56.0) {
-        // 45.0 - 56.0s: আবাসিক টাওয়ার (Facility 9: 21-Story Residential Towers)
-        targetIdx = 9;
+        targetIdx = 0; // বেজমেন্ট পার্কিং
+      } else if (t < 22.0) {
+        targetIdx = 1; // সুপারশপ
+      } else if (t < 25.5) {
+        targetIdx = 2; // ক্যাফে ও রেস্টুরেন্ট
+      } else if (t < 29.5) {
+        targetIdx = 3; // সেন্ট্রাল ফার্মেসি
+      } else if (t < 36.5) {
+        targetIdx = 4; // ফিটনেস জিম
+      } else if (t < 39.5) {
+        targetIdx = 5; // সেন্ট্রাল মসজিদ
+      } else if (t < 43.0) {
+        targetIdx = 6; // কমিউনিটি হল
+      } else if (t < 46.0) {
+        targetIdx = 7; // কিডস প্লে জোন
+      } else if (t < 49.5) {
+        targetIdx = 8; // ক্লাব হাউস
+      } else if (t < 56.5) {
+        targetIdx = 9; // আবাসিক টাওয়ার
+      } else if (t < 60.5) {
+        targetIdx = 10; // সুইমিং পুল
+      } else if (t < 63.5) {
+        targetIdx = 11; // রুফটপ গার্ডেন
+      } else if (t < 66.5) {
+        targetIdx = 14; // গ্রিন সিটিং এরিয়া
+      } else if (t < 69.5) {
+        targetIdx = 12; // স্কাই লাউঞ্জ ভিউ
       } else {
-        // 56.0s - end voice: রুফটপ (Facility 10: Infinity Pool & Facility 11: Roof Garden)
-        targetIdx = (t < 65.0) ? 10 : 11;
+        targetIdx = 13; // ওয়াকিং ট্র্যাক
       }
 
-      // ONLY switch when index actually changes, with full smooth 1.8s cross-fade
       if (targetIdx !== s6CurrentFacilityIndex) {
         s6SelectFacility(targetIdx, false, false);
       }
     }
 
+    function s6AudioTimeUpdate() {
+      if (currentSlide !== 6 || !currentVoiceAudio) return;
+      if (s6AutoTimer) { clearInterval(s6AutoTimer); s6AutoTimer = null; }
+      const curtain = document.getElementById('s6TitleCurtain');
+      if (curtain) curtain.style.display = 'none';
+
+      s6ProcessTime(currentVoiceAudio.currentTime);
+    }
+
     function onSlide6Enter() {
       const curtain = document.getElementById('s6TitleCurtain');
       if (curtain) curtain.style.display = 'none';
-      s6SelectFacility(0, false);
+      if (s6AutoTimer) { clearInterval(s6AutoTimer); s6AutoTimer = null; }
+      s6SelectFacility(0, false, true);
 
+      // Only start fallback timer if voiceover is muted or not playing
       if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
         let sec = 0;
         s6AutoTimer = setInterval(() => {
           if (currentSlide !== 6) { clearInterval(s6AutoTimer); return; }
           sec += 1;
-          if (sec < 16) s6SelectFacility(0, false, false);
-          else if (sec < 27) s6SelectFacility(1, false, false);
-          else if (sec < 36) s6SelectFacility(6, false, false);
-          else if (sec < 45) s6SelectFacility(4, false, false);
-          else if (sec < 56) s6SelectFacility(9, false, false);
-          else if (sec < 65) s6SelectFacility(10, false, false);
-          else s6SelectFacility(11, false, false);
+          s6ProcessTime(sec);
         }, 1000);
       }
     }
