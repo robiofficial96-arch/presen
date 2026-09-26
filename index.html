@@ -3648,7 +3648,7 @@
       box-shadow: 0 6px 18px rgba(0, 104, 55, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
       position: relative;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
       cursor: pointer;
     }
 
@@ -3911,7 +3911,7 @@
       border-color: #b91c1c !important;
       background: linear-gradient(135deg, #fff1f2 0%, #fee2e2 100%) !important;
       box-shadow: 0 14px 36px rgba(185, 28, 28, 0.45), 0 0 22px rgba(239, 68, 68, 0.35);
-      animation: s10PricePulse 1.2s infinite ease-in-out alternate;
+      animation: s10PricePulse 2.4s infinite ease-in-out alternate;
     }
 
     @keyframes s10PricePulse {
@@ -4141,20 +4141,28 @@
     }
 
 
+    .s11-step-card {
+      transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  background 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  opacity 0.8s ease !important;
+    }
+
     .s11-step-card.spotlight-speaking {
       opacity: 1 !important;
-      transform: scale(1.045) translateX(6px) !important;
+      transform: scale(1.055) translateX(8px) !important;
       border-color: #fde047 !important;
       background: linear-gradient(90deg, rgba(0, 104, 55, 0.45) 0%, rgba(245, 158, 11, 0.25) 50%, rgba(15, 23, 42, 0.85) 100%) !important;
-      box-shadow: 0 14px 40px rgba(251, 191, 36, 0.5), 0 0 30px rgba(251, 191, 36, 0.35) !important;
+      box-shadow: 0 16px 45px rgba(251, 191, 36, 0.55), 0 0 35px rgba(251, 191, 36, 0.4) !important;
       z-index: 25;
     }
 
     .s11-step-card.card-grand-total.spotlight-speaking {
       border-color: #fde047 !important;
       background: linear-gradient(90deg, rgba(217, 119, 6, 0.5) 0%, rgba(245, 158, 11, 0.35) 50%, rgba(15, 23, 42, 0.9) 100%) !important;
-      box-shadow: 0 16px 50px rgba(245, 158, 11, 0.65), 0 0 35px rgba(253, 224, 71, 0.4) !important;
-      transform: scale(1.055) translateX(6px) !important;
+      box-shadow: 0 18px 55px rgba(245, 158, 11, 0.7), 0 0 40px rgba(253, 224, 71, 0.45) !important;
+      transform: scale(1.065) translateX(8px) !important;
     }
 
     .s11-step-card.spotlight-speaking .s11-val-num {
@@ -7261,30 +7269,27 @@
       if (s7AutoTimer) { clearInterval(s7AutoTimer); s7AutoTimer = null; }
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to slid 7.wav Bengali narration (63.65s):
+      // Generous, calm durations aligned to room speech
       let roomIdx = 0;
-      if (t < 4.5) {
-        // 0 - 4.5s: Intro
+      if (t < 11.0) {
+        // 0 - 11.0s: Drawing room
         roomIdx = 0;
-      } else if (t < 10.5) {
-        // 4.5 - 10.5s: "আনন্দঘন মুহূর্তগুলোর জন্য সুপরিকল্পিত পর্যাপ্ত আলোকিত ও চমৎকার ড্রয়িং রুম"
-        roomIdx = 0; // Drawing room
-      } else if (t < 16.5) {
-        // 10.5 - 16.5s: "খাবারের তৃপ্তি বাড়াতে আধুনিক কিচেন সংলগ্ন সুপরিসর ও পরিচ্ছন্ন ডাইনিং স্পেস"
-        roomIdx = 1; // Dining room
-      } else if (t < 22.5) {
-        // 16.5 - 22.5s: "পর্যাপ্ত আলো বাতাস, বড় জানালা এবং আধুনিক মাস্টার বাথ সংযুক্ত এক নির্মল আবাস মাস্টার বেডরুম"
-        roomIdx = 2; // Master Bedroom
-      } else if (t < 28.5) {
-        // 22.5 - 28.5s: "প্রকৃতির স্নিগ্ধ পরশ ও উন্মুক্ত দৃশ্য উপভোগের মনোরম বারান্দা"
-        roomIdx = 3; // Balcony
-      } else if (t < 36.0) {
-        // 28.5 - 36.0s: "স্বাস্থ্যকর জীবনযাত্রার নিশ্চয়তায় প্রতিটি বাথরুমে থাকছে আধুনিক স্যানিটারি ফিটিংস"
-        roomIdx = 4; // Bathroom
+      } else if (t < 19.0) {
+        // 11.0 - 19.0s: Dining room & Modern Kitchen
+        roomIdx = 1;
+      } else if (t < 28.0) {
+        // 19.0 - 28.0s: Master Bedroom
+        roomIdx = 2;
+      } else if (t < 37.0) {
+        // 28.0 - 37.0s: Panoramic Balcony
+        roomIdx = 3;
+      } else if (t < 48.0) {
+        // 37.0 - 48.0s: Modern Bathroom & Sanitary Fittings
+        roomIdx = 4;
       } else {
-        // 36.0s+: Leisurely unhurried cycling through rooms with ambient outro
-        const outroT = t - 36.0;
-        roomIdx = Math.floor(outroT / 5.5) % S7_ROOMS.length;
+        // 48.0s+: Peaceful, slow ambient cycling (8s per room)
+        const outroT = t - 48.0;
+        roomIdx = Math.floor(outroT / 8.0) % S7_ROOMS.length;
       }
 
       if (roomIdx !== s7CurrentIndex) {
@@ -7443,30 +7448,27 @@
       if (s8AutoTimer) { clearInterval(s8AutoTimer); s8AutoTimer = null; }
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to slid 8.wav Bengali narration (72.61s):
+      // Generous, calm durations aligned to engineering & safety speech
       let facilityIdx = 0;
-      if (t < 5.5) {
-        // 0 - 5.5s: Intro
+      if (t < 13.0) {
+        // 0 - 13.0s: CCTV & 24/7 Security
         facilityIdx = 0;
-      } else if (t < 12.0) {
-        // 5.5 - 12.0s: "সার্বক্ষণিক নিরাপত্তা নজরদারি পুরো ভবন ও প্রবেশদ্বারে থাকছে হাই ডেফিনেশন সেন্ট্রাল সিসিটিভি"
-        facilityIdx = 0; // CCTV & Security
-      } else if (t < 18.0) {
-        // 12.0 - 18.0s: "স্বাচ্ছন্দ্যময় জীবনযাত্রায় থাকছে শতভাগ পাওয়ার ব্যাকআপ আন্তর্জাতিক মানের হেভি ডিউটি জেনারেটর"
-        facilityIdx = 1; // 100% Power Backup & Generator
       } else if (t < 24.0) {
-        // 18.0 - 24.0s: "বিশ্বমানের দ্রুতগতির স্মার্ট প্যাসেঞ্জার ও বেড লিফট এবং এস্কেলেটর"
-        facilityIdx = 2; // Modern Lift & Escalator
-      } else if (t < 30.0) {
-        // 24.0 - 30.0s: "আধুনিক অগ্নিনির্বাপণ ব্যবস্থা, স্মোক ডিটেক্টর, স্প্রিংকলার, সেন্ট্রাল ফায়ার হাইড্রেন্ট"
-        facilityIdx = 3; // Modern Fire Safety & Hydrant
-      } else if (t < 38.0) {
-        // 30.0 - 38.0s: "ডিপ টিউবওয়েল ও সেন্ট্রাল ওয়াটার ট্রিটমেন্ট প্লান্ট শতভাগ বিশুদ্ধ ও নিরাপদ পানি"
-        facilityIdx = 4; // Water Filtration System
+        // 13.0 - 24.0s: 100% Power Backup & Heavy Duty Generator
+        facilityIdx = 1;
+      } else if (t < 35.0) {
+        // 24.0 - 35.0s: High-speed Smart Lift & Escalator
+        facilityIdx = 2;
+      } else if (t < 46.0) {
+        // 35.0 - 46.0s: Fire Safety, Sprinklers & Central Hydrant
+        facilityIdx = 3;
+      } else if (t < 58.0) {
+        // 46.0 - 58.0s: Deep Tubewell & Water Treatment Plant
+        facilityIdx = 4;
       } else {
-        // 38.0s+: Leisurely unhurried cycling through facilities with ambient outro
-        const outroT = t - 38.0;
-        facilityIdx = Math.floor(outroT / 6.0) % S8_FACILITIES.length;
+        // 58.0s+: Peaceful, slow ambient cycling (8.5s each)
+        const outroT = t - 58.0;
+        facilityIdx = Math.floor(outroT / 8.5) % S8_FACILITIES.length;
       }
 
       if (facilityIdx !== s8CurrentIndex) {
@@ -7590,7 +7592,12 @@
       'finale'
     ];
 
-    function s10SetPhase(phase) {
+    let s10CurrentActivePhase = null;
+
+    function s10SetPhase(phase, force = false) {
+      if (!force && s10CurrentActivePhase === phase) return; // CRITICAL GUARD: Never reset ongoing animations
+      s10CurrentActivePhase = phase;
+
       const towerA = document.getElementById('s10TowerA');
       const towerB = document.getElementById('s10TowerB');
       const priceBoxA = document.getElementById('s10PriceBoxA');
@@ -7637,15 +7644,6 @@
           if (towerA) towerA.classList.add('tower-spotlight');
           if (towerB) towerB.classList.add('tower-dimmed');
           if (priceBoxA) priceBoxA.classList.add('pop-price');
-          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
-          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
-          if (giftDinner) giftDinner.classList.add('gift-dimmed');
-          break;
-
-        case 'tower-a-monthly':
-          if (towerA) towerA.classList.add('tower-spotlight');
-          if (towerB) towerB.classList.add('tower-dimmed');
-          if (priceBoxA) priceBoxA.classList.add('pop-price');
           if (emergeA) emergeA.classList.add('show');
           if (perkA1) perkA1.classList.add('perk-spotlight');
           if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
@@ -7665,15 +7663,6 @@
           break;
 
         case 'tower-b-price':
-          if (towerB) towerB.classList.add('tower-spotlight');
-          if (towerA) towerA.classList.add('tower-dimmed');
-          if (priceBoxB) priceBoxB.classList.add('pop-price');
-          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
-          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
-          if (giftDinner) giftDinner.classList.add('gift-dimmed');
-          break;
-
-        case 'tower-b-monthly':
           if (towerB) towerB.classList.add('tower-spotlight');
           if (towerA) towerA.classList.add('tower-dimmed');
           if (priceBoxB) priceBoxB.classList.add('pop-price');
@@ -7730,38 +7719,32 @@
       if (currentSlide !== 10 || !currentVoiceAudio) return;
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to voice1.wav Bengali narration:
+      // Generous, calm pacing perfectly aligned to voice1.wav speech
       if (t < 14.5) {
         s10SetPhase('intro');
-      } else if (t < 18.0) {
-        // 15.0 - 18.0s: "ভবন এতে এককালীন ৫০ লক্ষ টাকার বুকিংয়ে" -> 50L price pops
-        s10SetPhase('tower-a-price');
       } else if (t < 21.0) {
-        // 18.0 - 21.0s: "প্রতি মাসে ২৫ হাজার টাকা করে টানা দুই বছর পর্যন্ত নিশ্চিত নগদ প্রণোদনা" -> 25K badge emerges
-        s10SetPhase('tower-a-monthly');
-      } else if (t < 24.5) {
-        // 21.0 - 24.5s: "অথবা দুজনের জন্য সম্পূর্ণ রাজকীয় ওমরা হজ প্যাকেজ" -> Umrah gift card zooms
+        // 14.5 - 21.0s (6.5s): 50 Lakh price box pops & 25k monthly cashback
+        s10SetPhase('tower-a-price');
+      } else if (t < 27.5) {
+        // 21.0 - 27.5s (6.5s): Royal Umrah package spotlights & grows
         s10SetPhase('gift-umrah');
-      } else if (t < 27.0) {
-        // 24.5 - 27.0s: "একই সাথে ভবন বি তে এককালীন ৪০ লক্ষ টাকায়" -> 40L price pops
+      } else if (t < 34.5) {
+        // 27.5 - 34.5s (7.0s): 40 Lakh price box pops & 20k monthly cashback
         s10SetPhase('tower-b-price');
-      } else if (t < 31.0) {
-        // 27.0 - 31.0s: "মাসিক ২০ হাজার টাকা করে নিশ্চিত নগদ প্রণোদনা অথবা দুজনের জন্য ওমরা হজ" -> 20K badge emerges & Umrah highlights
-        s10SetPhase('tower-b-monthly');
-      } else if (t < 45.0) {
-        // 31.0 - 45.0s: "জমির মূল্য জমা করবেন ১৬৩৫ স্কয়ারফিট ১৫ লাখ ও ১৩০৮ স্কয়ারফিট ১২ লাখ... মাসিক ৭,৫০০ ও ৬,০০০ ক্যাশব্যাক"
+      } else if (t < 46.0) {
+        // 34.5 - 46.0s (11.5s): Land booking (15L / 12L) & cashback (7,500 / 6,000)
         s10SetPhase('land-cashback');
-      } else if (t < 51.5) {
-        // 45.0 - 51.5s: "৪ লক্ষ টাকা জমা দিলেই... ব্র্যান্ড নিউ ল্যাপটপ অথবা ৩২ ইঞ্চি স্মার্ট এলইডি টিভি একদম ফ্রি!"
+      } else if (t < 55.0) {
+        // 46.0 - 55.0s (9.0s): Brand new Laptop / 32" LED TV gift spotlight
         s10SetPhase('gift-laptop-tv');
-      } else if (t < 63.0) {
-        // 51.5 - 63.0s: "২৬ ও ২৭ তারিখের পর সাধারণ বুকিং... ৩২ পিসের এক্সক্লুসিভ লাক্সারি ডিনার সেট উপহার!"
+      } else if (t < 65.0) {
+        // 55.0 - 65.0s (10.0s): 32-pc Luxury Dinner Set gift spotlight
         s10SetPhase('gift-dinner-set');
-      } else if (t < 70.0) {
-        // 63.0 - 70.0s: "রেজিস্ট্রি, সরকারি অনুমোদন ও মাটি ভরাট কোম্পানি বহন করবে... সরাসরি নগদ ৫ লক্ষ টাকা সাশ্রয়!"
+      } else if (t < 74.0) {
+        // 65.0 - 74.0s (9.0s): 5 Lakh direct savings mega benefit banner
         s10SetPhase('mega-benefit');
       } else {
-        // 70.0s+: Celebration finale
+        // 74.0s+: Celebration finale
         s10SetPhase('finale');
       }
     }
@@ -7797,7 +7780,8 @@
     }
 
     function onSlide10Enter() {
-      s10SetPhase('intro');
+      s10CurrentActivePhase = null;
+      s10SetPhase('intro', true);
       if (s10FallbackTimer) { clearInterval(s10FallbackTimer); s10FallbackTimer = null; }
 
       // Only start fallback cycling if voiceover is muted or not playing
@@ -7816,7 +7800,8 @@
         clearInterval(s10FallbackTimer);
         s10FallbackTimer = null;
       }
-      s10SetPhase('intro');
+      s10CurrentActivePhase = null;
+      s10SetPhase('intro', true);
     }
 
     /* =========================================================
@@ -7825,71 +7810,67 @@
        ========================================================= */
     let s11TimelineTimer = null;
 
+    let s11CurrentStepIndex = -1;
+
     function s11SetStepByTime(t) {
+      // Determine which section the voice is talking about
+      let targetStep = 0;
+      if (t < 7.5) {
+        targetStep = 0; // Overview / Intro
+      } else if (t < 18.0) {
+        // 7.5 - 18.0s (10.5s): 1635 sqft Flat valued at 1.63 Cr
+        targetStep = 1;
+      } else if (t < 25.5) {
+        // 18.0 - 25.5s (7.5s): Commercial Mega Shopping Space 50-80L
+        targetStep = 2;
+      } else if (t < 33.0) {
+        // 25.5 - 33.0s (7.5s): Lifestyle Amenities 37L
+        targetStep = 3;
+      } else if (t < 43.0) {
+        // 33.0 - 43.0s (10.0s): Total Wealth 2.5 - 3.5 Cr
+        targetStep = 4;
+      } else {
+        // 43.0s+: 5X Multiplier Strip celebration
+        targetStep = 5;
+      }
+
+      if (targetStep === s11CurrentStepIndex) return; // STRICT GUARD: Only transition once, zero stuttering
+      s11CurrentStepIndex = targetStep;
+
       const s1 = document.getElementById('s11Step1');
       const s2 = document.getElementById('s11Step2');
       const s3 = document.getElementById('s11Step3');
       const s4 = document.getElementById('s11Step4');
       const mult = document.getElementById('s11MultStrip');
+      const stepCards = [s1, s2, s3, s4];
 
-      // Helper to clear speaking spotlights
-      const clearSpeaking = () => {
-        [s1, s2, s3, s4].forEach(el => {
-          if (el) el.classList.remove('spotlight-speaking');
-        });
-        if (mult) mult.classList.remove('spotlight-speaking');
-      };
+      // Remove spotlight-speaking from all
+      stepCards.forEach(el => {
+        if (el) el.classList.remove('spotlight-speaking');
+      });
+      if (mult) mult.classList.remove('spotlight-speaking');
 
-      clearSpeaking();
-
-      // Precision timestamps aligned to voice2.wav narration:
-      if (t < 7.5) {
-        // 0 - 7.5s: Overview & Intro
-        if (s1) { s1.classList.add('active'); }
-        if (s2) { s2.classList.remove('active'); }
-        if (s3) { s3.classList.remove('active'); }
-        if (s4) { s4.classList.remove('active'); }
-      } else if (t < 16.5) {
-        // 7.5 - 16.5s (9 seconds extended): "১৬৩৫ বর্গফুটের বিলাসবহুল ফ্ল্যাটের মূল্য ১ কোটি ৬৩ লক্ষ ৫০ হাজার টাকা"
-        if (s1) {
-          s1.classList.add('active', 'spotlight-speaking');
-        }
+      if (targetStep === 0) {
+        if (s1) s1.classList.add('active');
         if (s2) s2.classList.remove('active');
         if (s3) s3.classList.remove('active');
         if (s4) s4.classList.remove('active');
-      } else if (t < 22.0) {
-        // 16.5 - 22.0s (5.5 seconds): "৫ তলা মেগা কমার্শিয়াল শপিং স্পেসের অংশীদারিত্ব ৫০ থেকে ৮০ লক্ষ টাকা"
-        if (s1) s1.classList.add('active');
-        if (s2) {
-          s2.classList.add('active', 'spotlight-speaking');
+      } else if (targetStep >= 1 && targetStep <= 4) {
+        for (let i = 0; i < 4; i++) {
+          if (!stepCards[i]) continue;
+          if (i < targetStep) {
+            stepCards[i].classList.add('active');
+          } else {
+            stepCards[i].classList.remove('active');
+          }
         }
-        if (s3) s3.classList.remove('active');
-        if (s4) s4.classList.remove('active');
-      } else if (t < 26.5) {
-        // 22.0 - 26.5s (4.5 seconds): "সুইমিং পুল, জিমনেসিয়াম, রুফটপ গার্ডেনের যৌথ মালিকানা প্রায় ৩৭ লক্ষ টাকা"
-        if (s1) s1.classList.add('active');
-        if (s2) s2.classList.add('active');
-        if (s3) {
-          s3.classList.add('active', 'spotlight-speaking');
+        // Exactly the spoken section gets spotlight-speaking and expands smoothly
+        if (stepCards[targetStep - 1]) {
+          stepCards[targetStep - 1].classList.add('spotlight-speaking');
         }
-        if (s4) s4.classList.remove('active');
-      } else if (t < 31.0) {
-        // 26.5 - 31.0s (4.5 seconds): "সর্বমোট অর্জিত স্থায়ী সম্পদ আড়াই থেকে সাড়ে তিন কোটি টাকা!"
-        if (s1) s1.classList.add('active');
-        if (s2) s2.classList.add('active');
-        if (s3) s3.classList.add('active');
-        if (s4) {
-          s4.classList.add('active', 'spotlight-speaking');
-        }
-      } else {
-        // 31.0s+: "বিনিয়োগের ৫ গুণ বা 5X রিটার্ন!" -> Multiplier pulse celebration
-        if (s1) s1.classList.add('active');
-        if (s2) s2.classList.add('active');
-        if (s3) s3.classList.add('active');
-        if (s4) s4.classList.add('active');
-        if (mult) {
-          mult.classList.add('spotlight-speaking');
-        }
+      } else if (targetStep === 5) {
+        stepCards.forEach(el => { if (el) el.classList.add('active'); });
+        if (mult) mult.classList.add('spotlight-speaking');
       }
     }
 
@@ -7899,6 +7880,7 @@
     }
 
     function onSlide11Enter() {
+      s11CurrentStepIndex = -1;
       s11SetStepByTime(0);
       if (s11TimelineTimer) { clearInterval(s11TimelineTimer); s11TimelineTimer = null; }
 
@@ -7918,6 +7900,7 @@
         clearInterval(s11TimelineTimer);
         s11TimelineTimer = null;
       }
+      s11CurrentStepIndex = -1;
     }
 
     function buildDots() {
@@ -8109,8 +8092,13 @@
     let s4AutoTimer = null;
     let s4CurrentScene = 1;
 
+    let s4LastRenderedScene = -1;
+
     function s4SwitchScene(sceneNum, isManual = false) {
+      if (s4CurrentScene === sceneNum && !isManual) return; // CRITICAL GUARD: Never reset ongoing animations
       s4CurrentScene = sceneNum;
+      s4LastRenderedScene = sceneNum;
+
       for (let i = 1; i <= 4; i++) {
         const card = document.getElementById('s4Card' + i);
         const scene = document.getElementById('s4Scene' + i);
@@ -8120,7 +8108,7 @@
         if (scene) {
           if (i === sceneNum) {
             scene.classList.remove('active');
-            void scene.offsetWidth; // Force CSS reflow to re-trigger animations
+            void scene.offsetWidth;
             scene.classList.add('active');
           } else {
             scene.classList.remove('active');
@@ -8133,6 +8121,8 @@
     }
 
     function s4HighlightAllCards() {
+      if (s4LastRenderedScene === 5) return;
+      s4LastRenderedScene = 5;
       for (let i = 1; i <= 4; i++) {
         const card = document.getElementById('s4Card' + i);
         if (card) card.classList.add('active');
@@ -8144,21 +8134,25 @@
       if (s4AutoTimer) { clearInterval(s4AutoTimer); s4AutoTimer = null; }
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to slid 4.wav Bengali narration (38.21s):
-      if (t < 5.5) {
-        // 0 - 5.5s: "৪০ কাঠা নিষ্কণ্টক জমির উপর গড়ে উঠছে..."
-        s4SwitchScene(1, false);
-      } else if (t < 12.5) {
-        // 5.5 - 12.5s: "২১ তলা বিশিষ্ট এই নান্দনিক স্কাইস্ক্র্যাপারে রয়েছে ২ তলা আন্ডারগ্রাউন্ড বেজমেন্ট..."
-        s4SwitchScene(2, false);
-      } else if (t < 18.5) {
-        // 12.5 - 18.5s: "সুউচ্চ টাওয়ারে পরিকল্পিত মোট ২৫২ টি অ্যাপার্টমেন্টের প্রতিটি শতভাগ আলো বাতাস..."
-        s4SwitchScene(3, false);
-      } else if (t < 27.0) {
-        // 18.5 - 27.0s: "সামনে ৬০ ফুট প্রশস্ত প্রধান সড়ক ও ডানে ৩৫ ফুট রোডের সরাসরি নির্বিঘ্ন সংযোগ..."
-        s4SwitchScene(4, false);
+      // Pacing aligned to speech: 1 switch per topic, calm & stable
+      let target = 1;
+      if (t < 6.0) {
+        target = 1; // 40 Katha land
+      } else if (t < 13.5) {
+        target = 2; // 21 Floors building
+      } else if (t < 20.5) {
+        target = 3; // 252 Apartments
+      } else if (t < 29.0) {
+        target = 4; // Road connection
       } else {
-        // 27.0s+: Outro & full project overview celebration
+        target = 5; // Overview
+      }
+
+      if (target === s4LastRenderedScene) return; // STRICT GUARD: Only transition once per phase
+
+      if (target <= 4) {
+        s4SwitchScene(target, false);
+      } else {
         s4HighlightAllCards();
       }
     }
@@ -8168,11 +8162,12 @@
       s4AutoTimer = setInterval(() => {
         let next = (s4CurrentScene % 4) + 1;
         s4SwitchScene(next, false);
-      }, 4200);
+      }, 5500);
     }
 
     function onSlide4Enter() {
-      s4SwitchScene(1, false);
+      s4LastRenderedScene = -1;
+      s4SwitchScene(1, true);
       if (s4AutoTimer) clearInterval(s4AutoTimer);
 
       if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
@@ -8181,9 +8176,9 @@
           if (currentSlide !== 4) { clearInterval(s4AutoTimer); return; }
           sec += 1;
           if (sec < 6) s4SwitchScene(1, false);
-          else if (sec < 13) s4SwitchScene(2, false);
-          else if (sec < 19) s4SwitchScene(3, false);
-          else if (sec < 28) s4SwitchScene(4, false);
+          else if (sec < 14) s4SwitchScene(2, false);
+          else if (sec < 21) s4SwitchScene(3, false);
+          else if (sec < 30) s4SwitchScene(4, false);
           else s4HighlightAllCards();
         }, 1000);
       }
@@ -8194,6 +8189,7 @@
         clearInterval(s4AutoTimer);
         s4AutoTimer = null;
       }
+      s4LastRenderedScene = -1;
     }
 
     /* =========================================================
@@ -8713,46 +8709,35 @@
       if (s6AutoTimer) { clearInterval(s6AutoTimer); s6AutoTimer = null; }
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to slid 6.wav Bengali narration (73.01s):
+      // Luxurious, unhurried showcase chapters with silky 1.8s cross-fade
       let targetIdx = 0;
-      if (t < 5.5) {
-        // 0 - 5.5s: Intro
+      if (t < 11.5) {
+        // 0 - 11.5s: Basement Car Parking & EV Charging (Facility 0)
         targetIdx = 0;
-      } else if (t < 11.5) {
-        // 5.5 - 11.5s: "স্মার্ট অটোমেটিক কার পার্কিং এবং আধুনিক ইভি চার্জিং স্টেশন"
-        targetIdx = 0; // Parking
-      } else if (t < 14.5) {
-        // 11.5 - 14.5s: "গ্রাউন্ড থেকে চতুর্থ তলা পর্যন্ত আন্তর্জাতিক মানের মেগা সুপারশপ"
-        targetIdx = 1; // Supershop
-      } else if (t < 17.5) {
-        // 14.5 - 17.5s: "ক্যাফে এবং সার্বক্ষণিক স্বাস্থ্যসেবায় ২৪ ঘন্টা খোলা সেন্ট্রাল ফার্মেসি"
-        targetIdx = (t < 16.0) ? 2 : 3; // Cafe or Pharmacy
-      } else if (t < 20.5) {
-        // 17.5 - 20.5s: "এর ঠিক ওপরে ফিটনেস জিমনেসিয়াম ও প্রশান্তিময় সেন্ট্রাল মসজিদ"
-        targetIdx = (t < 19.0) ? 4 : 5; // Gym or Mosque
-      } else if (t < 24.5) {
-        // 20.5 - 24.5s: "সামাজিক উৎসব উদযাপনের গ্র্যান্ড কমিউনিটি হল ও কিডস প্লে জোন"
-        targetIdx = (t < 22.5) ? 6 : 7; // Community hall or Kids zone
-      } else if (t < 30.5) {
-        // 24.5 - 30.5s: "ষষ্ঠ থেকে ১৯ তম তলা পর্যন্ত টাওয়ার এ ও টাওয়ার বি"
-        targetIdx = 9; // 21-story Residential Tower
-      } else if (t < 35.0) {
-        // 30.5 - 35.0s: "রুফটপ ইনফিনিটি সুইমিং পুল"
-        targetIdx = 10; // Swimming pool
-      } else if (t < 39.0) {
-        // 35.0 - 39.0s: "নয়নাভিরাম ছাদ বাগান ও ওয়াকিং ট্র্যাক"
-        targetIdx = (t < 37.0) ? 11 : 13; // Rooftop garden or Walking track
-      } else if (t < 44.0) {
-        // 39.0 - 44.0s: "খোলা আকাশের নিচে গ্রীন সিটিং লাউঞ্জ এবং ৩৬০ ডিগ্রি স্কাই লাউঞ্জ ভিউ"
-        targetIdx = (t < 41.5) ? 14 : 12; // Green sitting or Rooftop view
+      } else if (t < 21.0) {
+        // 11.5 - 21.0s: Commercial Mega Hub & Supershop (Facility 1)
+        targetIdx = 1;
+      } else if (t < 30.0) {
+        // 21.0 - 30.0s: Community Lifestyle, Grand Hall & Mosque (Facility 6)
+        targetIdx = 6;
+      } else if (t < 41.0) {
+        // 30.0 - 41.0s: 21-Story Grand Residential Towers (Facility 9)
+        targetIdx = 9;
+      } else if (t < 51.0) {
+        // 41.0 - 51.0s: Rooftop Infinity Swimming Pool (Facility 10)
+        targetIdx = 10;
+      } else if (t < 62.0) {
+        // 51.0 - 62.0s: Rooftop Sky Lounge & Green Garden (Facility 11)
+        targetIdx = 11;
       } else {
-        // 44.0s+: Soft ambient outro cycling (5.5s per facility)
-        const outroT = t - 44.0;
-        targetIdx = Math.floor(outroT / 5.5) % s6Facilities.length;
+        // 62.0s+: Gentle, relaxed ambient cycling across facilities (8s each)
+        const outroT = t - 62.0;
+        targetIdx = Math.floor(outroT / 8.0) % s6Facilities.length;
       }
 
+      // ONLY switch when index actually changes, with full smooth cross-fade (forceRevealed = false)
       if (targetIdx !== s6CurrentFacilityIndex) {
-        s6SelectFacility(targetIdx, false, true);
+        s6SelectFacility(targetIdx, false, false);
       }
     }
 
