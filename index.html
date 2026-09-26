@@ -4183,42 +4183,74 @@
     }
 
     
-    /* SLIDE 10: SECOND-BY-SECOND DYNAMIC REVEAL STYLES */
-    .s10-gift-card.s10-gift-hidden {
+    
+    /* SLIDE 10 HERO INTRO BANNER (ONUSTHAN.PNG) */
+    .s10-hero-intro {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 100 !important;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.97) 0%, rgba(254, 243, 199, 0.95) 60%, rgba(240, 253, 244, 0.98) 100%);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      box-sizing: border-box;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease, transform 0.8s ease;
+      cursor: pointer;
+    }
+    .s10-hero-intro.hidden {
       opacity: 0 !important;
       visibility: hidden !important;
-      transform: translateY(22px) scale(0.92) !important;
       pointer-events: none !important;
+      transform: scale(1.05) !important;
     }
-    .s10-gift-card.s10-gift-visible {
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: translateY(0) scale(1) !important;
-      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    .s10-onusthan-banner-img {
+      max-width: clamp(340px, 50vw, 720px);
+      height: auto;
+      filter: drop-shadow(0 15px 35px rgba(180, 83, 9, 0.35));
+      animation: s10BannerFloat 3.5s ease-in-out infinite;
+      margin-bottom: 18px;
     }
-    .s10-gift-card.gift-spotlight {
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: scale(1.08) translateY(-5px) !important;
-      border-color: #d97706 !important;
-      background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 100%) !important;
-      box-shadow: 0 16px 42px rgba(217, 119, 6, 0.45), 0 0 28px rgba(251, 191, 36, 0.35) !important;
-      z-index: 30 !important;
-      transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    @keyframes s10BannerFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
-    .s10-lump-price-box.price-hidden {
-      opacity: 0.18 !important;
-      filter: blur(3px) !important;
-      transform: scale(0.96) !important;
-      pointer-events: none !important;
-      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    .s10-intro-subtag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 24px;
+      background: linear-gradient(135deg, #006837 0%, #004d26 100%);
+      color: #ffffff;
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 800;
+      border-radius: 9999px;
+      box-shadow: 0 4px 15px rgba(0, 104, 55, 0.35);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
     }
-    .s10-benefit-banner.banner-hidden {
-      opacity: 0.25 !important;
-      filter: grayscale(0.8) !important;
-      transform: scale(0.98) !important;
-      transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    .s10-intro-tagline {
+      font-size: clamp(18px, 1.5vw, 24px);
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0 0 16px 0;
+      line-height: 1.3;
     }
+    .s10-intro-click-hint {
+      font-size: 13px;
+      font-weight: 700;
+      color: #006837;
+      background: rgba(0, 104, 55, 0.08);
+      border: 1.5px dashed rgba(0, 104, 55, 0.4);
+      padding: 6px 20px;
+      border-radius: 9999px;
+    }
+
 
     /* =========================================================
        SLIDE 11: 5X ASSET VALUATION MULTIPLIER & WEALTH TRANSFORMATION
@@ -6259,6 +6291,14 @@
          POWERED BY VOICE1.WAV WITH SPOTLIGHT ZOOM & POPPING CASH REVEAL
          ========================================== -->
     <div class="slide" id="slide-10">
+      <!-- 1. Fullscreen Hero Intro with onusthan.png -->
+      <div class="s10-hero-intro" id="s10HeroIntro" onclick="s10DismissIntro()">
+        <img src="onusthan.png" alt="বায়না চুক্তিনামা সম্পাদন অনুষ্ঠান" class="s10-onusthan-banner-img">
+        <div class="s10-intro-subtag">বিশেষ মেগা অফার ও নিশ্চিত উপহার</div>
+        <div class="s10-intro-tagline">২৬ ও ২৭ সেপ্টেম্বর ২০২৬ • সীমিত সময়ের বিশেষ আয়োজন</div>
+        <div class="s10-intro-click-hint">অফার দেখতে ক্লিক করুন অথবা অপেক্ষা করুন ➔</div>
+      </div>
+
       <div class="s10-container">
         <!-- 1. Header Bar -->
         <div class="s10-compact-head">
@@ -7667,8 +7707,13 @@
 
     let s10CurrentActivePhase = null;
 
+    function s10DismissIntro() {
+      const intro = document.getElementById('s10HeroIntro');
+      if (intro) intro.classList.add('hidden');
+    }
+
     function s10SetPhase(phase, force = false) {
-      if (!force && s10CurrentActivePhase === phase) return; // CRITICAL GUARD
+      if (!force && s10CurrentActivePhase === phase) return; // STRICT GUARD
       s10CurrentActivePhase = phase;
 
       const towerA = document.getElementById('s10TowerA');
@@ -7691,62 +7736,68 @@
       const perkB2 = document.getElementById('s10PerkB2');
       const perkB3 = document.getElementById('s10PerkB3');
 
-      // Helper to set gift visibility classes
-      const setGiftState = (umrahState, laptopState, dinnerState) => {
-        if (giftUmrah) giftUmrah.className = 's10-gift-card ' + umrahState;
-        if (giftLaptop) giftLaptop.className = 's10-gift-card ' + laptopState;
-        if (giftDinner) giftDinner.className = 's10-gift-card ' + dinnerState;
+      // Clear active spotlights
+      const clearHighlights = () => {
+        if (towerA) towerA.classList.remove('tower-spotlight', 'tower-dimmed');
+        if (towerB) towerB.classList.remove('tower-spotlight', 'tower-dimmed');
+        if (priceBoxA) priceBoxA.classList.remove('pop-price');
+        if (priceBoxB) priceBoxB.classList.remove('pop-price');
+        if (landA) landA.classList.remove('highlight-land');
+        if (landB) landB.classList.remove('highlight-land');
+        if (emergeA) emergeA.classList.remove('show');
+        if (emergeB) emergeB.classList.remove('show');
+        if (giftUmrah) giftUmrah.classList.remove('gift-spotlight', 'gift-dimmed');
+        if (giftLaptop) giftLaptop.classList.remove('gift-spotlight', 'gift-dimmed');
+        if (giftDinner) giftDinner.classList.remove('gift-spotlight', 'gift-dimmed');
+        if (megaBenefit) megaBenefit.classList.remove('benefit-spotlight');
+        [perkA1, perkA2, perkA3, perkB1, perkB2, perkB3].forEach(el => el && el.classList.remove('perk-spotlight'));
       };
+
+      clearHighlights();
 
       switch (phase) {
         case 'intro':
-          // All gifts & special boxes are hidden before audio mentions them
-          setGiftState('s10-gift-hidden', 's10-gift-hidden', 's10-gift-hidden');
-          if (towerA) towerA.classList.remove('tower-spotlight', 'tower-dimmed');
-          if (towerB) towerB.classList.remove('tower-spotlight', 'tower-dimmed');
-          if (priceBoxA) { priceBoxA.classList.remove('pop-price'); priceBoxA.classList.add('price-hidden'); }
-          if (priceBoxB) { priceBoxB.classList.remove('pop-price'); priceBoxB.classList.add('price-hidden'); }
-          if (emergeA) emergeA.classList.remove('show');
-          if (emergeB) emergeB.classList.remove('show');
-          if (landA) landA.classList.remove('highlight-land');
-          if (landB) landB.classList.remove('highlight-land');
-          if (megaBenefit) { megaBenefit.classList.remove('benefit-spotlight'); megaBenefit.classList.add('banner-hidden'); }
-          [perkA1, perkA2, perkA3, perkB1, perkB2, perkB3].forEach(el => el && el.classList.remove('perk-spotlight'));
+          // Intro banner handles 0-14.5s; chart stays in clean, stable state
           break;
 
         case 'tower-a-price':
-          // 14.5s: 50 Lakh price box pops up & highlights
-          setGiftState('s10-gift-hidden', 's10-gift-hidden', 's10-gift-hidden');
+          // 14.5 - 21.0s: Tower A & 50 Lakh spotlight
           if (towerA) towerA.classList.add('tower-spotlight');
           if (towerB) towerB.classList.add('tower-dimmed');
-          if (priceBoxA) { priceBoxA.classList.remove('price-hidden'); priceBoxA.classList.add('pop-price'); }
+          if (priceBoxA) priceBoxA.classList.add('pop-price');
           if (emergeA) emergeA.classList.add('show');
           if (perkA1) perkA1.classList.add('perk-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
           break;
 
         case 'gift-umrah':
-          // 21.0s: Umrah package reveals & expands big!
-          setGiftState('s10-gift-visible gift-spotlight', 's10-gift-hidden', 's10-gift-hidden');
+          // 21.0 - 27.5s: Umrah gift card spotlights & expands
           if (towerA) towerA.classList.add('tower-spotlight');
           if (towerB) towerB.classList.add('tower-dimmed');
-          if (priceBoxA) { priceBoxA.classList.remove('price-hidden'); priceBoxA.classList.add('pop-price'); }
+          if (priceBoxA) priceBoxA.classList.add('pop-price');
           if (emergeA) emergeA.classList.add('show');
           if (perkA1) perkA1.classList.add('perk-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
           break;
 
         case 'tower-b-price':
-          // 27.5s: 40 Lakh price box pops up & 20k cashback
-          setGiftState('s10-gift-visible', 's10-gift-hidden', 's10-gift-hidden');
-          if (towerB) { towerB.classList.remove('tower-dimmed'); towerB.classList.add('tower-spotlight'); }
-          if (towerA) { towerA.classList.remove('tower-spotlight'); towerA.classList.add('tower-dimmed'); }
-          if (priceBoxB) { priceBoxB.classList.remove('price-hidden'); priceBoxB.classList.add('pop-price'); }
+          // 27.5 - 34.5s: Tower B & 40 Lakh spotlight & 20k cashback
+          if (towerB) towerB.classList.add('tower-spotlight');
+          if (towerA) towerA.classList.add('tower-dimmed');
+          if (priceBoxB) priceBoxB.classList.add('pop-price');
           if (emergeB) emergeB.classList.add('show');
           if (perkB1) perkB1.classList.add('perk-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
           break;
 
         case 'land-cashback':
-          // 34.5s: Land prices & monthly cashback highlight
-          setGiftState('s10-gift-visible', 's10-gift-hidden', 's10-gift-hidden');
+          // 34.5 - 46.0s: Land prices & monthly cashback highlight
           if (landA) landA.classList.add('highlight-land');
           if (landB) landB.classList.add('highlight-land');
           if (perkA2) perkA2.classList.add('perk-spotlight');
@@ -7754,31 +7805,36 @@
           break;
 
         case 'gift-laptop-tv':
-          // 46.0s: Laptop & 32" Smart TV reveals & grows big!
-          setGiftState('s10-gift-visible s10-gift-dimmed', 's10-gift-visible gift-spotlight', 's10-gift-hidden');
+          // 46.0 - 55.0s: Laptop / 32" Smart TV gift card spotlights & expands
+          if (giftLaptop) giftLaptop.classList.add('gift-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftDinner) giftDinner.classList.add('gift-dimmed');
           if (perkA3) perkA3.classList.add('perk-spotlight');
           if (perkB3) perkB3.classList.add('perk-spotlight');
           break;
 
         case 'gift-dinner-set':
-          // 55.0s: 32-pc Luxury Dinner Set reveals & grows big!
-          setGiftState('s10-gift-visible s10-gift-dimmed', 's10-gift-visible s10-gift-dimmed', 's10-gift-visible gift-spotlight');
+          // 55.0 - 65.0s: 32-pc Luxury Dinner Set gift card spotlights & expands
+          if (giftDinner) giftDinner.classList.add('gift-spotlight');
+          if (giftUmrah) giftUmrah.classList.add('gift-dimmed');
+          if (giftLaptop) giftLaptop.classList.add('gift-dimmed');
           break;
 
         case 'mega-benefit':
-          // 65.0s: 5 Lakh direct savings banner reveals & zooms in
-          setGiftState('s10-gift-visible', 's10-gift-visible', 's10-gift-visible');
-          if (megaBenefit) { megaBenefit.classList.remove('banner-hidden'); megaBenefit.classList.add('benefit-spotlight'); }
+          // 65.0 - 74.0s: 5 Lakh direct savings mega banner spotlights
+          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
           break;
 
         case 'finale':
-          // 74.0s+: Complete celebration overview
-          setGiftState('s10-gift-visible gift-spotlight', 's10-gift-visible gift-spotlight', 's10-gift-visible gift-spotlight');
-          if (priceBoxA) { priceBoxA.classList.remove('price-hidden'); priceBoxA.classList.add('pop-price'); }
-          if (priceBoxB) { priceBoxB.classList.remove('price-hidden'); priceBoxB.classList.add('pop-price'); }
+          // 74.0s+: Complete celebration finale
+          if (priceBoxA) priceBoxA.classList.add('pop-price');
+          if (priceBoxB) priceBoxB.classList.add('pop-price');
           if (emergeA) emergeA.classList.add('show');
           if (emergeB) emergeB.classList.add('show');
-          if (megaBenefit) { megaBenefit.classList.remove('banner-hidden'); megaBenefit.classList.add('benefit-spotlight'); }
+          if (giftUmrah) giftUmrah.classList.add('gift-spotlight');
+          if (giftLaptop) giftLaptop.classList.add('gift-spotlight');
+          if (giftDinner) giftDinner.classList.add('gift-spotlight');
+          if (megaBenefit) megaBenefit.classList.add('benefit-spotlight');
           break;
       }
     }
@@ -7787,35 +7843,59 @@
       if (currentSlide !== 10 || !currentVoiceAudio) return;
       const t = currentVoiceAudio.currentTime;
 
-      // Precision timestamps aligned to voice1.wav speech:
+      const intro = document.getElementById('s10HeroIntro');
       if (t < 14.5) {
-        // 0 - 14.5s: Intro curtain (gifts & prices hidden until spoken)
+        // 0 - 14.5s: onusthan.png Ceremony Hero Banner
+        if (intro) intro.classList.remove('hidden');
         s10SetPhase('intro');
-      } else if (t < 21.0) {
-        // 14.5 - 21.0s: 50 Lakh price box pops
-        s10SetPhase('tower-a-price');
-      } else if (t < 27.5) {
-        // 21.0 - 27.5s: Royal Umrah package reveals & grows big
-        s10SetPhase('gift-umrah');
-      } else if (t < 34.5) {
-        // 27.5 - 34.5s: 40 Lakh price box pops & 20k cashback
-        s10SetPhase('tower-b-price');
-      } else if (t < 46.0) {
-        // 34.5 - 46.0s: Land booking & monthly cashback highlight
-        s10SetPhase('land-cashback');
-      } else if (t < 55.0) {
-        // 46.0 - 55.0s: Laptop / 32" Smart TV reveals & grows big
-        s10SetPhase('gift-laptop-tv');
-      } else if (t < 65.0) {
-        // 55.0 - 65.0s: 32-pc Luxury Dinner Set reveals & grows big
-        s10SetPhase('gift-dinner-set');
-      } else if (t < 74.0) {
-        // 65.0 - 74.0s: 5 Lakh direct savings mega benefit banner
-        s10SetPhase('mega-benefit');
       } else {
-        // 74.0s+: Complete celebration finale
-        s10SetPhase('finale');
+        // 14.5s+: Dismiss banner and spotlight each section in the comparison chart
+        if (intro) intro.classList.add('hidden');
+
+        if (t < 21.0) {
+          // 14.5 - 21.0s: Tower A 50 Lakh & 25k cashback
+          s10SetPhase('tower-a-price');
+        } else if (t < 27.5) {
+          // 21.0 - 27.5s: Umrah package & 25k cashback
+          s10SetPhase('gift-umrah');
+        } else if (t < 34.5) {
+          // 27.5 - 34.5s: Tower B 40 Lakh & 20k cashback
+          s10SetPhase('tower-b-price');
+        } else if (t < 46.0) {
+          // 34.5 - 46.0s: Land booking & monthly cashback
+          s10SetPhase('land-cashback');
+        } else if (t < 55.0) {
+          // 46.0 - 55.0s: Laptop / 32" Smart LED TV
+          s10SetPhase('gift-laptop-tv');
+        } else if (t < 65.0) {
+          // 55.0 - 65.0s: 32-pc Luxury Dinner Set
+          s10SetPhase('gift-dinner-set');
+        } else if (t < 74.0) {
+          // 65.0 - 74.0s: 5 Lakh direct savings banner
+          s10SetPhase('mega-benefit');
+        } else {
+          // 74.0s+: Complete celebration finale
+          s10SetPhase('finale');
+        }
       }
+    }
+
+    function onSlide10Enter() {
+      s10CurrentActivePhase = null;
+      const intro = document.getElementById('s10HeroIntro');
+      if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
+        if (intro) intro.classList.add('hidden');
+        s10SetPhase('finale', true);
+      } else {
+        if (intro) intro.classList.remove('hidden');
+        s10SetPhase('intro', true);
+      }
+    }
+
+    function onSlide10Leave() {
+      s10CurrentActivePhase = null;
+      const intro = document.getElementById('s10HeroIntro');
+      if (intro) intro.classList.remove('hidden');
     }
 
     function s10ManualSelect(action) {
