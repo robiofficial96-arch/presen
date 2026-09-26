@@ -7509,36 +7509,31 @@
       if (s8AutoTimer) { clearInterval(s8AutoTimer); s8AutoTimer = null; }
       const t = currentVoiceAudio.currentTime;
 
-      // Generous, calm durations aligned to engineering & safety speech
       const intro = document.getElementById('s8HeroIntro');
-      if (t < 5.5) {
-        // 0 - 5.5s: Intro curtain showing
-        if (intro) intro.classList.remove('hidden');
-        return;
-      } else {
-        if (intro) intro.classList.add('hidden');
-      }
+      if (intro) intro.classList.add('hidden');
 
+      // Exact timestamps requested by user for Slide 8:
+      // 1 - 23s: CCTV & Security
+      // 23 - 34s: Power Backup & Generator
+      // 34 - 44s: Smart Lift & Escalator
+      // 44 - 56s: Fire Safety & Hydrant
+      // 56s - end voice: Water Filtration & Deep Tubewell
       let facilityIdx = 0;
-      if (t < 13.0) {
-        // 5.5 - 13.0s: CCTV & 24/7 Security
+      if (t < 23.0) {
+        // 0 - 23.0s: CCTV & 24/7 Security
         facilityIdx = 0;
-      } else if (t < 24.0) {
-        // 13.0 - 24.0s: 100% Power Backup & Heavy Duty Generator
+      } else if (t < 34.0) {
+        // 23.0 - 34.0s: 100% Power Backup & Heavy Duty Generator
         facilityIdx = 1;
-      } else if (t < 35.0) {
-        // 24.0 - 35.0s: High-speed Smart Lift & Escalator
+      } else if (t < 44.0) {
+        // 34.0 - 44.0s: Modern High-Speed Lift & Escalator
         facilityIdx = 2;
-      } else if (t < 46.0) {
-        // 35.0 - 46.0s: Fire Safety, Sprinklers & Central Hydrant
+      } else if (t < 56.0) {
+        // 44.0 - 56.0s: Fire Safety, Sprinklers & Central Hydrant
         facilityIdx = 3;
-      } else if (t < 58.0) {
-        // 46.0 - 58.0s: Deep Tubewell & Water Treatment Plant
-        facilityIdx = 4;
       } else {
-        // 58.0s+: Peaceful, slow ambient cycling (8.5s each)
-        const outroT = t - 58.0;
-        facilityIdx = Math.floor(outroT / 8.5) % S8_FACILITIES.length;
+        // 56.0s - end voice: Deep Tubewell & Water Treatment Plant
+        facilityIdx = 4;
       }
 
       if (facilityIdx !== s8CurrentIndex) {
@@ -7549,14 +7544,20 @@
     function onSlide8Enter() {
       s8StopTimer();
       const intro = document.getElementById('s8HeroIntro');
+      if (intro) intro.classList.add('hidden');
+      s8GoToFacility(0);
+
       if (!soundEnabled || !currentVoiceAudio || currentVoiceAudio.paused) {
-        if (intro) intro.classList.add('hidden');
-        s8GoToFacility(0);
-        s8StartTimer();
-      } else {
-        // With audio, keep intro curtain visible until 5.5s
-        if (intro) intro.classList.remove('hidden');
-        s8GoToFacility(0);
+        let sec = 0;
+        s8AutoTimer = setInterval(() => {
+          if (currentSlide !== 8) { clearInterval(s8AutoTimer); return; }
+          sec += 1;
+          if (sec < 23) s8GoToFacility(0);
+          else if (sec < 34) s8GoToFacility(1);
+          else if (sec < 44) s8GoToFacility(2);
+          else if (sec < 56) s8GoToFacility(3);
+          else s8GoToFacility(4);
+        }, 1000);
       }
     }
 
