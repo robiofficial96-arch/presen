@@ -4170,6 +4170,12 @@
       text-shadow: 0 0 14px rgba(251, 191, 36, 0.7);
     }
 
+    .s11-multiplier-strip.active,
+    .s11-multiplier-strip.spotlight-speaking {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
     .s11-multiplier-strip.spotlight-speaking {
       transform: scale(1.03) !important;
       border-color: #ffffff !important;
@@ -7963,24 +7969,20 @@
 
     function s11SetStepByTime(t) {
       // Step-by-step reveal: each section appears ONLY when spoken by audio!
-      let targetStep = 0;
-      if (t < 7.5) {
-        targetStep = 0; // 0 - 7.5s: Intro, all cards hidden
-      } else if (t < 18.0) {
-        // 7.5 - 18.0s: Step 1 (1635 sqft Flat 1.63 Cr) reveals & expands big!
+      // Exact user timing:
+      // 0 - 31s: Step 1 (1635 sqft Flat 1.63 Cr)
+      // 31 - 40s: Step 2 (Commercial Shop & Space 50-80L)
+      // 40 - 49s: Step 3 (Lifestyle Amenities 37L)
+      // 49s - end voice: Step 4 (Total Wealth 2.5 - 3.5 Cr & 5X Multiplier Strip)
+      let targetStep = 1;
+      if (t < 31.0) {
         targetStep = 1;
-      } else if (t < 25.5) {
-        // 18.0 - 25.5s: Step 2 (Commercial Shop 50-80L) reveals & expands big!
+      } else if (t < 40.0) {
         targetStep = 2;
-      } else if (t < 33.0) {
-        // 25.5 - 33.0s: Step 3 (Lifestyle Amenities 37L) reveals & expands big!
+      } else if (t < 49.0) {
         targetStep = 3;
-      } else if (t < 43.0) {
-        // 33.0 - 43.0s: Step 4 (Total Wealth 2.5 - 3.5 Cr) reveals & expands big!
-        targetStep = 4;
       } else {
-        // 43.0s+: 5X Multiplier Golden Strip reveals & pulses!
-        targetStep = 5;
+        targetStep = 4;
       }
 
       if (targetStep === s11CurrentStepIndex) return; // STRICT GUARD: Trigger only on step change
@@ -7997,27 +7999,29 @@
       stepCards.forEach(el => { if (el) el.classList.remove('spotlight-speaking'); });
       if (mult) mult.classList.remove('spotlight-speaking');
 
-      if (targetStep === 0) {
-        // Intro: All steps remain hidden until audio speaks
-        stepCards.forEach(el => { if (el) el.classList.remove('active'); });
-        if (mult) mult.classList.remove('spotlight-speaking');
-      } else if (targetStep >= 1 && targetStep <= 4) {
-        for (let i = 0; i < 4; i++) {
-          if (!stepCards[i]) continue;
-          if (i < targetStep - 1) {
-            // Already spoken steps remain visible in clean active state
-            stepCards[i].classList.add('active');
-          } else if (i === targetStep - 1) {
-            // CURRENT spoken step reveals and grows big!
-            stepCards[i].classList.add('active', 'spotlight-speaking');
-          } else {
-            // Future steps remain hidden
-            stepCards[i].classList.remove('active');
-          }
+      for (let i = 0; i < 4; i++) {
+        if (!stepCards[i]) continue;
+        if (i < targetStep - 1) {
+          // Already spoken steps remain visible in clean active state
+          stepCards[i].classList.add('active');
+        } else if (i === targetStep - 1) {
+          // CURRENT spoken step reveals and grows big!
+          stepCards[i].classList.add('active', 'spotlight-speaking');
+        } else {
+          // Future steps remain hidden
+          stepCards[i].classList.remove('active');
         }
-      } else if (targetStep === 5) {
-        stepCards.forEach(el => { if (el) el.classList.add('active'); });
-        if (mult) mult.classList.add('spotlight-speaking');
+      }
+
+      // Step 4 (49s - end voice): Reveal Total Wealth and 5X Multiplier Strip
+      if (targetStep === 4) {
+        if (mult) {
+          mult.classList.add('active', 'spotlight-speaking');
+        }
+      } else {
+        if (mult) {
+          mult.classList.remove('active', 'spotlight-speaking');
+        }
       }
     }
 
